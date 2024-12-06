@@ -2237,7 +2237,10 @@
  "Russian Federation": {
   "code": "ru",
   "currency": "RUB",
+  "currency_fraction": "\u043a",
+  "currency_fraction_units": 100,
   "currency_name": "Russian Ruble",
+  "currency_symbol": "₽",
   "number_format": "#.###,##",
   "isd": "+7"
  },
