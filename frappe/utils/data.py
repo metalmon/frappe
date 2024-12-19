@@ -146,7 +146,7 @@ def get_datetime(
 	if datetime_str is None:
 		return now_datetime()
 
-	if isinstance(datetime_str, datetime.datetime | datetime.timedelta):
+	elif isinstance(datetime_str, datetime.datetime | datetime.timedelta):
 		return datetime_str
 
 	elif isinstance(datetime_str, list | tuple):
@@ -155,11 +155,19 @@ def get_datetime(
 	elif isinstance(datetime_str, datetime.date):
 		return datetime.datetime.combine(datetime_str, datetime.time())
 
-	if is_invalid_date_string(datetime_str):
+	elif is_invalid_date_string(datetime_str):
 		return None
 
 	try:
-		return datetime.datetime.strptime(datetime_str, DATETIME_FORMAT)
+		# PERF: Our DATETIME_FORMAT is same as ISO format.
+		# fromisoformat is written in C so it's better than using strptime parser
+		dt_object = datetime.datetime.fromisoformat(datetime_str)
+
+		# fromisoformat also adds tzinfo if present in src string,
+		# so we strip it before returning
+		if dt_object.tzinfo:
+			return dt_object.replace(tzinfo=None)
+		return dt_object
 	except ValueError:
 		return parser.parse(datetime_str)
 
@@ -1197,10 +1205,10 @@ def rounded(num, precision=0, rounding_method=None):
 		rounding_method or frappe.get_system_settings("rounding_method") or "Banker's Rounding (legacy)"
 	)
 
-	if rounding_method == "Banker's Rounding (legacy)":
-		return _bankers_rounding_legacy(num, precision)
-	elif rounding_method == "Banker's Rounding":
+	if rounding_method == "Banker's Rounding":
 		return _bankers_rounding(num, precision)
+	elif rounding_method == "Banker's Rounding (legacy)":
+		return _bankers_rounding_legacy(num, precision)
 	elif rounding_method == "Commercial Rounding":
 		return _round_away_from_zero(num, precision)
 	else:
@@ -1671,8 +1679,8 @@ def pretty_date(iso_datetime: datetime.datetime | str) -> str:
 	from babel.dates import format_timedelta
 
 	if isinstance(iso_datetime, str):
-		iso_datetime = datetime.datetime.strptime(iso_datetime, DATETIME_FORMAT)
-	now_dt = datetime.datetime.strptime(now(), DATETIME_FORMAT)
+		iso_datetime = get_datetime(iso_datetime)
+	now_dt = now_datetime()
 	locale = frappe.local.lang.replace("-", "_") if frappe.local.lang else None
 	return format_timedelta(iso_datetime - now_dt, add_direction=True, locale=locale)
 

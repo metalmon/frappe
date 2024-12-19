@@ -12,15 +12,11 @@ Read the documentation: https://frappeframework.com/docs
 """
 
 import copy
-import faulthandler
 import functools
-import gc
 import importlib
 import inspect
 import json
 import os
-import re
-import signal
 import sys
 import traceback
 import warnings
@@ -89,7 +85,6 @@ STANDARD_USERS = ("Guest", "Administrator")
 
 _one_time_setup: dict[str, bool] = {}
 _dev_server = int(sbool(os.environ.get("DEV_SERVER", False)))
-_tune_gc = bool(sbool(os.environ.get("FRAPPE_TUNE_GC", True)))
 
 if _dev_server:
 	warnings.simplefilter("always", DeprecationWarning)
@@ -285,7 +280,6 @@ def init(site: str, sites_path: str = ".", new_site: bool = False, force: bool =
 	if not _one_time_setup.get(local.conf.db_type):
 		patch_query_execute()
 		patch_query_aggregation()
-		_register_fault_handler()
 		_one_time_setup[local.conf.db_type] = True
 
 	setup_module_map(include_all_apps=not (frappe.request or frappe.job or frappe.flags.in_migrate))
@@ -2436,14 +2430,14 @@ def get_website_settings(key):
 
 def get_system_settings(key: str):
 	"""Return the value associated with the given `key` from System Settings DocType."""
-	if not hasattr(local, "system_settings"):
+	if not (system_settings := getattr(local, "system_settings", None)):
 		try:
-			local.system_settings = get_cached_doc("System Settings")
+			local.system_settings = system_settings = get_cached_doc("System Settings")
 		except DoesNotExistError:  # possible during new install
 			clear_last_message()
 			return
 
-	return local.system_settings.get(key)
+	return system_settings.get(key)
 
 
 def get_active_domains():
@@ -2577,24 +2571,7 @@ def validate_and_sanitize_search_inputs(fn):
 	return wrapper
 
 
-def _register_fault_handler():
-	import io
+import frappe.optimizations
+from frappe.utils.error import log_error  # Backward compatibility
 
-	# Some libraries monkey patch stderr, we need actual fd
-	if isinstance(sys.__stderr__, io.TextIOWrapper):
-		faulthandler.register(signal.SIGUSR1, file=sys.__stderr__)
-
-
-from frappe.utils.error import log_error
-
-if _tune_gc:
-	# generational GC gets triggered after certain allocs (g0) which is 700 by default.
-	# This number is quite small for frappe where a single query can potentially create 700+
-	# objects easily.
-	# Bump this number higher, this will make GC less aggressive but that improves performance of
-	# everything else.
-	g0, g1, g2 = gc.get_threshold()  # defaults are 700, 10, 10.
-	gc.set_threshold(g0 * 10, g1 * 2, g2 * 2)
-
-# Remove references to pattern that are pre-compiled and loaded to global scopes.
-re.purge()
+frappe.optimizations.optimize_all()
