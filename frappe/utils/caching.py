@@ -4,14 +4,16 @@
 import time
 from collections import defaultdict
 from collections.abc import Callable
+from contextlib import suppress
 from functools import wraps
+from types import NoneType
 
 import frappe
 
-_SITE_CACHE = defaultdict(lambda: defaultdict(dict))
+_SITE_CACHE = defaultdict(dict)
 
 
-def __generate_request_cache_key(args: tuple, kwargs: dict):
+def __generate_request_cache_key(args: tuple, kwargs: dict) -> int:
 	"""Generate a key for the cache."""
 	if not kwargs:
 		return hash(args)
@@ -117,23 +119,38 @@ def site_cache(ttl: int | None = None, maxsize: int | None = None) -> Callable:
 
 		@wraps(func)
 		def site_cache_wrapper(*args, **kwargs):
-			if site := getattr(frappe.local, "site", None):
-				func_call_key = __generate_request_cache_key(args, kwargs)
+			site = getattr(frappe.local, "site", None)
+			if not site:
+				return func(*args, **kwargs)
 
-				if hasattr(func, "ttl") and time.monotonic() >= func.expiration:
-					func.clear_cache()
-					func.expiration = time.monotonic() + func.ttl
+			arguments_key = f"{site}::{__generate_request_cache_key(args, kwargs)}"
 
-				if hasattr(func, "maxsize") and len(_SITE_CACHE[func_key][site]) >= func.maxsize:
-					# Note: This implements FIFO eviction policy
-					_SITE_CACHE[func_key][site].pop(next(iter(_SITE_CACHE[func_key][site])), None)
+			if hasattr(func, "ttl") and time.monotonic() >= func.expiration:
+				func.clear_cache()
+				func.expiration = time.monotonic() + func.ttl
 
-				if func_call_key not in _SITE_CACHE[func_key][site]:
-					_SITE_CACHE[func_key][site][func_call_key] = func(*args, **kwargs)
+			# NOTE: Important things to consider from thread safety POV:
+			#   1. Other thread can issue clear_cache and delete entire dictionary.
+			#   2. Other thread can pop the exact elemement we are reading if maxsize is hit.
 
-				return _SITE_CACHE[func_key][site][func_call_key]
+			# NOTE: Keep a local reference to dictionary of interest so it doesn't get swapped
+			function_cache = _SITE_CACHE[func_key]
 
-			return func(*args, **kwargs)
+			try:
+				return function_cache[arguments_key]
+			except (KeyError, RuntimeError):
+				# NOTE: This is just a cache miss or dictionary was modified while reading it
+				pass
+
+			if hasattr(func, "maxsize") and len(function_cache) >= func.maxsize:
+				# Note: This implements FIFO eviction policy
+				with suppress(RuntimeError):
+					function_cache.pop(next(iter(function_cache)), None)
+
+			result = func(*args, **kwargs)
+			function_cache[arguments_key] = result
+
+			return result
 
 		return site_cache_wrapper
 
@@ -183,3 +200,49 @@ def redis_cache(ttl: int | None = 3600, user: str | bool | None = None, shared: 
 	if callable(ttl):
 		return wrapper(ttl)
 	return wrapper
+
+
+def http_cache(
+	*,
+	public: bool = False,
+	max_age: int | None = None,
+	stale_while_revalidate: int | None = None,
+) -> Callable:
+	"""Decorator to send cache-control response from whitelisted endpoints.
+
+	Reference: https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Cache-Control
+
+	args:
+		public: Results can be cached by proxy if set to True, otherwise only client (browser) can
+				cache results.
+		max_age: Cache Time-To-Live
+		stale_while_revalidate: Duration for which stale response can be served while revalidation
+								occurs.
+	"""
+	assert isinstance(stale_while_revalidate, int | NoneType)
+	assert isinstance(max_age, int | NoneType)
+
+	cache_headers = []
+	if public:
+		cache_headers.append("public")
+	else:
+		cache_headers.append("private")
+	if max_age is not None:
+		cache_headers.append(f"max-age={max_age}")
+	if stale_while_revalidate is not None:
+		cache_headers.append(f"stale-while-revalidate={stale_while_revalidate}")
+	cache_headers = ",".join(cache_headers)
+
+	def outer(func: Callable) -> Callable:
+		qualified_name = f"{func.__module__}.{func.__name__}"
+
+		@wraps(func)
+		def inner(*args, **kwargs):
+			ret = func(*args, **kwargs)
+			if frappe.request and frappe.request.method == "GET" and qualified_name in frappe.request.path:
+				frappe.local.response_headers.set("Cache-Control", cache_headers)
+			return ret
+
+		return inner
+
+	return outer
