@@ -47,7 +47,7 @@ INDEX_PATTERN = re.compile(r"\s*\([^)]+\)\s*")
 SINGLE_WORD_PATTERN = re.compile(r'([`"]?)(tab([A-Z]\w+))\1')
 MULTI_WORD_PATTERN = re.compile(r'([`"])(tab([A-Z]\w+)( [A-Z]\w+)+)\1')
 
-SQL_ITERATOR_BATCH_SIZE = 100
+SQL_ITERATOR_BATCH_SIZE = 1000
 
 
 TRANSACTION_DISABLED_MSG = """Commit/rollback are disabled during certain events. This command will
@@ -464,7 +464,7 @@ class Database:
 	@staticmethod
 	def clear_db_table_cache(query):
 		if query and is_query_type(query, ("drop", "create")):
-			frappe.cache.delete_key("db_tables")
+			frappe.client_cache.delete_value("db_tables")
 
 	def get_description(self):
 		"""Return result metadata."""
@@ -1249,6 +1249,10 @@ class Database:
 		if not filters and cache:
 			frappe.cache.set_value(f"doctype:count:{dt}", count, expires_in_sec=86400)
 		return count
+
+	def estimate_count(self, doctype: str) -> int:
+		"""Get estimated count of total rows in a table."""
+		raise NotImplementedError
 
 	@staticmethod
 	def format_date(date):
