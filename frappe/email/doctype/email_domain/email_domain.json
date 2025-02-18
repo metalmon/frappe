@@ -14,6 +14,7 @@
   "use_ssl",
   "validate_ssl_certificate",
   "use_starttls",
+  "keep_pop3_messages",
   "column_break_9",
   "incoming_port",
   "attachment_limit",
@@ -150,6 +151,14 @@
    "fieldname": "sent_folder_name",
    "fieldtype": "Data",
    "label": "Sent Folder Name"
+  },
+  {
+   "default": "0",
+   "depends_on": "eval:!doc.use_imap",
+   "fieldname": "keep_pop3_messages",
+   "fieldtype": "Check",
+   "label": "Keep POP3 Messages on Server",
+   "description": "If checked, emails will not be deleted from the server after fetching"
   }
  ],
  "icon": "icon-inbox",

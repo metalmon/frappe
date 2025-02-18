@@ -92,6 +92,7 @@ class EmailAccount(Document):
 		imap_folder: DF.Table[IMAPFolder]
 		incoming_port: DF.Data | None
 		initial_sync_count: DF.Literal["100", "250", "500"]
+		keep_pop3_messages: DF.Check
 		last_synced_at: DF.Datetime | None
 		login_id: DF.Data | None
 		login_id_is_different: DF.Check
@@ -292,6 +293,7 @@ class EmailAccount(Document):
 				"initial_sync_count": self.initial_sync_count or 100,
 				"use_oauth": self.auth_method == "OAuth",
 				"access_token": oauth_token.get_password("access_token") if oauth_token else None,
+				"keep_pop3_messages": self.get("keep_pop3_messages", 0),
 			}
 		)
 

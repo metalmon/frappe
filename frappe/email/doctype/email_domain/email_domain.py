@@ -24,6 +24,7 @@ EMAIL_DOMAIN_FIELDS = [
 	"use_ssl_for_outgoing",
 	"append_emails_to_sent_folder",
 	"incoming_port",
+	"keep_pop3_messages",
 ]
 
 
@@ -66,6 +67,7 @@ class EmailDomain(Document):
 		domain_name: DF.Data
 		email_server: DF.Data
 		incoming_port: DF.Data | None
+		keep_pop3_messages: DF.Check
 		sent_folder_name: DF.Data | None
 		smtp_port: DF.Data | None
 		smtp_server: DF.Data

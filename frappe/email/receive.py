@@ -302,7 +302,8 @@ class EmailServer:
 	def _post_retrieve_cleanup(self, uid, msg_num):
 		with suppress(Exception):
 			if not cint(self.settings.use_imap):
-				self.pop.dele(msg_num)
+				if not cint(self.settings.get("keep_pop3_messages", 0)):
+					self.pop.dele(msg_num)
 			elif self.settings.email_sync_rule == "UNSEEN":
 				self.imap.uid("STORE", uid, "+FLAGS", "(\\SEEN)")
 
