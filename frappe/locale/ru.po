@@ -25042,6 +25042,12 @@ msgstr "Шаги по проверке Вашего логина"
 msgid "Sticky"
 msgstr "Закреплено"
 
+#. Label of the sticky (Check) field in DocType 'DocField'
+#: frappe/core/doctype/docfield/docfield.json
+#: frappe/public/js/frappe/form/grid_row.js:434
+msgid "Sticky"
+msgstr ""
+
 #: frappe/core/doctype/recorder/recorder_list.js:87
 msgid "Stop"
 msgstr "Стоп"
@@ -28806,6 +28812,10 @@ msgstr "Подтвердите пароль"
 msgid "Verifying verification code..."
 msgstr "Проверка кода..."
 
+#: frappe/public/js/billing.bundle.js:115
+msgid "Verifying verification code..."
+msgstr ""
+
 #: frappe/templates/includes/login/login.js:171
 msgid "Verifying..."
 msgstr "Верификация..."
@@ -28853,6 +28863,10 @@ msgstr "Просмотр разрешений на использование д
 #: frappe/core/doctype/file/file.js:3
 msgid "View File"
 msgstr "Посмотреть файл"
+
+#: frappe/core/doctype/file/file.js:3
+msgid "View File"
+msgstr ""
 
 #: frappe/public/js/frappe/ui/notifications/notifications.js:220
 msgid "View Full Log"

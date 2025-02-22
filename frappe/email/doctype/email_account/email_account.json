@@ -74,6 +74,7 @@
   "smtp_port",
   "column_break_38",
   "no_smtp_authentication",
+  "always_bcc",
   "signature_section",
   "add_signature",
   "signature",
@@ -709,12 +710,19 @@
    "fieldtype": "Check",
    "label": "Keep POP3 Messages on Server",
    "description": "If checked, emails will not be deleted from the server after fetching"
+  },
+  {
+   "description": "Use this, for example, if all sent emails should also be send to an archive.",
+   "fieldname": "always_bcc",
+   "fieldtype": "Data",
+   "label": "Always BCC Address",
+   "options": "Email"
   }
  ],
  "icon": "fa fa-inbox",
  "index_web_pages_for_search": 1,
  "links": [],
- "modified": "2024-12-04 23:30:37.622353",
+ "modified": "2024-12-30 11:25:58.427173",
  "modified_by": "Administrator",
  "module": "Email",
  "name": "Email Account",
