@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
 "POT-Creation-Date: 2025-02-22 09:57+0000\n"
-"PO-Revision-Date: 2025-02-22 13:01+0300\n"
+"PO-Revision-Date: 2025-02-23 05:27+0300\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -2058,7 +2058,7 @@ msgstr "Альтернативная электронная почта"
 #. Label of the always_bcc (Data) field in DocType 'Email Account'
 #: frappe/email/doctype/email_account/email_account.json
 msgid "Always BCC Address"
-msgstr ""
+msgstr "Всегда адрес BCC"
 
 #. Label of the add_draft_heading (Check) field in DocType 'Print Settings'
 #: frappe/printing/doctype/print_settings/print_settings.json
@@ -3025,7 +3025,7 @@ msgstr "Автоматически отслеживайте документы, 
 
 #: frappe/automation/doctype/auto_repeat/auto_repeat.py:227
 msgid "Auto repeat failed. Please enable auto repeat after fixing the issues."
-msgstr ""
+msgstr "Автоматическое повторение не удалось. Пожалуйста, включите автоповтор после устранения неполадок."
 
 #. Option for the 'Type' (Select) field in DocType 'DocField'
 #. Option for the 'Field Type' (Select) field in DocType 'Custom Field'
@@ -5314,7 +5314,7 @@ msgstr "Написать письмо"
 #. Option for the 'Row Format' (Select) field in DocType 'DocType'
 #: frappe/core/doctype/doctype/doctype.json
 msgid "Compressed"
-msgstr ""
+msgstr "Сжатый"
 
 #. Label of the condition (Select) field in DocType 'Document Naming Rule
 #. Condition'
@@ -8358,7 +8358,7 @@ msgstr "Продолжительность"
 #. Option for the 'Row Format' (Select) field in DocType 'DocType'
 #: frappe/core/doctype/doctype/doctype.json
 msgid "Dynamic"
-msgstr ""
+msgstr "Динамический"
 
 #. Label of the dynamic_filters_section (Section Break) field in DocType
 #. 'Dashboard Chart'
@@ -8712,7 +8712,7 @@ msgstr "Учетная запись электронной почты не на�
 #: frappe/www/complete_signup.html:11 frappe/www/login.html:165
 #: frappe/www/login.html:197
 msgid "Email Address"
-msgstr "Адрес электронной почты"
+msgstr "Почта"
 
 #. Description of the 'Email Address' (Data) field in DocType 'Google Contacts'
 #: frappe/integrations/doctype/google_contacts/google_contacts.json
@@ -8721,7 +8721,7 @@ msgstr "Адрес электронной почты, чьи контакты Go
 
 #: frappe/email/doctype/email_group/email_group.js:43
 msgid "Email Addresses"
-msgstr "Адрес электронной почты"
+msgstr "Электронные почты"
 
 #. Label of a Link in the Tools Workspace
 #. Name of a DocType
@@ -11646,7 +11646,7 @@ msgstr "Состояние пустоты сетки"
 #: frappe/core/doctype/doctype/doctype.json
 #: frappe/custom/doctype/customize_form/customize_form.json
 msgid "Grid Page Length"
-msgstr ""
+msgstr "Длина страницы сетки"
 
 #: frappe/public/js/frappe/ui/keyboard.js:126
 msgid "Grid Shortcuts"
@@ -22225,7 +22225,7 @@ msgstr "Строка #{}: Имя поля обязательно"
 #. Label of the row_format (Select) field in DocType 'DocType'
 #: frappe/core/doctype/doctype/doctype.json
 msgid "Row Format"
-msgstr ""
+msgstr "Формат строки"
 
 #. Label of the row_index (Data) field in DocType 'Transaction Log'
 #: frappe/core/doctype/transaction_log/transaction_log.json
@@ -26131,7 +26131,7 @@ msgstr "Введенный Вами URL-адрес файла неверен"
 
 #: frappe/automation/doctype/auto_repeat/auto_repeat.py:108
 msgid "The Next Scheduled Date cannot be later than the End Date."
-msgstr ""
+msgstr "Следующая запланированная дата не может быть позже даты окончания."
 
 #: frappe/integrations/doctype/push_notification_settings/push_notification_settings.py:29
 msgid "The Push Relay Server URL key (`push_relay_server_url`) is missing in your site config"
@@ -28226,7 +28226,7 @@ msgstr "Используйте это поле для создания назв�
 #. Account'
 #: frappe/email/doctype/email_account/email_account.json
 msgid "Use this, for example, if all sent emails should also be send to an archive."
-msgstr ""
+msgstr "Используйте это, например, если все отправленные письма должны быть также отправлены в архив."
 
 #. Label of the used_oauth (Check) field in DocType 'User Email'
 #: frappe/core/doctype/user_email/user_email.json
