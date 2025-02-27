@@ -66,21 +66,6 @@ def is_email_notifications_enabled_for_type(user, notification_type):
 	return enabled
 
 
-def is_notifications_enabled_for_type(user, notification_type):
-	"""Checks if notifications of a specific type are enabled for the user"""
-	if not is_notifications_enabled(user):
-		return False
-
-	# For system notifications, we only check the general setting
-	if notification_type == "threads_on_assigned_document":
-		enabled = frappe.db.get_value("Notification Settings", user, "enable_email_threads_on_assigned_document", ignore=True)
-		if enabled is None:
-			return True
-		return enabled
-
-	return True
-
-
 def create_notification_settings(user):
 	if not frappe.db.exists("Notification Settings", user):
 		_doc = frappe.new_doc("Notification Settings")

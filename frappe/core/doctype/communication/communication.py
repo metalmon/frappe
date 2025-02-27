@@ -196,48 +196,6 @@ class Communication(Document, CommunicationEmailMixin):
 
 		self.notify_change("add")
 
-		# Create notifications for assigned users when receiving incoming emails
-		if (self.communication_type == "Communication" 
-			and self.communication_medium == "Email" 
-			and self.sent_or_received == "Received"
-			and not self.unread_notification_sent
-			and self.reference_doctype 
-			and self.reference_name):
-			
-			from frappe.desk.doctype.notification_log.notification_log import enqueue_create_notification
-			from frappe.desk.doctype.notification_settings.notification_settings import is_notifications_enabled_for_type
-			
-			# Get users assigned to the document
-			assignees = self.get_assignees()
-			if not assignees:
-				return
-				
-			# Filter users who have the "Email Threads on Assigned Document" option enabled
-			valid_assignees = []
-			for assignee in assignees:
-				if is_notifications_enabled_for_type(assignee, "threads_on_assigned_document"):
-					valid_assignees.append(assignee)
-			
-			if not valid_assignees:
-				return
-				
-			# Create notification for each assigned user
-			notification_doc = {
-				"type": "Alert",
-				"document_type": self.reference_doctype,
-				"document_name": self.reference_name,
-				"subject": _("New email: {0}").format(self.subject),
-				"email_content": self.content,
-				"attached_file": """{{ "sender": "{}", "sender_full_name": "{}" }}""".format(
-					self.sender or "", self.sender_full_name or ""
-				)
-			}
-			
-			enqueue_create_notification(valid_assignees, notification_doc)
-			
-			# Set flag indicating that notification has been sent
-			self.db_set("unread_notification_sent", 1, update_modified=False)
-
 	def set_signature_in_email_content(self):
 		"""Set sender's User.email_signature or default outgoing's EmailAccount.signature to the email"""
 		if not self.content:
