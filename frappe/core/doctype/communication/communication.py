@@ -227,8 +227,10 @@ class Communication(Document, CommunicationEmailMixin):
 				"document_type": self.reference_doctype,
 				"document_name": self.reference_name,
 				"subject": _("New email: {0}").format(self.subject),
-				"from_user": self.sender or "system@example.com",
 				"email_content": self.content,
+				"attached_file": """{{ "sender": "{}", "sender_full_name": "{}" }}""".format(
+					self.sender or "", self.sender_full_name or ""
+				)
 			}
 			
 			enqueue_create_notification(valid_assignees, notification_doc)
