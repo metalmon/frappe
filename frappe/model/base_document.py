@@ -4,6 +4,7 @@ import datetime
 import json
 import weakref
 from functools import cached_property
+from types import MappingProxyType
 from typing import TYPE_CHECKING, TypeVar
 
 import frappe
@@ -52,10 +53,10 @@ DOCTYPE_TABLE_FIELDS = [
 	_dict(fieldname="states", options="DocType State"),
 ]
 
-TABLE_DOCTYPES_FOR_DOCTYPE = {df["fieldname"]: df["options"] for df in DOCTYPE_TABLE_FIELDS}
+TABLE_DOCTYPES_FOR_DOCTYPE = MappingProxyType({df["fieldname"]: df["options"] for df in DOCTYPE_TABLE_FIELDS})
 
 # child tables cannot have child tables
-TABLE_DOCTYPES_FOR_DOCTYPE_TABLES = {}
+TABLE_DOCTYPES_FOR_CHILD_TABLES = MappingProxyType({})
 
 DOCTYPES_FOR_DOCTYPE = {"DocType", *TABLE_DOCTYPES_FOR_DOCTYPE.values()}
 
@@ -65,7 +66,6 @@ UNPICKLABLE_KEYS = (
 	"_parent_doc",
 	"_weakref",
 	"_table_fieldnames",
-	"_valid_columns",
 )
 
 
@@ -129,24 +129,23 @@ def import_controller(doctype):
 	return class_
 
 
-class BaseDocument:
-	_reserved_keywords = frozenset(
-		(
-			"doctype",
-			"meta",
-			"flags",
-			"_weakref",
-			"_parent_doc",
-			"_table_fields",
-			"_valid_columns",
-			"_doc_before_save",
-			"_table_fieldnames",
-			"_reserved_keywords",
-			"permitted_fieldnames",
-			"dont_update_if_missing",
-		)
+RESERVED_KEYWORDS = frozenset(
+	(
+		"doctype",
+		"meta",
+		"flags",
+		"_weakref",
+		"_parent_doc",
+		"_table_fields",
+		"_doc_before_save",
+		"_table_fieldnames",
+		"permitted_fieldnames",
+		"dont_update_if_missing",
 	)
+)
 
+
+class BaseDocument:
 	def __init__(self, d):
 		if d.get("doctype"):
 			self.doctype = d["doctype"]
@@ -200,15 +199,24 @@ class BaseDocument:
 		                "user": "admin",
 		                "balance": 42000
 		        })
+
+		Developer Note: Logic in the set method is re-implemented here for perf
 		"""
 
-		# set name first, as it is used a reference in child document
-		if "name" in d:
-			self.name = d["name"]
+		self.__dict__.update(key_val for key_val in d.items() if key_val[0] not in RESERVED_KEYWORDS)
+		if not self._table_fieldnames or self.flags.get("ignore_children", False):
+			return self
 
-		as_value = not self._table_fieldnames or self.flags.get("ignore_children", False)
-		for key, value in d.items():
-			self.set(key, value, as_value=as_value)
+		__dict = self.__dict__
+		for key in self._table_fieldnames:
+			if key not in __dict:
+				continue
+
+			value = __dict[key]
+			__dict[key] = []
+
+			if value:
+				self.extend(key, value)
 
 		return self
 
@@ -252,7 +260,7 @@ class BaseDocument:
 		return self.get(key, filters=filters, limit=1)[0]
 
 	def set(self, key, value, as_value=False):
-		if key in self._reserved_keywords:
+		if key in RESERVED_KEYWORDS:
 			return
 
 		if not as_value and key in self._table_fieldnames:
@@ -333,8 +341,9 @@ class BaseDocument:
 			self.append(key, v)
 
 	def remove(self, doc):
-		# Usage: from the parent doc, pass the child table doc
-		# to remove that child doc from the child table, thus removing it from the parent doc
+		"""Usage: from the parent doc, pass the child table doc to remove that child doc from the
+		child table, thus removing it from the parent doc
+		"""
 		if doc.get("parentfield"):
 			self.get(doc.parentfield).remove(doc)
 
@@ -343,14 +352,20 @@ class BaseDocument:
 				_d.idx = i + 1
 
 	def _init_child(self, value, key):
-		if not isinstance(value, BaseDocument):
-			if not (doctype := self.get_table_field_doctype(key)):
+		if isinstance(value, BaseDocument):
+			child = value
+		else:
+			doctype = self._table_fieldnames.get(key)
+			if not doctype:
 				raise AttributeError(key)
 
 			value["doctype"] = doctype
-			value = get_controller(doctype)(value)
+			controller = get_controller(doctype)
+			child = controller.__new__(controller)
+			child._table_fieldnames = TABLE_DOCTYPES_FOR_CHILD_TABLES
+			child.__init__(value)
 
-		__dict = value.__dict__
+		__dict = child.__dict__
 		__dict["parent"] = self.name
 		__dict["parenttype"] = self.doctype
 		__dict["parentfield"] = key
@@ -362,7 +377,7 @@ class BaseDocument:
 			__dict["__islocal"] = 1
 			__dict["__temporary_name"] = frappe.generate_hash(length=10)
 
-		return value
+		return child
 
 	@cached_property
 	def _table_fieldnames(self) -> dict:
@@ -370,7 +385,7 @@ class BaseDocument:
 			return TABLE_DOCTYPES_FOR_DOCTYPE
 
 		if self.doctype in DOCTYPES_FOR_DOCTYPE:
-			return TABLE_DOCTYPES_FOR_DOCTYPE_TABLES
+			return TABLE_DOCTYPES_FOR_CHILD_TABLES
 
 		return self.meta._table_doctypes
 
@@ -489,15 +504,11 @@ class BaseDocument:
 		if __dict.get("idx") is None:
 			__dict["idx"] = 0
 
-		for key in self._valid_columns:
+		for key in self.get_valid_columns():
 			if key not in __dict:
 				__dict[key] = None
 
 	def get_valid_columns(self) -> list[str]:
-		return self._valid_columns
-
-	@cached_property
-	def _valid_columns(self) -> list[str]:
 		valid_columns_cache = frappe.local.valid_columns
 
 		if self.doctype not in valid_columns_cache:
