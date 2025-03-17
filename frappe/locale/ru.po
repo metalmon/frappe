@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-03-16 21:12+0000\n"
-"PO-Revision-Date: 2025-03-17 01:13+0400\n"
+"POT-Creation-Date: 2025-03-17 19:02+0000\n"
+"PO-Revision-Date: 2025-03-17 23:03+0400\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -6930,6 +6930,11 @@ msgstr "По умолчанию"
 #: frappe/email/doctype/email_account/email_account.py:243
 msgid "Defaults Updated"
 msgstr "Обновление настроек по умолчанию"
+
+#. Option for the 'Status' (Select) field in DocType 'Scheduled Job Log'
+#: frappe/core/doctype/scheduled_job_log/scheduled_job_log.json
+msgid "Deferred"
+msgstr "Отложена"
 
 #. Description of a DocType
 #: frappe/workflow/doctype/workflow_transition/workflow_transition.json
@@ -22723,7 +22728,7 @@ msgstr "Планировщик неактивен"
 msgid "Scheduler Status"
 msgstr "Статус планировщика"
 
-#: frappe/utils/scheduler.py:256
+#: frappe/utils/scheduler.py:337
 msgid "Scheduler can not be re-enabled when maintenance mode is active."
 msgstr "Планировщик не может быть снова включен, если активен режим обслуживания."
 

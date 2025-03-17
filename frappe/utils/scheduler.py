@@ -12,7 +12,7 @@ import datetime
 import os
 import random
 import time
-from typing import NoReturn
+from typing import NoReturn, Dict, List
 
 import setproctitle
 from croniter import CroniterBadCronError
@@ -20,11 +20,13 @@ from filelock import FileLock, Timeout
 
 import frappe
 from frappe.utils import cint, get_bench_path, get_datetime, get_sites, now_datetime
-from frappe.utils.background_jobs import set_niceness
+from frappe.utils.background_jobs import set_niceness, enqueue, get_jobs
 from frappe.utils.caching import redis_cache
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 DEFAULT_SCHEDULER_TICK = 4 * 60
+# Maximum number of concurrent jobs of the same type allowed
+MAX_CONCURRENT_JOBS = 3
 
 
 def cprint(*args, **kwargs):
@@ -136,19 +138,98 @@ def enqueue_events_for_site(site: str) -> None:
 		frappe.destroy()
 
 
+def get_running_job_counts() -> Dict[str, int]:
+	"""
+	Get counts of currently running jobs by method name
+	
+	Returns:
+		Dict[str, int]: Dictionary with method names as keys and counts as values
+	"""
+	running_jobs = {}
+	
+	try:
+		# Get all queued and started jobs
+		jobs = get_jobs()
+		
+		for queue_jobs in jobs.values():
+			for job in queue_jobs:
+				if job.kwargs.get("job_type"):
+					method = job.kwargs.get("job_type")
+					running_jobs[method] = running_jobs.get(method, 0) + 1
+	except Exception:
+		# In case of any errors, log but continue
+		frappe.logger("scheduler").error("Error counting running jobs", exc_info=True)
+	
+	return running_jobs
+
+
 def enqueue_events() -> list[str] | None:
 	if schedule_jobs_based_on_activity():
 		enqueued_jobs = []
 		all_jobs = frappe.get_all("Scheduled Job Type", filters={"stopped": 0}, fields="*")
 		random.shuffle(all_jobs)
+		
+		# Get counts of currently running jobs for each method
+		running_job_counts = get_running_job_counts()
+		
+		# Group for tracking deferred jobs
+		deferred_jobs = []
+		
 		for job_type in all_jobs:
-			job_type = frappe.get_doc(doctype="Scheduled Job Type", **job_type)
+			job_doc = frappe.get_doc(doctype="Scheduled Job Type", **job_type)
+			
 			try:
-				if job_type.enqueue():
-					enqueued_jobs.append(job_type.method)
+				# Check if we've hit the limit for this job type
+				current_count = running_job_counts.get(job_doc.method, 0)
+				
+				if current_count >= MAX_CONCURRENT_JOBS:
+					# Don't skip, but defer the job for later execution
+					deferred_jobs.append(job_doc)
+					continue
+					
+				if job_doc.enqueue():
+					running_job_counts[job_doc.method] = current_count + 1
+					enqueued_jobs.append(job_doc.method)
+					
 			except CroniterBadCronError:
 				frappe.logger("scheduler").error(
-					f"Invalid Job on {frappe.local.site} - {job_type.name}", exc_info=True
+					f"Invalid Job on {frappe.local.site} - {job_doc.name}", exc_info=True
+				)
+		
+		# Process deferred jobs with additional delay
+		for job_doc in deferred_jobs:
+			try:
+				# Create a job log to track deferred status
+				log = frappe.get_doc({
+					"doctype": "Scheduled Job Log",
+					"scheduled_job_type": job_doc.name,
+					"status": "Deferred"
+				})
+				log.insert(ignore_permissions=True)
+				
+				# Add a delay of 5-15 minutes
+				delay = random.randint(300, 900)
+				
+				# Use a different queue name for deferred jobs
+				enqueue(
+					"frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_job",
+					queue="default",  # Still use default queue but with delay
+					job_type=job_doc.method,
+					job_id=f"deferred::{job_doc.rq_job_id}",
+					scheduled_job_type=job_doc.name,
+					defer_time=delay
+				)
+				
+				frappe.logger("scheduler").info(
+					f"Deferred job {job_doc.method} for {frappe.local.site} by {delay} seconds"
+				)
+				
+				enqueued_jobs.append(f"{job_doc.method} (deferred)")
+				
+			except Exception:
+				frappe.logger("scheduler").error(
+					f"Failed to defer job {job_doc.method} for {frappe.local.site}",
+					exc_info=True
 				)
 
 		return enqueued_jobs

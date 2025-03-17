@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-03-16 21:12+0000\n"
-"PO-Revision-Date: 2025-03-16 21:12+0000\n"
+"POT-Creation-Date: 2025-03-17 19:02+0000\n"
+"PO-Revision-Date: 2025-03-17 19:02+0000\n"
 "Last-Translator: developers@frappe.io\n"
 "Language-Team: developers@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -6814,6 +6814,11 @@ msgstr ""
 
 #: frappe/email/doctype/email_account/email_account.py:243
 msgid "Defaults Updated"
+msgstr ""
+
+#. Option for the 'Status' (Select) field in DocType 'Scheduled Job Log'
+#: frappe/core/doctype/scheduled_job_log/scheduled_job_log.json
+msgid "Deferred"
 msgstr ""
 
 #. Description of a DocType
@@ -22609,7 +22614,7 @@ msgstr ""
 msgid "Scheduler Status"
 msgstr ""
 
-#: frappe/utils/scheduler.py:256
+#: frappe/utils/scheduler.py:337
 msgid "Scheduler can not be re-enabled when maintenance mode is active."
 msgstr ""
 
