@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-03-17 19:02+0000\n"
-"PO-Revision-Date: 2025-03-17 19:02+0000\n"
+"POT-Creation-Date: 2025-03-16 09:32+0000\n"
+"PO-Revision-Date: 2025-03-16 09:32+0000\n"
 "Last-Translator: developers@frappe.io\n"
 "Language-Team: developers@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -885,7 +885,7 @@ msgstr ""
 msgid "Action Complete"
 msgstr ""
 
-#: frappe/model/document.py:1864
+#: frappe/model/document.py:1865
 msgid "Action Failed"
 msgstr ""
 
@@ -4087,11 +4087,11 @@ msgstr ""
 msgid "Cannot cancel {0}."
 msgstr ""
 
-#: frappe/model/document.py:1011
+#: frappe/model/document.py:1012
 msgid "Cannot change docstatus from 0 (Draft) to 2 (Cancelled)"
 msgstr ""
 
-#: frappe/model/document.py:1025
+#: frappe/model/document.py:1026
 msgid "Cannot change docstatus from 1 (Submitted) to 0 (Draft)"
 msgstr ""
 
@@ -4174,7 +4174,7 @@ msgstr ""
 msgid "Cannot edit a standard report. Please duplicate and create a new report"
 msgstr ""
 
-#: frappe/model/document.py:1031
+#: frappe/model/document.py:1032
 msgid "Cannot edit cancelled document"
 msgstr ""
 
@@ -4207,7 +4207,7 @@ msgstr ""
 msgid "Cannot have multiple printers mapped to a single print format."
 msgstr ""
 
-#: frappe/model/document.py:1099
+#: frappe/model/document.py:1100
 msgid "Cannot link cancelled document: {0}"
 msgstr ""
 
@@ -5596,7 +5596,7 @@ msgstr ""
 msgid "Could not connect to outgoing email server"
 msgstr ""
 
-#: frappe/model/document.py:1095
+#: frappe/model/document.py:1096
 msgid "Could not find {0}"
 msgstr ""
 
@@ -7915,7 +7915,7 @@ msgid "Document Types and Permissions"
 msgstr ""
 
 #: frappe/core/doctype/submission_queue/submission_queue.py:163
-#: frappe/model/document.py:1928
+#: frappe/model/document.py:1929
 msgid "Document Unlocked"
 msgstr ""
 
@@ -12913,11 +12913,11 @@ msgstr ""
 msgid "Incorrect Verification code"
 msgstr ""
 
-#: frappe/model/document.py:1540
+#: frappe/model/document.py:1541
 msgid "Incorrect value in row {0}:"
 msgstr ""
 
-#: frappe/model/document.py:1542
+#: frappe/model/document.py:1543
 msgid "Incorrect value:"
 msgstr ""
 
@@ -13359,7 +13359,7 @@ msgstr ""
 msgid "Invalid column"
 msgstr ""
 
-#: frappe/model/document.py:1014 frappe/model/document.py:1028
+#: frappe/model/document.py:1015 frappe/model/document.py:1029
 msgid "Invalid docstatus"
 msgstr ""
 
@@ -16355,7 +16355,7 @@ msgstr ""
 msgid "Need Workspace Manager role to edit private workspace of other users"
 msgstr ""
 
-#: frappe/model/document.py:792
+#: frappe/model/document.py:793
 msgid "Negative Value"
 msgstr ""
 
@@ -17884,7 +17884,7 @@ msgstr ""
 msgid "Only change this if you want to use other S3 compatible object storage backends."
 msgstr ""
 
-#: frappe/model/document.py:1233
+#: frappe/model/document.py:1234
 msgid "Only draft documents can be discarded"
 msgstr ""
 
@@ -19233,7 +19233,7 @@ msgstr ""
 msgid "Please make sure the Reference Communication Docs are not circularly linked."
 msgstr ""
 
-#: frappe/model/document.py:986
+#: frappe/model/document.py:987
 msgid "Please refresh to get the latest document."
 msgstr ""
 
@@ -19375,7 +19375,7 @@ msgstr ""
 msgid "Please setup default outgoing Email Account from Settings > Email Account"
 msgstr ""
 
-#: frappe/email/doctype/email_account/email_account.py:435
+#: frappe/email/doctype/email_account/email_account.py:433
 msgid "Please setup default outgoing Email Account from Tools > Email Account"
 msgstr ""
 
@@ -22116,7 +22116,7 @@ msgstr ""
 msgid "Route: Example \"/app\""
 msgstr ""
 
-#: frappe/model/base_document.py:850 frappe/model/document.py:777
+#: frappe/model/base_document.py:850 frappe/model/document.py:778
 msgid "Row"
 msgstr ""
 
@@ -25778,7 +25778,7 @@ msgstr ""
 msgid "Table updated"
 msgstr ""
 
-#: frappe/model/document.py:1563
+#: frappe/model/document.py:1564
 msgid "Table {0} cannot be empty"
 msgstr ""
 
@@ -28625,15 +28625,15 @@ msgstr ""
 msgid "Value To Be Set"
 msgstr ""
 
-#: frappe/model/base_document.py:1047 frappe/model/document.py:833
+#: frappe/model/base_document.py:1047 frappe/model/document.py:834
 msgid "Value cannot be changed for {0}"
 msgstr ""
 
-#: frappe/model/document.py:779
+#: frappe/model/document.py:780
 msgid "Value cannot be negative for"
 msgstr ""
 
-#: frappe/model/document.py:783
+#: frappe/model/document.py:784
 msgid "Value cannot be negative for {0}: {1}"
 msgstr ""
 
@@ -30752,6 +30752,7 @@ msgid "on_update_after_submit"
 msgstr ""
 
 #: frappe/public/js/frappe/utils/utils.js:392 frappe/www/login.html:88
+#: frappe/www/login.py:112
 msgid "or"
 msgstr ""
 
@@ -31566,23 +31567,23 @@ msgstr ""
 msgid "{0} months ago"
 msgstr ""
 
-#: frappe/model/document.py:1784
+#: frappe/model/document.py:1785
 msgid "{0} must be after {1}"
 msgstr ""
 
-#: frappe/model/document.py:1549
+#: frappe/model/document.py:1550
 msgid "{0} must be beginning with '{1}'"
 msgstr ""
 
-#: frappe/model/document.py:1551
+#: frappe/model/document.py:1552
 msgid "{0} must be equal to '{1}'"
 msgstr ""
 
-#: frappe/model/document.py:1547
+#: frappe/model/document.py:1548
 msgid "{0} must be none of {1}"
 msgstr ""
 
-#: frappe/model/document.py:1545 frappe/utils/csvutils.py:161
+#: frappe/model/document.py:1546 frappe/utils/csvutils.py:161
 msgid "{0} must be one of {1}"
 msgstr ""
 
@@ -31594,7 +31595,7 @@ msgstr ""
 msgid "{0} must be unique"
 msgstr ""
 
-#: frappe/model/document.py:1553
+#: frappe/model/document.py:1554
 msgid "{0} must be {1} {2}"
 msgstr ""
 
@@ -31684,7 +31685,7 @@ msgstr ""
 msgid "{0} role does not have permission on any doctype"
 msgstr ""
 
-#: frappe/model/document.py:1777
+#: frappe/model/document.py:1778
 msgid "{0} row #{1}: "
 msgstr ""
 
