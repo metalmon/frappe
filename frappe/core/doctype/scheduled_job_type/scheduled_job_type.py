@@ -126,10 +126,35 @@ class ScheduledJobType(Document):
 		last_execution = get_datetime(self.last_execution or self.creation)
 		next_execution = croniter(self.cron_format, last_execution).get_next(datetime)
 
+		# Standard jitter for long tasks
 		jitter = 0
 		if "Long" in self.frequency:
 			jitter = randint(1, 600)
-		return next_execution + timedelta(seconds=jitter)
+			
+		# Add a site-specific time offset to distribute load
+		# This ensures the same site always gets the same offset
+		site_name = frappe.local.site
+		
+		# Define maximum time offset based on job frequency to ensure jobs run within their expected timeframe
+		max_offset = {
+			"Hourly": 30*60,      # 30 minutes for hourly jobs
+			"Daily": 12*60*60,    # 12 hours for daily jobs
+			"Weekly": 3*24*60*60, # 3 days for weekly jobs
+			"Monthly": 7*24*60*60 # 7 days for monthly jobs
+		}
+		
+		# Get base frequency without "Long" suffix
+		frequency_base = self.frequency.replace(" Long", "")
+		
+		# Default offset of 1 hour for other frequencies
+		default_max_offset = 60*60
+		max_time_offset = max_offset.get(frequency_base, default_max_offset)
+		
+		# Calculate deterministic offset based on site name hash (0 to max_time_offset)
+		# This ensures consistent distribution of tasks across time
+		time_offset = abs(hash(site_name)) % max_time_offset
+		
+		return next_execution + timedelta(seconds=jitter + time_offset)
 
 	def execute(self):
 		if frappe.job:
@@ -190,10 +215,16 @@ def execute_event(doc: str):
 	return doc
 
 
-def run_scheduled_job(scheduled_job_type: str, job_type: str | None = None):
+def run_scheduled_job(scheduled_job_type: str, job_type: str | None = None, defer_time: int | None = None):
 	"""This is a wrapper function that runs a hooks.scheduler_events method"""
 	if frappe.conf.maintenance_mode:
 		raise frappe.InReadOnlyMode("Scheduled jobs can't run in maintenance mode.")
+		
+	# If the job is deferred, add a delay before execution
+	if defer_time:
+		import time
+		time.sleep(defer_time)
+		
 	try:
 		frappe.get_doc("Scheduled Job Type", scheduled_job_type).execute()
 	except Exception:
