@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
 "POT-Creation-Date: 2025-03-29 21:32+0000\n"
-"PO-Revision-Date: 2025-03-30 01:33+0400\n"
+"PO-Revision-Date: 2025-03-30 03:43+0400\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -6468,7 +6468,7 @@ msgstr "Темная тема"
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:562
 #: frappe/public/js/frappe/utils/utils.js:932
 msgid "Dashboard"
-msgstr "Инфопанель"
+msgstr "Аналитика"
 
 #. Label of a Link in the Build Workspace
 #. Name of a DocType
@@ -6476,48 +6476,48 @@ msgstr "Инфопанель"
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.json
 #: frappe/desk/doctype/dashboard_chart_source/dashboard_chart_source.js:8
 msgid "Dashboard Chart"
-msgstr "Диаграмма инфопанели"
+msgstr "Диаграмма аналитики"
 
 #. Name of a DocType
 #: frappe/desk/doctype/dashboard_chart_field/dashboard_chart_field.json
 msgid "Dashboard Chart Field"
-msgstr "Диаграмма Инфопанели - Поле"
+msgstr "Диаграмма Аналитики - Поле"
 
 #. Name of a DocType
 #: frappe/desk/doctype/dashboard_chart_link/dashboard_chart_link.json
 msgid "Dashboard Chart Link"
-msgstr "Диаграмма Инфопанели - Ссылка"
+msgstr "Диаграмма Аналитики - Ссылка"
 
 #. Name of a DocType
 #: frappe/desk/doctype/dashboard_chart_source/dashboard_chart_source.json
 msgid "Dashboard Chart Source"
-msgstr "Диаграмма Инфопанели - Источник"
+msgstr "Диаграмма Аналитики - Источник"
 
 #. Name of a role
 #: frappe/desk/doctype/dashboard/dashboard.json
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.json
 #: frappe/desk/doctype/number_card/number_card.json
 msgid "Dashboard Manager"
-msgstr "Менеджер информационной панели"
+msgstr "Менеджер панели аналитики"
 
 #. Label of the dashboard_name (Data) field in DocType 'Dashboard'
 #: frappe/desk/doctype/dashboard/dashboard.json
 msgid "Dashboard Name"
-msgstr "Название информационной панели"
+msgstr "Название панели аналитики"
 
 #. Name of a DocType
 #: frappe/desk/doctype/dashboard_settings/dashboard_settings.json
 msgid "Dashboard Settings"
-msgstr "Инфопанель - Настройки"
+msgstr "Аналитика - Настройки"
 
 #: frappe/public/js/frappe/list/base_list.js:204
 msgid "Dashboard View"
-msgstr "Инфопанель"
+msgstr "Аналитика"
 
 #. Label of the tab_break_2 (Tab Break) field in DocType 'Workspace'
 #: frappe/desk/doctype/workspace/workspace.json
 msgid "Dashboards"
-msgstr "Инфопанели"
+msgstr "Аналитика"
 
 #. Label of a Card Break in the Tools Workspace
 #. Label of the data (Code) field in DocType 'Deleted Document'
@@ -18677,7 +18677,7 @@ msgstr "Родительская таблица"
 
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.py:404
 msgid "Parent document type is required to create a dashboard chart"
-msgstr "Для создания диаграммы инфопанели требуется родительский тип документа"
+msgstr "Для создания диаграммы аналитики требуется родительский тип документа"
 
 #: frappe/core/doctype/data_export/exporter.py:253
 msgid "Parent is the name of the document to which the data will get added to."
@@ -19493,7 +19493,7 @@ msgstr "Пожалуйста, задайте название документа
 
 #: frappe/desk/doctype/dashboard/dashboard.py:120
 msgid "Please set the following documents in this Dashboard as standard first."
-msgstr "Пожалуйста, сначала установите следующие документы в этом инфопанели в качестве стандартных."
+msgstr "Пожалуйста, сначала установите следующие документы в этой панели в качестве стандартных."
 
 #: frappe/core/doctype/document_naming_settings/document_naming_settings.py:120
 msgid "Please set the series to be used."
@@ -23079,7 +23079,7 @@ msgstr "Выберите валюту"
 #: frappe/desk/doctype/form_tour/form_tour.json
 #: frappe/public/js/frappe/utils/dashboard_utils.js:240
 msgid "Select Dashboard"
-msgstr "Выберите информационную управления"
+msgstr "Выберите информационную панель"
 
 #. Option for the 'Timespan' (Select) field in DocType 'Dashboard Chart'
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.json
@@ -24162,7 +24162,7 @@ msgstr "Покажите символ валюты с правой сторон�
 #: frappe/custom/doctype/customize_form_field/customize_form_field.json
 #: frappe/desk/doctype/dashboard/dashboard.js:6
 msgid "Show Dashboard"
-msgstr "Показать информационную панель"
+msgstr "Показать панель аналитики"
 
 #. Label of the show_document (Button) field in DocType 'Access Log'
 #: frappe/core/doctype/access_log/access_log.json
@@ -26911,7 +26911,7 @@ msgstr "Время в секундах для сохранения изобра�
 
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.py:413
 msgid "Time series based on is required to create a dashboard chart"
-msgstr "Для создания диаграммы инфопанели требуется временной ряд на основе"
+msgstr "Для создания диаграммы аналитики требуется временной ряд на основе"
 
 #: frappe/public/js/frappe/form/controls/time.js:124
 msgid "Time {0} must be in format: {1}"
@@ -30166,7 +30166,7 @@ msgstr "Вы отменили документ {1}"
 
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.py:417
 msgid "You cannot create a dashboard chart from single DocTypes"
-msgstr "Вы не можете создать диаграмму инфопанели из одиночных ДокТайпов"
+msgstr "Вы не можете создать диаграмму аналитики из одиночных ДокТайпов"
 
 #: frappe/social/doctype/energy_point_log/energy_point_log.py:45
 msgid "You cannot give review points to yourself"
@@ -30297,7 +30297,7 @@ msgstr "Вы не видели {0}"
 
 #: frappe/public/js/frappe/views/dashboard/dashboard_view.js:192
 msgid "You haven't added any Dashboard Charts or Number Cards yet."
-msgstr "Вы еще не добавили ни одной диаграммы инфопанели или числового блока."
+msgstr "Вы еще не добавили ни одной диаграммы аналитики или числового блока."
 
 #: frappe/public/js/frappe/list/list_view.js:498
 msgid "You haven't created a {0} yet"
@@ -30635,7 +30635,7 @@ msgstr "темно серый"
 
 #: frappe/core/page/dashboard_view/dashboard_view.js:65
 msgid "dashboard"
-msgstr "инфопанель"
+msgstr "аналитика"
 
 #. Option for the 'Date Format' (Select) field in DocType 'Language'
 #. Option for the 'Date Format' (Select) field in DocType 'System Settings'
@@ -31300,7 +31300,7 @@ msgstr "Диаграмма {0}"
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:348
 #: frappe/public/js/frappe/views/dashboard/dashboard_view.js:12
 msgid "{0} Dashboard"
-msgstr "{0} - Инфопанель"
+msgstr "{0} - Аналитика"
 
 #: frappe/public/js/frappe/form/grid_row.js:466
 #: frappe/public/js/frappe/list/list_settings.js:227
