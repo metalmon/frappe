@@ -21,6 +21,7 @@ class MariaDBExceptionUtil:
 	InternalError = MySQLdb.InternalError
 	SQLError = MySQLdb.ProgrammingError
 	DataError = MySQLdb.DataError
+	InterfaceError = MySQLdb.InterfaceError
 
 	# match SEQUENCE_RUN_OUT - https://mariadb.com/kb/en/mariadb-error-codes/
 	SequenceGeneratorLimitExceeded = MySQLdb.OperationalError
@@ -347,7 +348,7 @@ class MariaDBDatabase(MariaDBConnectionUtil, MariaDBExceptionUtil, Database):
 			`doctype` VARCHAR(180) NOT NULL,
 			`data` TEXT,
 			UNIQUE(user, doctype)
-			) ENGINE=InnoDB DEFAULT CHARSET=utf8"""
+			) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci"""
 		)
 
 	@staticmethod
