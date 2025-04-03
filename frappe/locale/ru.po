@@ -7492,6 +7492,11 @@ msgctxt "Discard Email"
 msgid "Discard"
 msgstr "Отменить"
 
+#: frappe/public/js/frappe/views/communication.js:30
+msgctxt "Discard Email"
+msgid "Discard"
+msgstr "Отменить"
+
 #: frappe/public/js/frappe/form/form.js:848
 msgid "Discard {0}"
 msgstr "Отменить {0}"
@@ -11126,6 +11131,11 @@ msgstr "От кого"
 msgctxt "Email Sender"
 msgid "From"
 msgstr "От кого"
+
+#: frappe/public/js/frappe/views/communication.js:194
+msgctxt "Email Sender"
+msgid "From"
+msgstr ""
 
 #. Label of the from_date (Date) field in DocType 'Dashboard Chart'
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.json
@@ -27076,6 +27086,11 @@ msgstr "Кому"
 msgctxt "Email Recipients"
 msgid "To"
 msgstr "Кому"
+
+#: frappe/public/js/frappe/views/communication.js:53
+msgctxt "Email Recipients"
+msgid "To"
+msgstr ""
 
 #. Label of the to_date (Date) field in DocType 'Dashboard Chart'
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.json
