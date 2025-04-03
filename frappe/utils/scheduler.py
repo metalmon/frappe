@@ -172,7 +172,13 @@ def enqueue_events() -> list[str] | None:
 			job_doc = frappe.get_doc(doctype="Scheduled Job Type", **job_type)
 			
 			try:
-				# Check if we've hit the limit for this job type
+				# For "All" frequency jobs, enqueue immediately without concurrency checks
+				if job_doc.frequency == "All":
+					if job_doc.enqueue():
+						enqueued_jobs.append(job_doc.method)
+					continue # Skip concurrency check for "All" jobs
+
+				# Check if we've hit the limit for this job type (for non-"All" jobs)
 				current_count = running_job_counts.get(job_doc.method, 0)
 				
 				if current_count >= MAX_CONCURRENT_JOBS:
@@ -180,6 +186,7 @@ def enqueue_events() -> list[str] | None:
 					deferred_jobs.append(job_doc)
 					continue
 					
+				# Enqueue regular (non-"All") jobs
 				if job_doc.enqueue():
 					running_job_counts[job_doc.method] = current_count + 1
 					enqueued_jobs.append(job_doc.method)
