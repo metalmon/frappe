@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
 "POT-Creation-Date: 2025-04-03 12:35+0000\n"
-"PO-Revision-Date: 2025-04-03 16:37+0400\n"
+"PO-Revision-Date: 2025-04-08 19:48+0400\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -22831,7 +22831,7 @@ msgstr "Менеджер скриптов"
 #. Option for the 'Report Type' (Select) field in DocType 'Report'
 #: frappe/core/doctype/report/report.json
 msgid "Script Report"
-msgstr "Отчет о сценарии"
+msgstr "Отчет по скрипту"
 
 #. Label of the script_type (Select) field in DocType 'Server Script'
 #: frappe/core/doctype/server_script/server_script.json
