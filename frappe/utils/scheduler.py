@@ -19,7 +19,7 @@ from filelock import FileLock, Timeout
 
 import frappe
 from frappe.utils import cint, get_bench_path, get_datetime, get_sites, now_datetime
-from frappe.utils.background_jobs import set_niceness, enqueue, get_jobs
+from frappe.utils.background_jobs import set_niceness, enqueue, get_jobs, get_workers, get_queue_list, get_queue
 from frappe.utils.caching import redis_cache
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
@@ -138,22 +138,45 @@ def get_running_job_counts() -> Dict[str, int]:
 	Returns:
 		Dict[str, int]: Dictionary with method names as keys and counts as values
 	"""
-	running_jobs = {}
+	running_jobs_count = {}
 	
 	try:
-		# Get all queued and started jobs
-		jobs = get_jobs()
+		# Get all workers for queues relevant to this bench
+		from frappe.utils.background_jobs import get_workers, get_queue_list, get_queue
 		
-		for queue_jobs in jobs.values():
-			for job in queue_jobs:
-				if job.kwargs.get("job_type"):
-					method = job.kwargs.get("job_type")
-					running_jobs[method] = running_jobs.get(method, 0) + 1
+		queues_to_check = get_queue_list()
+		# Add logging for debugging
+		frappe.logger("scheduler").debug(f"Queues to check for running jobs: {queues_to_check}")
+		
+		for queue_name in queues_to_check:
+			try:
+				# Add logging for debugging before the call
+				frappe.logger("scheduler").debug(f"Getting queue object for: {queue_name} (type: {type(queue_name)})")
+				q = get_queue(queue_name)
+				workers = get_workers(q)
+				
+				for worker in workers:
+					job = worker.get_current_job()
+					# Check if worker has a job and job has kwargs
+					if job and hasattr(job, 'kwargs') and job.kwargs:
+						# The actual method being run is stored in job.kwargs['kwargs']['job_type'] 
+						# based on how enqueue is structured, but let's check both levels for safety
+						method = None
+						if isinstance(job.kwargs.get("kwargs"), dict):
+							method = job.kwargs["kwargs"].get("job_type")
+						if not method:
+							method = job.kwargs.get("job_type") # Fallback check
+							
+						if method:
+							running_jobs_count[method] = running_jobs_count.get(method, 0) + 1
+			except Exception as e:
+				frappe.logger("scheduler").warning(f"Could not inspect queue {queue_name}: {e}")
+				
 	except Exception:
-		# In case of any errors, log but continue
+		# In case of any errors during worker/queue fetching, log but continue
 		frappe.logger("scheduler").error("Error counting running jobs", exc_info=True)
 	
-	return running_jobs
+	return running_jobs_count
 
 
 def enqueue_events() -> list[str] | None:
