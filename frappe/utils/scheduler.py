@@ -239,8 +239,7 @@ def enqueue_events() -> list[str] | None:
 					queue="default",  # Still use default queue but with delay
 					job_type=job_doc.method,
 					job_id=f"deferred::{job_doc.rq_job_id}",
-					scheduled_job_type=job_doc.name,
-					defer_time=delay
+					scheduled_job_type=job_doc.name
 				)
 				
 				frappe.logger("scheduler").info(
