@@ -185,73 +185,16 @@ def enqueue_events() -> list[str] | None:
 		all_jobs = frappe.get_all("Scheduled Job Type", filters={"stopped": 0}, fields="*")
 		random.shuffle(all_jobs)
 		
-		# Get counts of currently running jobs for each method
-		running_job_counts = get_running_job_counts()
-		
-		# Group for tracking deferred jobs
-		deferred_jobs = []
-		
 		for job_type in all_jobs:
 			job_doc = frappe.get_doc(doctype="Scheduled Job Type", **job_type)
 			
 			try:
-				# For "All" frequency jobs, enqueue immediately without concurrency checks
-				if job_doc.frequency == "All":
-					if job_doc.enqueue():
-						enqueued_jobs.append(job_doc.method)
-					continue # Skip concurrency check for "All" jobs
-
-				# Check if we've hit the limit for this job type (for non-"All" jobs)
-				current_count = running_job_counts.get(job_doc.method, 0)
-				
-				if current_count >= MAX_CONCURRENT_JOBS:
-					# Don't skip, but defer the job for later execution
-					deferred_jobs.append(job_doc)
-					continue
-					
-				# Enqueue regular (non-"All") jobs
 				if job_doc.enqueue():
-					running_job_counts[job_doc.method] = current_count + 1
 					enqueued_jobs.append(job_doc.method)
 					
 			except CroniterBadCronError:
 				frappe.logger("scheduler").error(
 					f"Invalid Job on {frappe.local.site} - {job_doc.name}", exc_info=True
-				)
-		
-		# Process deferred jobs with additional delay
-		for job_doc in deferred_jobs:
-			try:
-				# Create a job log to track deferred status
-				log = frappe.get_doc({
-					"doctype": "Scheduled Job Log",
-					"scheduled_job_type": job_doc.name,
-					"status": "Deferred"
-				})
-				log.insert(ignore_permissions=True)
-				
-				# Add a delay of 5-15 minutes
-				delay = random.randint(300, 900)
-				
-				# Use a different queue name for deferred jobs
-				enqueue(
-					"frappe.core.doctype.scheduled_job_type.scheduled_job_type.run_scheduled_job",
-					queue="default",  # Still use default queue but with delay
-					job_type=job_doc.method,
-					job_id=f"deferred::{job_doc.rq_job_id}",
-					scheduled_job_type=job_doc.name
-				)
-				
-				frappe.logger("scheduler").info(
-					f"Deferred job {job_doc.method} for {frappe.local.site} by {delay} seconds"
-				)
-				
-				enqueued_jobs.append(f"{job_doc.method} (deferred)")
-				
-			except Exception:
-				frappe.logger("scheduler").error(
-					f"Failed to defer job {job_doc.method} for {frappe.local.site}",
-					exc_info=True
 				)
 
 		return enqueued_jobs
