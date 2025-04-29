@@ -108,16 +108,21 @@ frappe.ui.Sidebar = class Sidebar {
 				this.expand_parent_item(current_item);
 			}
 		}
+		if (!this.sidebar_expanded) this.close_children_item();
 	}
 	expand_parent_item(item) {
 		let parent_title = item.attr("item-parent");
 		if (!parent_title) return;
 
 		let parent = this.get_sidebar_item(parent_title);
-		$($(parent).children()[1]).removeClass("hidden");
 		if (parent) {
-			if (this.is_nested_item($(parent))) {
-				this.expand_parent_item($(parent));
+			let drop_icon = $(parent).find(".drop-icon");
+			let opened = drop_icon.find("use").attr("href") === "#es-line-down";
+			if ($($(parent).children()[1]).hasClass("hidden")) {
+				$(parent).find(".drop-icon")[0].click();
+				if (this.is_nested_item($(parent))) {
+					this.expand_parent_item($(parent));
+				}
 			}
 		}
 	}
