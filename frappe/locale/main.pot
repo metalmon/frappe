@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-04-30 19:08+0000\n"
-"PO-Revision-Date: 2025-04-30 19:08+0000\n"
+"POT-Creation-Date: 2025-04-30 20:06+0000\n"
+"PO-Revision-Date: 2025-04-30 20:06+0000\n"
 "Last-Translator: developers@frappe.io\n"
 "Language-Team: developers@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -751,6 +751,10 @@ msgstr ""
 #: frappe/core/doctype/doctype/doctype.json
 #: frappe/custom/doctype/customize_form/customize_form.json
 msgid "ASC"
+msgstr ""
+
+#: frappe/hooks.py:528
+msgid "About"
 msgstr ""
 
 #: frappe/www/about.html:11 frappe/www/about.html:18
@@ -2262,7 +2266,7 @@ msgstr ""
 msgid "Approval Required"
 msgstr ""
 
-#: frappe/templates/includes/navbar/navbar_login.html:18
+#: frappe/hooks.py:496 frappe/templates/includes/navbar/navbar_login.html:18
 #: frappe/website/js/website.js:619 frappe/www/me.html:80
 msgid "Apps"
 msgstr ""
@@ -10834,6 +10838,10 @@ msgstr ""
 msgid "Frappe Mail Site"
 msgstr ""
 
+#: frappe/hooks.py:546
+msgid "Frappe Support"
+msgstr ""
+
 #: frappe/hooks.py:7
 msgid "Frappe Technologies"
 msgstr ""
@@ -13783,7 +13791,7 @@ msgstr ""
 msgid "Key"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/keyboard.js:129
+#: frappe/hooks.py:534 frappe/public/js/frappe/ui/keyboard.js:129
 msgid "Keyboard Shortcuts"
 msgstr ""
 
@@ -14799,6 +14807,7 @@ msgstr ""
 msgid "Log in to access this page."
 msgstr ""
 
+#: frappe/hooks.py:519
 #: frappe/website/doctype/website_settings/website_settings.py:182
 msgid "Log out"
 msgstr ""
@@ -20863,7 +20872,7 @@ msgid "Relinked"
 msgstr ""
 
 #: frappe/custom/doctype/customize_form/customize_form.js:120
-#: frappe/public/js/frappe/form/toolbar.js:444
+#: frappe/hooks.py:484 frappe/public/js/frappe/form/toolbar.js:444
 msgid "Reload"
 msgstr ""
 
@@ -23338,7 +23347,7 @@ msgstr ""
 #. Label of the session_defaults (Table) field in DocType 'Session Default
 #. Settings'
 #: frappe/core/doctype/session_default_settings/session_default_settings.json
-#: frappe/public/js/frappe/ui/toolbar/toolbar.js:332
+#: frappe/hooks.py:478 frappe/public/js/frappe/ui/toolbar/toolbar.js:332
 msgid "Session Defaults"
 msgstr ""
 
@@ -25213,6 +25222,10 @@ msgstr ""
 msgid "System Generated Fields can not be renamed"
 msgstr ""
 
+#: frappe/hooks.py:540
+msgid "System Health"
+msgstr ""
+
 #. Name of a DocType
 #: frappe/desk/doctype/system_health_report/system_health_report.json
 msgid "System Health Report"
@@ -26720,6 +26733,10 @@ msgstr ""
 msgid "Toggle Chart"
 msgstr ""
 
+#: frappe/hooks.py:502
+msgid "Toggle Full Width"
+msgstr ""
+
 #: frappe/public/js/frappe/views/file/file_view.js:33
 msgid "Toggle Grid View"
 msgstr ""
@@ -26733,6 +26750,10 @@ msgstr ""
 #: frappe/public/js/frappe/list/list_view.js:1818
 msgctxt "Button in list view menu"
 msgid "Toggle Sidebar"
+msgstr ""
+
+#: frappe/hooks.py:508
+msgid "Toggle Theme"
 msgstr ""
 
 #. Option for the 'Response Type' (Select) field in DocType 'OAuth Client'
@@ -28021,6 +28042,10 @@ msgstr ""
 msgid "User Select Document Type"
 msgstr ""
 
+#: frappe/hooks.py:466
+msgid "User Settings"
+msgstr ""
+
 #. Name of a DocType
 #: frappe/core/doctype/user_social_login/user_social_login.json
 msgid "User Social Login"
@@ -28475,6 +28500,7 @@ msgstr ""
 msgid "View Switcher"
 msgstr ""
 
+#: frappe/hooks.py:490
 #: frappe/website/doctype/website_settings/website_settings.js:16
 msgid "View Website"
 msgstr ""
@@ -29247,6 +29273,7 @@ msgstr ""
 
 #. Name of a DocType
 #: frappe/desk/doctype/workspace_settings/workspace_settings.json
+#: frappe/hooks.py:472
 msgid "Workspace Settings"
 msgstr ""
 

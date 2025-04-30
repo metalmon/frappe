@@ -463,49 +463,49 @@ export_python_type_annotations = True
 
 standard_navbar_items = [
 	{
-		"item_label": "User Settings",
+		"item_label": _("User Settings"),
 		"item_type": "Action",
 		"action": "frappe.ui.toolbar.route_to_user()",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "Workspace Settings",
+		"item_label": _("Workspace Settings"),
 		"item_type": "Action",
 		"action": "frappe.quick_edit('Workspace Settings')",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "Session Defaults",
+		"item_label": _("Session Defaults"),
 		"item_type": "Action",
 		"action": "frappe.ui.toolbar.setup_session_defaults()",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "Reload",
+		"item_label": _("Reload"),
 		"item_type": "Action",
 		"action": "frappe.ui.toolbar.clear_cache()",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "View Website",
+		"item_label": _("View Website"),
 		"item_type": "Action",
 		"action": "frappe.ui.toolbar.view_website()",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "Apps",
+		"item_label": _("Apps"),
 		"item_type": "Route",
 		"route": "/apps",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "Toggle Full Width",
+		"item_label": _("Toggle Full Width"),
 		"item_type": "Action",
 		"action": "frappe.ui.toolbar.toggle_full_width()",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "Toggle Theme",
+		"item_label": _("Toggle Theme"),
 		"item_type": "Action",
 		"action": "new frappe.ui.ThemeSwitcher().show()",
 		"is_standard": 1,
@@ -516,7 +516,7 @@ standard_navbar_items = [
 		"item_label": "",
 	},
 	{
-		"item_label": "Log out",
+		"item_label": _("Log out"),
 		"item_type": "Action",
 		"action": "frappe.app.logout()",
 		"is_standard": 1,
@@ -525,25 +525,25 @@ standard_navbar_items = [
 
 standard_help_items = [
 	{
-		"item_label": "About",
+		"item_label": _("About"),
 		"item_type": "Action",
 		"action": "frappe.ui.toolbar.show_about()",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "Keyboard Shortcuts",
+		"item_label": _("Keyboard Shortcuts"),
 		"item_type": "Action",
 		"action": "frappe.ui.toolbar.show_shortcuts(event)",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "System Health",
+		"item_label": _("System Health"),
 		"item_type": "Route",
 		"route": "/app/system-health-report",
 		"is_standard": 1,
 	},
 	{
-		"item_label": "Frappe Support",
+		"item_label": _("Frappe Support"),
 		"item_type": "Route",
 		"route": "https://frappe.io/support",
 		"is_standard": 1,

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-04-30 19:08+0000\n"
-"PO-Revision-Date: 2025-04-30 23:08+0400\n"
+"POT-Creation-Date: 2025-04-30 20:06+0000\n"
+"PO-Revision-Date: 2025-05-01 00:07+0400\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -857,6 +857,10 @@ msgstr "Секрет API"
 #: frappe/custom/doctype/customize_form/customize_form.json
 msgid "ASC"
 msgstr "По возрастанию"
+
+#: frappe/hooks.py:528
+msgid "About"
+msgstr "О нас"
 
 #: frappe/www/about.html:11 frappe/www/about.html:18
 msgid "About Us"
@@ -2369,7 +2373,7 @@ msgstr "Применяется: {0}"
 msgid "Approval Required"
 msgstr "Требуется одобрение"
 
-#: frappe/templates/includes/navbar/navbar_login.html:18
+#: frappe/hooks.py:496 frappe/templates/includes/navbar/navbar_login.html:18
 #: frappe/website/js/website.js:619 frappe/www/me.html:80
 msgid "Apps"
 msgstr "Приложения"
@@ -10951,6 +10955,10 @@ msgstr "Ошибка Frappe Mail OAuth"
 msgid "Frappe Mail Site"
 msgstr "Почтовый сайт Frappe"
 
+#: frappe/hooks.py:546
+msgid "Frappe Support"
+msgstr "Поддержка"
+
 #: frappe/hooks.py:7
 msgid "Frappe Technologies"
 msgstr "Frappe Technologies"
@@ -13896,7 +13904,7 @@ msgstr "Отслеживает все сообщения"
 msgid "Key"
 msgstr "Ключ"
 
-#: frappe/public/js/frappe/ui/keyboard.js:129
+#: frappe/hooks.py:534 frappe/public/js/frappe/ui/keyboard.js:129
 msgid "Keyboard Shortcuts"
 msgstr "Горячие клавиши"
 
@@ -14912,6 +14920,7 @@ msgstr "Настройки журнала"
 msgid "Log in to access this page."
 msgstr "Войдите, чтобы открыть эту страницу."
 
+#: frappe/hooks.py:519
 #: frappe/website/doctype/website_settings/website_settings.py:182
 msgid "Log out"
 msgstr "Выйти из системы"
@@ -20978,7 +20987,7 @@ msgid "Relinked"
 msgstr "Перепривязано"
 
 #: frappe/custom/doctype/customize_form/customize_form.js:120
-#: frappe/public/js/frappe/form/toolbar.js:444
+#: frappe/hooks.py:484 frappe/public/js/frappe/form/toolbar.js:444
 msgid "Reload"
 msgstr "Перезагрузить"
 
@@ -23451,7 +23460,7 @@ msgstr "Сессия - Настройки по-умолчанию"
 #. Label of the session_defaults (Table) field in DocType 'Session Default
 #. Settings'
 #: frappe/core/doctype/session_default_settings/session_default_settings.json
-#: frappe/public/js/frappe/ui/toolbar/toolbar.js:332
+#: frappe/hooks.py:478 frappe/public/js/frappe/ui/toolbar/toolbar.js:332
 msgid "Session Defaults"
 msgstr "Установки сессии"
 
@@ -25352,6 +25361,10 @@ msgstr "Системная консоль"
 msgid "System Generated Fields can not be renamed"
 msgstr "Сгенерированные системой поля не могут быть переименованы"
 
+#: frappe/hooks.py:540
+msgid "System Health"
+msgstr "Здоровье системы"
+
 #. Name of a DocType
 #: frappe/desk/doctype/system_health_report/system_health_report.json
 msgid "System Health Report"
@@ -26892,6 +26905,10 @@ msgstr "Сегодня"
 msgid "Toggle Chart"
 msgstr "Переключить диаграмму"
 
+#: frappe/hooks.py:502
+msgid "Toggle Full Width"
+msgstr "Переключить ширину"
+
 #: frappe/public/js/frappe/views/file/file_view.js:33
 msgid "Toggle Grid View"
 msgstr "Включить вид сетки"
@@ -26906,6 +26923,10 @@ msgstr "Переключить боковую панель"
 msgctxt "Button in list view menu"
 msgid "Toggle Sidebar"
 msgstr "Переключить боковую панель"
+
+#: frappe/hooks.py:508
+msgid "Toggle Theme"
+msgstr "Переключить тему"
 
 #. Option for the 'Response Type' (Select) field in DocType 'OAuth Client'
 #: frappe/integrations/doctype/oauth_client/oauth_client.json
@@ -28198,6 +28219,10 @@ msgstr "Профиль роли пользователя"
 msgid "User Select Document Type"
 msgstr "Выбор пользователем типа документа"
 
+#: frappe/hooks.py:466
+msgid "User Settings"
+msgstr "Настройки пользователя"
+
 #. Name of a DocType
 #: frappe/core/doctype/user_social_login/user_social_login.json
 msgid "User Social Login"
@@ -28650,6 +28675,7 @@ msgstr "Настройки просмотра"
 msgid "View Switcher"
 msgstr "Переключатель просмотра"
 
+#: frappe/hooks.py:490
 #: frappe/website/doctype/website_settings/website_settings.js:16
 msgid "View Website"
 msgstr "Посмотреть сайт"
@@ -29421,6 +29447,7 @@ msgstr "Быстрые списки рабочего пространства"
 
 #. Name of a DocType
 #: frappe/desk/doctype/workspace_settings/workspace_settings.json
+#: frappe/hooks.py:472
 msgid "Workspace Settings"
 msgstr "Настройки рабочей области"
 
