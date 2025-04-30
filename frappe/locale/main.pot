@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-04-29 14:23+0000\n"
-"PO-Revision-Date: 2025-04-29 14:23+0000\n"
+"POT-Creation-Date: 2025-04-30 19:08+0000\n"
+"PO-Revision-Date: 2025-04-30 19:08+0000\n"
 "Last-Translator: developers@frappe.io\n"
 "Language-Team: developers@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -751,12 +751,6 @@ msgstr ""
 #: frappe/core/doctype/doctype/doctype.json
 #: frappe/custom/doctype/customize_form/customize_form.json
 msgid "ASC"
-msgstr ""
-
-#. Label of a standard help item
-#. Type: Action
-#: frappe/hooks.py
-msgid "About"
 msgstr ""
 
 #: frappe/www/about.html:11 frappe/www/about.html:18
@@ -2268,9 +2262,7 @@ msgstr ""
 msgid "Approval Required"
 msgstr ""
 
-#. Label of a standard navbar item
-#. Type: Route
-#: frappe/hooks.py frappe/templates/includes/navbar/navbar_login.html:18
+#: frappe/templates/includes/navbar/navbar_login.html:18
 #: frappe/website/js/website.js:619 frappe/www/me.html:80
 msgid "Apps"
 msgstr ""
@@ -4044,7 +4036,7 @@ msgstr ""
 msgid "Cannot Update After Submit"
 msgstr ""
 
-#: frappe/core/doctype/file/file.py:621
+#: frappe/core/doctype/file/file.py:624
 msgid "Cannot access file path {0}"
 msgstr ""
 
@@ -10144,7 +10136,7 @@ msgstr ""
 msgid "File backup is ready"
 msgstr ""
 
-#: frappe/core/doctype/file/file.py:624
+#: frappe/core/doctype/file/file.py:627
 msgid "File name cannot have {0}"
 msgstr ""
 
@@ -10152,7 +10144,7 @@ msgstr ""
 msgid "File not attached"
 msgstr ""
 
-#: frappe/core/doctype/file/file.py:734 frappe/public/js/frappe/request.js:200
+#: frappe/core/doctype/file/file.py:740 frappe/public/js/frappe/request.js:200
 #: frappe/utils/file_manager.py:221
 msgid "File size exceeded the maximum allowed size of {0} MB"
 msgstr ""
@@ -10808,6 +10800,10 @@ msgstr ""
 msgid "Fraction Units"
 msgstr ""
 
+#: frappe/hooks.py:6
+msgid "Framework"
+msgstr ""
+
 #. Option for the 'Social Login Provider' (Select) field in DocType 'Social
 #. Login Key'
 #: frappe/integrations/doctype/social_login_key/social_login_key.json
@@ -10838,10 +10834,8 @@ msgstr ""
 msgid "Frappe Mail Site"
 msgstr ""
 
-#. Label of a standard help item
-#. Type: Route
-#: frappe/hooks.py
-msgid "Frappe Support"
+#: frappe/hooks.py:7
+msgid "Frappe Technologies"
 msgstr ""
 
 #: frappe/website/doctype/web_page/web_page.js:92
@@ -10955,6 +10949,10 @@ msgstr ""
 #. Label of the full_width (Check) field in DocType 'Web Page'
 #: frappe/website/doctype/web_page/web_page.json
 msgid "Full Width"
+msgstr ""
+
+#: frappe/hooks.py:8
+msgid "Full stack web framework with Python, Javascript, MariaDB, Redis, Node"
 msgstr ""
 
 #. Label of the function (Select) field in DocType 'Number Card'
@@ -13785,9 +13783,7 @@ msgstr ""
 msgid "Key"
 msgstr ""
 
-#. Label of a standard help item
-#. Type: Action
-#: frappe/hooks.py frappe/public/js/frappe/ui/keyboard.js:129
+#: frappe/public/js/frappe/ui/keyboard.js:129
 msgid "Keyboard Shortcuts"
 msgstr ""
 
@@ -14803,9 +14799,6 @@ msgstr ""
 msgid "Log in to access this page."
 msgstr ""
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
 #: frappe/website/doctype/website_settings/website_settings.py:182
 msgid "Log out"
 msgstr ""
@@ -20869,9 +20862,7 @@ msgstr ""
 msgid "Relinked"
 msgstr ""
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/custom/doctype/customize_form/customize_form.js:120 frappe/hooks.py
+#: frappe/custom/doctype/customize_form/customize_form.js:120
 #: frappe/public/js/frappe/form/toolbar.js:444
 msgid "Reload"
 msgstr ""
@@ -23344,12 +23335,10 @@ msgstr ""
 msgid "Session Default Settings"
 msgstr ""
 
-#. Label of a standard navbar item
-#. Type: Action
 #. Label of the session_defaults (Table) field in DocType 'Session Default
 #. Settings'
 #: frappe/core/doctype/session_default_settings/session_default_settings.json
-#: frappe/hooks.py frappe/public/js/frappe/ui/toolbar/toolbar.js:332
+#: frappe/public/js/frappe/ui/toolbar/toolbar.js:332
 msgid "Session Defaults"
 msgstr ""
 
@@ -25224,12 +25213,6 @@ msgstr ""
 msgid "System Generated Fields can not be renamed"
 msgstr ""
 
-#. Label of a standard help item
-#. Type: Route
-#: frappe/hooks.py
-msgid "System Health"
-msgstr ""
-
 #. Name of a DocType
 #: frappe/desk/doctype/system_health_report/system_health_report.json
 msgid "System Health Report"
@@ -26017,7 +26000,7 @@ msgstr ""
 msgid "There is nothing new to show you right now."
 msgstr ""
 
-#: frappe/core/doctype/file/file.py:618 frappe/utils/file_manager.py:372
+#: frappe/core/doctype/file/file.py:621 frappe/utils/file_manager.py:372
 msgid "There is some problem with the file url: {0}"
 msgstr ""
 
@@ -26737,12 +26720,6 @@ msgstr ""
 msgid "Toggle Chart"
 msgstr ""
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
-msgid "Toggle Full Width"
-msgstr ""
-
 #: frappe/public/js/frappe/views/file/file_view.js:33
 msgid "Toggle Grid View"
 msgstr ""
@@ -26756,12 +26733,6 @@ msgstr ""
 #: frappe/public/js/frappe/list/list_view.js:1818
 msgctxt "Button in list view menu"
 msgid "Toggle Sidebar"
-msgstr ""
-
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
-msgid "Toggle Theme"
 msgstr ""
 
 #. Option for the 'Response Type' (Select) field in DocType 'OAuth Client'
@@ -28050,12 +28021,6 @@ msgstr ""
 msgid "User Select Document Type"
 msgstr ""
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
-msgid "User Settings"
-msgstr ""
-
 #. Name of a DocType
 #: frappe/core/doctype/user_social_login/user_social_login.json
 msgid "User Social Login"
@@ -28510,9 +28475,6 @@ msgstr ""
 msgid "View Switcher"
 msgstr ""
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
 #: frappe/website/doctype/website_settings/website_settings.js:16
 msgid "View Website"
 msgstr ""
@@ -29283,11 +29245,8 @@ msgstr ""
 msgid "Workspace Quick List"
 msgstr ""
 
-#. Label of a standard navbar item
-#. Type: Action
 #. Name of a DocType
 #: frappe/desk/doctype/workspace_settings/workspace_settings.json
-#: frappe/hooks.py
 msgid "Workspace Settings"
 msgstr ""
 
@@ -29578,7 +29537,7 @@ msgstr ""
 msgid "You can disable this {0} instead of deleting it."
 msgstr ""
 
-#: frappe/core/doctype/file/file.py:736
+#: frappe/core/doctype/file/file.py:742
 msgid "You can increase the limit from System Settings."
 msgstr ""
 

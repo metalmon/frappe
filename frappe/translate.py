@@ -536,7 +536,18 @@ def get_server_messages(app):
 			if f.endswith(file_extensions):
 				messages.extend(get_messages_from_file(os.path.join(basepath, f)))
 
+	# Add messages from hooks.py *after* the main loop
+	messages.extend(get_messages_from_hooks_file(app))
+
 	return messages
+
+
+def get_messages_from_hooks_file(app):
+	"""Extracts messages from the app's hooks.py file."""
+	hooks_file = frappe.get_app_path(app, "hooks.py")
+	if os.path.exists(hooks_file):
+		return get_messages_from_file(hooks_file)
+	return []
 
 
 def get_messages_from_include_files(app_name=None):

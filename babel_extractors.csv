@@ -1,4 +1,4 @@
-**/hooks.py,frappe.gettext.extractors.navbar.extract
+**/hooks.py,frappe.gettext.extractors.python.extract
 **/doctype/*/*.json,frappe.gettext.extractors.doctype.extract
 **/workspace/*/*.json,frappe.gettext.extractors.workspace.extract
 **/onboarding_step/*/*.json,frappe.gettext.extractors.onboarding_step.extract

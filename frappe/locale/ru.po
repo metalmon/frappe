@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-04-29 14:23+0000\n"
-"PO-Revision-Date: 2025-04-29 18:26+0400\n"
+"POT-Creation-Date: 2025-04-30 19:08+0000\n"
+"PO-Revision-Date: 2025-04-30 23:08+0400\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -857,12 +857,6 @@ msgstr "Секрет API"
 #: frappe/custom/doctype/customize_form/customize_form.json
 msgid "ASC"
 msgstr "По возрастанию"
-
-#. Label of a standard help item
-#. Type: Action
-#: frappe/hooks.py
-msgid "About"
-msgstr "О нас"
 
 #: frappe/www/about.html:11 frappe/www/about.html:18
 msgid "About Us"
@@ -2375,9 +2369,7 @@ msgstr "Применяется: {0}"
 msgid "Approval Required"
 msgstr "Требуется одобрение"
 
-#. Label of a standard navbar item
-#. Type: Route
-#: frappe/hooks.py frappe/templates/includes/navbar/navbar_login.html:18
+#: frappe/templates/includes/navbar/navbar_login.html:18
 #: frappe/website/js/website.js:619 frappe/www/me.html:80
 msgid "Apps"
 msgstr "Приложения"
@@ -4152,7 +4144,7 @@ msgstr "Невозможно удалить"
 msgid "Cannot Update After Submit"
 msgstr "Невозможно обновить после проведения"
 
-#: frappe/core/doctype/file/file.py:621
+#: frappe/core/doctype/file/file.py:624
 msgid "Cannot access file path {0}"
 msgstr "Невозможно получить доступ к пути файла {0}"
 
@@ -10261,7 +10253,7 @@ msgstr "Ссылка на файл"
 msgid "File backup is ready"
 msgstr "Резервное копирование файлов готово"
 
-#: frappe/core/doctype/file/file.py:624
+#: frappe/core/doctype/file/file.py:627
 msgid "File name cannot have {0}"
 msgstr "В имени файла не может быть {0}"
 
@@ -10269,7 +10261,7 @@ msgstr "В имени файла не может быть {0}"
 msgid "File not attached"
 msgstr "Файл не прикреплен"
 
-#: frappe/core/doctype/file/file.py:734 frappe/public/js/frappe/request.js:200
+#: frappe/core/doctype/file/file.py:740 frappe/public/js/frappe/request.js:200
 #: frappe/utils/file_manager.py:221
 msgid "File size exceeded the maximum allowed size of {0} MB"
 msgstr "Размер файла превысил максимально допустимый размер {0} МБ"
@@ -10925,6 +10917,10 @@ msgstr "Фракция"
 msgid "Fraction Units"
 msgstr "Дробные единицы"
 
+#: frappe/hooks.py:6
+msgid "Framework"
+msgstr "Фреймворк"
+
 #. Option for the 'Social Login Provider' (Select) field in DocType 'Social
 #. Login Key'
 #: frappe/integrations/doctype/social_login_key/social_login_key.json
@@ -10955,11 +10951,9 @@ msgstr "Ошибка Frappe Mail OAuth"
 msgid "Frappe Mail Site"
 msgstr "Почтовый сайт Frappe"
 
-#. Label of a standard help item
-#. Type: Route
-#: frappe/hooks.py
-msgid "Frappe Support"
-msgstr "Поддержка"
+#: frappe/hooks.py:7
+msgid "Frappe Technologies"
+msgstr "Frappe Technologies"
 
 #: frappe/website/doctype/web_page/web_page.js:92
 msgid "Frappe page builder using components"
@@ -11073,6 +11067,10 @@ msgstr "На ширину страницы"
 #: frappe/website/doctype/web_page/web_page.json
 msgid "Full Width"
 msgstr "На всю ширину"
+
+#: frappe/hooks.py:8
+msgid "Full stack web framework with Python, Javascript, MariaDB, Redis, Node"
+msgstr "Веб-фреймворк полного стека с Python, Javascript, MariaDB, Redis, Node"
 
 #. Label of the function (Select) field in DocType 'Number Card'
 #. Label of the report_function (Select) field in DocType 'Number Card'
@@ -13898,9 +13896,7 @@ msgstr "Отслеживает все сообщения"
 msgid "Key"
 msgstr "Ключ"
 
-#. Label of a standard help item
-#. Type: Action
-#: frappe/hooks.py frappe/public/js/frappe/ui/keyboard.js:129
+#: frappe/public/js/frappe/ui/keyboard.js:129
 msgid "Keyboard Shortcuts"
 msgstr "Горячие клавиши"
 
@@ -14916,9 +14912,6 @@ msgstr "Настройки журнала"
 msgid "Log in to access this page."
 msgstr "Войдите, чтобы открыть эту страницу."
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
 #: frappe/website/doctype/website_settings/website_settings.py:182
 msgid "Log out"
 msgstr "Выйти из системы"
@@ -20984,9 +20977,7 @@ msgstr "Перепривязка коммуникации"
 msgid "Relinked"
 msgstr "Перепривязано"
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/custom/doctype/customize_form/customize_form.js:120 frappe/hooks.py
+#: frappe/custom/doctype/customize_form/customize_form.js:120
 #: frappe/public/js/frappe/form/toolbar.js:444
 msgid "Reload"
 msgstr "Перезагрузить"
@@ -23457,12 +23448,10 @@ msgstr "Сессия - По-умолчанию"
 msgid "Session Default Settings"
 msgstr "Сессия - Настройки по-умолчанию"
 
-#. Label of a standard navbar item
-#. Type: Action
 #. Label of the session_defaults (Table) field in DocType 'Session Default
 #. Settings'
 #: frappe/core/doctype/session_default_settings/session_default_settings.json
-#: frappe/hooks.py frappe/public/js/frappe/ui/toolbar/toolbar.js:332
+#: frappe/public/js/frappe/ui/toolbar/toolbar.js:332
 msgid "Session Defaults"
 msgstr "Установки сессии"
 
@@ -25363,12 +25352,6 @@ msgstr "Системная консоль"
 msgid "System Generated Fields can not be renamed"
 msgstr "Сгенерированные системой поля не могут быть переименованы"
 
-#. Label of a standard help item
-#. Type: Route
-#: frappe/hooks.py
-msgid "System Health"
-msgstr "Здоровье системы"
-
 #. Name of a DocType
 #: frappe/desk/doctype/system_health_report/system_health_report.json
 msgid "System Health Report"
@@ -26171,7 +26154,7 @@ msgstr "Нет данных, которые необходимо экспорт�
 msgid "There is nothing new to show you right now."
 msgstr "Сейчас нет ничего нового, что можно было бы Вам показать."
 
-#: frappe/core/doctype/file/file.py:618 frappe/utils/file_manager.py:372
+#: frappe/core/doctype/file/file.py:621 frappe/utils/file_manager.py:372
 msgid "There is some problem with the file url: {0}"
 msgstr "Возникла проблема с url файла: {0}"
 
@@ -26909,12 +26892,6 @@ msgstr "Сегодня"
 msgid "Toggle Chart"
 msgstr "Переключить диаграмму"
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
-msgid "Toggle Full Width"
-msgstr "Переключить ширину"
-
 #: frappe/public/js/frappe/views/file/file_view.js:33
 msgid "Toggle Grid View"
 msgstr "Включить вид сетки"
@@ -26929,12 +26906,6 @@ msgstr "Переключить боковую панель"
 msgctxt "Button in list view menu"
 msgid "Toggle Sidebar"
 msgstr "Переключить боковую панель"
-
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
-msgid "Toggle Theme"
-msgstr "Переключить тему"
 
 #. Option for the 'Response Type' (Select) field in DocType 'OAuth Client'
 #: frappe/integrations/doctype/oauth_client/oauth_client.json
@@ -28227,12 +28198,6 @@ msgstr "Профиль роли пользователя"
 msgid "User Select Document Type"
 msgstr "Выбор пользователем типа документа"
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
-msgid "User Settings"
-msgstr "Настройки пользователя"
-
 #. Name of a DocType
 #: frappe/core/doctype/user_social_login/user_social_login.json
 msgid "User Social Login"
@@ -28685,9 +28650,6 @@ msgstr "Настройки просмотра"
 msgid "View Switcher"
 msgstr "Переключатель просмотра"
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
 #: frappe/website/doctype/website_settings/website_settings.js:16
 msgid "View Website"
 msgstr "Посмотреть сайт"
@@ -29457,11 +29419,8 @@ msgstr "Числовые блоки рабочего пространства"
 msgid "Workspace Quick List"
 msgstr "Быстрые списки рабочего пространства"
 
-#. Label of a standard navbar item
-#. Type: Action
 #. Name of a DocType
 #: frappe/desk/doctype/workspace_settings/workspace_settings.json
-#: frappe/hooks.py
 msgid "Workspace Settings"
 msgstr "Настройки рабочей области"
 
@@ -29752,7 +29711,7 @@ msgstr "Вы можете продолжить обучение, изучив э
 msgid "You can disable this {0} instead of deleting it."
 msgstr "Вы можете отключить {0}, а не удалять его."
 
-#: frappe/core/doctype/file/file.py:736
+#: frappe/core/doctype/file/file.py:742
 msgid "You can increase the limit from System Settings."
 msgstr "Вы можете увеличить лимит в системных настройках."
 
