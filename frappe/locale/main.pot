@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-05-18 09:33+0000\n"
-"PO-Revision-Date: 2025-05-18 09:33+0000\n"
+"POT-Creation-Date: 2025-05-20 19:05+0000\n"
+"PO-Revision-Date: 2025-05-20 19:05+0000\n"
 "Last-Translator: developers@frappe.io\n"
 "Language-Team: developers@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -753,7 +753,7 @@ msgstr ""
 msgid "ASC"
 msgstr ""
 
-#: frappe/hooks.py:528
+#: frappe/hooks.py:532
 msgid "About"
 msgstr ""
 
@@ -882,7 +882,7 @@ msgstr ""
 msgid "Action Complete"
 msgstr ""
 
-#: frappe/model/document.py:1866
+#: frappe/model/document.py:1865
 msgid "Action Failed"
 msgstr ""
 
@@ -2266,7 +2266,7 @@ msgstr ""
 msgid "Approval Required"
 msgstr ""
 
-#: frappe/hooks.py:496 frappe/templates/includes/navbar/navbar_login.html:18
+#: frappe/hooks.py:500 frappe/templates/includes/navbar/navbar_login.html:18
 #: frappe/website/js/website.js:619 frappe/www/me.html:80
 msgid "Apps"
 msgstr ""
@@ -7863,7 +7863,7 @@ msgid "Document Types and Permissions"
 msgstr ""
 
 #: frappe/core/doctype/submission_queue/submission_queue.py:163
-#: frappe/model/document.py:1930
+#: frappe/model/document.py:1929
 msgid "Document Unlocked"
 msgstr ""
 
@@ -10848,7 +10848,7 @@ msgstr ""
 msgid "Frappe Mail Site"
 msgstr ""
 
-#: frappe/hooks.py:546
+#: frappe/hooks.py:550
 msgid "Frappe Support"
 msgstr ""
 
@@ -13806,7 +13806,7 @@ msgstr ""
 msgid "Key"
 msgstr ""
 
-#: frappe/hooks.py:534 frappe/public/js/frappe/ui/keyboard.js:129
+#: frappe/hooks.py:538 frappe/public/js/frappe/ui/keyboard.js:129
 msgid "Keyboard Shortcuts"
 msgstr ""
 
@@ -14846,7 +14846,7 @@ msgstr ""
 msgid "Log in to access this page."
 msgstr ""
 
-#: frappe/hooks.py:519
+#: frappe/hooks.py:523
 #: frappe/website/doctype/website_settings/website_settings.py:182
 msgid "Log out"
 msgstr ""
@@ -15330,6 +15330,11 @@ msgstr ""
 #. Label of the max_length (Int) field in DocType 'Web Form Field'
 #: frappe/website/doctype/web_form_field/web_form_field.json
 msgid "Max Length"
+msgstr ""
+
+#. Label of the max_report_rows (Int) field in DocType 'System Settings'
+#: frappe/core/doctype/system_settings/system_settings.json
+msgid "Max Report Rows"
 msgstr ""
 
 #. Label of the max_value (Int) field in DocType 'Web Form Field'
@@ -17192,7 +17197,7 @@ msgstr ""
 msgid "Not in Developer Mode! Set in site_config.json or make 'Custom' DocType."
 msgstr ""
 
-#: frappe/core/doctype/system_settings/system_settings.py:212
+#: frappe/core/doctype/system_settings/system_settings.py:213
 #: frappe/public/js/frappe/request.js:159
 #: frappe/public/js/frappe/request.js:170
 #: frappe/public/js/frappe/request.js:175
@@ -17459,7 +17464,7 @@ msgstr ""
 msgid "Number of attachment fields are more than {}, limit updated to {}."
 msgstr ""
 
-#: frappe/core/doctype/system_settings/system_settings.py:167
+#: frappe/core/doctype/system_settings/system_settings.py:168
 msgid "Number of backups must be greater than zero."
 msgstr ""
 
@@ -19041,7 +19046,7 @@ msgstr ""
 msgid "Please duplicate this to make changes"
 msgstr ""
 
-#: frappe/core/doctype/system_settings/system_settings.py:160
+#: frappe/core/doctype/system_settings/system_settings.py:161
 msgid "Please enable atleast one Social Login Key or LDAP or Login With Email Link before disabling username/password based login."
 msgstr ""
 
@@ -19176,7 +19181,7 @@ msgstr ""
 msgid "Please select Entity Type first"
 msgstr ""
 
-#: frappe/core/doctype/system_settings/system_settings.py:110
+#: frappe/core/doctype/system_settings/system_settings.py:111
 msgid "Please select Minimum Password Score"
 msgstr ""
 
@@ -19262,7 +19267,7 @@ msgstr ""
 msgid "Please set the series to be used."
 msgstr ""
 
-#: frappe/core/doctype/system_settings/system_settings.py:123
+#: frappe/core/doctype/system_settings/system_settings.py:124
 msgid "Please setup SMS before setting it as an authentication method, via SMS Settings"
 msgstr ""
 
@@ -20943,7 +20948,7 @@ msgid "Relinked"
 msgstr ""
 
 #: frappe/custom/doctype/customize_form/customize_form.js:120
-#: frappe/hooks.py:484 frappe/public/js/frappe/form/toolbar.js:444
+#: frappe/hooks.py:488 frappe/public/js/frappe/form/toolbar.js:444
 msgid "Reload"
 msgstr ""
 
@@ -23418,7 +23423,7 @@ msgstr ""
 #. Label of the session_defaults (Table) field in DocType 'Session Default
 #. Settings'
 #: frappe/core/doctype/session_default_settings/session_default_settings.json
-#: frappe/hooks.py frappe/public/js/frappe/ui/toolbar/toolbar.js:333
+#: frappe/hooks.py:482 frappe/public/js/frappe/ui/toolbar/toolbar.js:333
 msgid "Session Defaults"
 msgstr ""
 
@@ -23435,7 +23440,7 @@ msgstr ""
 msgid "Session Expiry (idle timeout)"
 msgstr ""
 
-#: frappe/core/doctype/system_settings/system_settings.py:117
+#: frappe/core/doctype/system_settings/system_settings.py:118
 msgid "Session Expiry must be in format {0}"
 msgstr ""
 
@@ -25293,7 +25298,7 @@ msgstr ""
 msgid "System Generated Fields can not be renamed"
 msgstr ""
 
-#: frappe/hooks.py:540
+#: frappe/hooks.py:544
 msgid "System Health"
 msgstr ""
 
@@ -26381,6 +26386,12 @@ msgstr ""
 msgid "This value is fetched from {0}'s {1} field"
 msgstr ""
 
+#. Description of the 'Max Report Rows' (Int) field in DocType 'System
+#. Settings'
+#: frappe/core/doctype/system_settings/system_settings.json
+msgid "This value specifies the max number of rows that can be rendered in report view. "
+msgstr ""
+
 #: frappe/website/doctype/web_page/web_page.js:85
 msgid "This will be automatically generated when you publish the page, you can also enter a route yourself if you wish"
 msgstr ""
@@ -26829,7 +26840,7 @@ msgstr ""
 msgid "Toggle Chart"
 msgstr ""
 
-#: frappe/hooks.py:502
+#: frappe/hooks.py:506
 msgid "Toggle Full Width"
 msgstr ""
 
@@ -26848,7 +26859,7 @@ msgctxt "Button in list view menu"
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: frappe/hooks.py:508
+#: frappe/hooks.py:512
 msgid "Toggle Theme"
 msgstr ""
 
@@ -28142,7 +28153,7 @@ msgstr ""
 msgid "User Select Document Type"
 msgstr ""
 
-#: frappe/hooks.py:466
+#: frappe/hooks.py:470
 msgid "User Settings"
 msgstr ""
 
@@ -28600,7 +28611,7 @@ msgstr ""
 msgid "View Switcher"
 msgstr ""
 
-#: frappe/hooks.py:490
+#: frappe/hooks.py:494
 #: frappe/website/doctype/website_settings/website_settings.js:16
 msgid "View Website"
 msgstr ""
@@ -29373,7 +29384,7 @@ msgstr ""
 
 #. Name of a DocType
 #: frappe/desk/doctype/workspace_settings/workspace_settings.json
-#: frappe/hooks.py:472
+#: frappe/hooks.py:476
 msgid "Workspace Settings"
 msgstr ""
 
@@ -30958,7 +30969,7 @@ msgctxt "Form timeline"
 msgid "{0} attached {1}"
 msgstr ""
 
-#: frappe/core/doctype/system_settings/system_settings.py:147
+#: frappe/core/doctype/system_settings/system_settings.py:148
 msgid "{0} can not be more than {1}"
 msgstr ""
 
@@ -31261,7 +31272,7 @@ msgstr ""
 msgid "{0} months ago"
 msgstr ""
 
-#: frappe/model/document.py:1786
+#: frappe/model/document.py:1785
 msgid "{0} must be after {1}"
 msgstr ""
 
@@ -31364,7 +31375,7 @@ msgstr ""
 msgid "{0} role does not have permission on any doctype"
 msgstr ""
 
-#: frappe/model/document.py:1779
+#: frappe/model/document.py:1778
 msgid "{0} row #{1}: "
 msgstr ""
 
