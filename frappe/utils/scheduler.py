@@ -12,20 +12,18 @@ import datetime
 import os
 import random
 import time
-from typing import NoReturn, Dict, List
+from typing import NoReturn
 
 from croniter import CroniterBadCronError
 from filelock import FileLock, Timeout
 
 import frappe
 from frappe.utils import cint, get_bench_path, get_datetime, get_sites, now_datetime
-from frappe.utils.background_jobs import set_niceness, enqueue, get_jobs, get_workers, get_queue_list, get_queue
+from frappe.utils.background_jobs import set_niceness
 from frappe.utils.caching import redis_cache
 
 DATETIME_FORMAT = "%Y-%m-%d %H:%M:%S"
 DEFAULT_SCHEDULER_TICK = 4 * 60
-# Maximum number of concurrent jobs of the same type allowed
-MAX_CONCURRENT_JOBS = 3
 
 
 def cprint(*args, **kwargs):
@@ -131,70 +129,19 @@ def enqueue_events_for_site(site: str) -> None:
 		frappe.destroy()
 
 
-def get_running_job_counts() -> Dict[str, int]:
-	"""
-	Get counts of currently running jobs by method name
-	
-	Returns:
-		Dict[str, int]: Dictionary with method names as keys and counts as values
-	"""
-	running_jobs_count = {}
-	
-	try:
-		# Get all workers for queues relevant to this bench
-		from frappe.utils.background_jobs import get_workers, get_queue_list, get_queue
-		
-		queues_to_check = get_queue_list()
-		# Add logging for debugging
-		frappe.logger("scheduler").debug(f"Queues to check for running jobs: {queues_to_check}")
-		
-		for queue_name in queues_to_check:
-			try:
-				# Add logging for debugging before the call
-				frappe.logger("scheduler").debug(f"Getting queue object for: {queue_name} (type: {type(queue_name)})")
-				q = get_queue(queue_name)
-				workers = get_workers(q)
-				
-				for worker in workers:
-					job = worker.get_current_job()
-					# Check if worker has a job and job has kwargs
-					if job and hasattr(job, 'kwargs') and job.kwargs:
-						# The actual method being run is stored in job.kwargs['kwargs']['job_type'] 
-						# based on how enqueue is structured, but let's check both levels for safety
-						method = None
-						if isinstance(job.kwargs.get("kwargs"), dict):
-							method = job.kwargs["kwargs"].get("job_type")
-						if not method:
-							method = job.kwargs.get("job_type") # Fallback check
-							
-						if method:
-							running_jobs_count[method] = running_jobs_count.get(method, 0) + 1
-			except Exception as e:
-				frappe.logger("scheduler").warning(f"Could not inspect queue {queue_name}: {e}")
-				
-	except Exception:
-		# In case of any errors during worker/queue fetching, log but continue
-		frappe.logger("scheduler").error("Error counting running jobs", exc_info=True)
-	
-	return running_jobs_count
-
-
 def enqueue_events() -> list[str] | None:
 	if schedule_jobs_based_on_activity():
 		enqueued_jobs = []
 		all_jobs = frappe.get_all("Scheduled Job Type", filters={"stopped": 0}, fields="*")
 		random.shuffle(all_jobs)
-		
 		for job_type in all_jobs:
-			job_doc = frappe.get_doc(doctype="Scheduled Job Type", **job_type)
-			
+			job_type = frappe.get_doc(doctype="Scheduled Job Type", **job_type)
 			try:
-				if job_doc.enqueue():
-					enqueued_jobs.append(job_doc.method)
-					
+				if job_type.enqueue():
+					enqueued_jobs.append(job_type.method)
 			except CroniterBadCronError:
 				frappe.logger("scheduler").error(
-					f"Invalid Job on {frappe.local.site} - {job_doc.name}", exc_info=True
+					f"Invalid Job on {frappe.local.site} - {job_type.name}", exc_info=True
 				)
 
 		return enqueued_jobs
@@ -223,9 +170,7 @@ def is_scheduler_disabled(verbose=True) -> bool:
 			cprint(f"{frappe.local.site}: frappe.conf.disable_scheduler is SET")
 		return True
 
-	scheduler_disabled = not frappe.utils.cint(
-		frappe.db.get_single_value("System Settings", "enable_scheduler")
-	)
+	scheduler_disabled = not frappe.get_system_settings("enable_scheduler")
 	if scheduler_disabled:
 		if verbose:
 			cprint(f"{frappe.local.site}: SystemSettings.enable_scheduler is UNSET")

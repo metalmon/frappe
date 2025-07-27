@@ -102,23 +102,19 @@ def sync_for(app_name, force=0, reset_permissions=False):
 				files.append(file)
 
 	for module_name in frappe.local.app_modules.get(app_name) or []:
-		module = frappe.get_module(app_name + "." + module_name)
-		if not module:
-			print(f"Warning: Module {app_name}.{module_name} not found or could not be imported.")
-			continue # Skip this module if it can't be loaded
-
-		folder = os.path.dirname(module.__file__)
+		folder = os.path.dirname(frappe.get_module(app_name + "." + module_name).__file__)
 		files = get_doc_files(files=files, start_path=folder)
 
 	l = len(files)
 
 	if l:
 		for i, doc_path in enumerate(files):
-			import_file_by_path(
+			imported = import_file_by_path(
 				doc_path, force=force, ignore_version=True, reset_permissions=reset_permissions
 			)
 
-			frappe.db.commit()
+			if imported:
+				frappe.db.commit(chain=True)
 
 			# show progress bar
 			update_progress_bar(f"Updating DocTypes for {app_name}", i, l)

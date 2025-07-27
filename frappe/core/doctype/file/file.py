@@ -573,9 +573,6 @@ class File(Document):
 			self.validate_file_url()
 		file_path = self.get_full_path()
 
-		# Ensure directory exists before trying to write file
-		os.makedirs(os.path.dirname(file_path), exist_ok=True)
-
 		if encodings is None:
 			encodings = FILE_ENCODING_OPTIONS
 		with open(file_path, mode="rb") as f:
@@ -634,9 +631,6 @@ class File(Document):
 			return
 
 		file_path = self.get_full_path()
-
-		# Ensure directory exists before trying to write file
-		os.makedirs(os.path.dirname(file_path), exist_ok=True)
 
 		if isinstance(self._content, str):
 			self._content = self._content.encode()

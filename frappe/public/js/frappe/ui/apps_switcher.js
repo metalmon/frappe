@@ -57,7 +57,7 @@ frappe.ui.AppsSwitcher = class AppsSwitcher {
 						alt="${__("App Logo")}"
 					>
 				</div>
-				<span class="app-item-title">${__(app.app_title)}</span>
+				<span class="app-item-title">${app.app_title}</span>
 			</a>
 		</div>`).appendTo(this.app_switcher_menu);
 	}
@@ -86,7 +86,7 @@ frappe.ui.AppsSwitcher = class AppsSwitcher {
 						alt="${__("App Logo")}"
 					>
 				</div>
-				<span class="app-item-title">${__(app.app_title)}</span>
+				<span class="app-item-title">${app.app_title}</span>
 			</a>
 		</div>`).prependTo(this.app_switcher_menu);
 	}
@@ -152,9 +152,9 @@ frappe.ui.AppsSwitcher = class AppsSwitcher {
 			.attr("src", app_data.app_logo_url);
 		this.sidebar_wrapper
 			.find(".app-switcher-dropdown .sidebar-item-label")
-			.html(__(app_data.app_title));
+			.html(app_data.app_title);
 
-		$(".navbar-brand .app-logo").attr("src", app_data.app_logo_url);
+		frappe.frappe_toolbar.set_app_logo(app_data.app_logo_url);
 
 		if (frappe.current_app === app) return;
 		frappe.current_app = app;

@@ -11,7 +11,6 @@ import "air-datepicker/dist/js/i18n/datepicker.pl.js";
 import "air-datepicker/dist/js/i18n/datepicker.pt-BR.js";
 import "air-datepicker/dist/js/i18n/datepicker.pt.js";
 import "air-datepicker/dist/js/i18n/datepicker.ro.js";
-import "air-datepicker/dist/js/i18n/datepicker.ru.js";
 import "air-datepicker/dist/js/i18n/datepicker.sk.js";
 import "air-datepicker/dist/js/i18n/datepicker.zh.js";
 
@@ -180,43 +179,166 @@ import "air-datepicker/dist/js/i18n/datepicker.zh.js";
 })(jQuery);
 
 (function ($) {
-	$.fn.datepicker.language["ru"] = {
-		days: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
-		daysShort: ["Вос", "Пон", "Вто", "Сре", "Чет", "Пят", "Суб"],
-		daysMin: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+	$.fn.datepicker.language["sv"] = {
+		days: ["Söndag", "Måndag", "Tisdag", "Onsdag", "Torsdag", "Fredag", "Lördag"],
+		daysShort: ["Sön", "Mån", "Tis", "Ons", "Tor", "Fre", "Lör"],
+		daysMin: ["Sö", "Må", "Ti", "On", "To", "Fr", "Lö"],
 		months: [
-			"Январь",
-			"Февраль",
-			"Март",
-			"Апрель",
-			"Май",
-			"Июнь",
-			"Июль",
-			"Август",
-			"Сентябрь",
-			"Октябрь",
-			"Ноябрь",
-			"Декабрь"
+			"Januari",
+			"Februari",
+			"Mars",
+			"April",
+			"Maj",
+			"Juni",
+			"Juli",
+			"Augusti",
+			"September",
+			"Oktober",
+			"November",
+			"December",
 		],
 		monthsShort: [
-			"Янв",
-			"Фев",
-			"Мар",
-			"Апр",
-			"Май",
-			"Июн",
-			"Июл",
-			"Авг",
-			"Сен",
-			"Окт",
-			"Ноя",
-			"Дек"
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"Maj",
+			"Jun",
+			"Jul",
+			"Aug",
+			"Sep",
+			"Okt",
+			"Nov",
+			"Dec",
 		],
-		today: "Сегодня",
-		clear: "Очистить",
-		dateFormat: "dd.mm.yyyy",
+		today: "Idag",
+		clear: "Återställ",
+		dateFormat: "yyyy-mm-dd",
 		timeFormat: "hh:ii",
-		firstDay: 1
+		firstDay: 1,
+	};
+})(jQuery);
+
+(function ($) {
+	$.fn.datepicker.language["bs"] = {
+		days: ["Nedjelja", "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota"],
+		daysShort: ["Ned", "Pon", "Uto", "Sri", "Čet", "Pet", "Sub"],
+		daysMin: ["Ne", "Po", "Ut", "Sr", "Če", "Pe", "Su"],
+		months: [
+			"Januar",
+			"Februar",
+			"Mart",
+			"April",
+			"Maj",
+			"Juni",
+			"Juli",
+			"August",
+			"Septembar",
+			"Oktobar",
+			"Novembar",
+			"Decembar",
+		],
+		monthsShort: [
+			"Jan",
+			"Feb",
+			"Mar",
+			"Apr",
+			"Maj",
+			"Jun",
+			"Jul",
+			"Aug",
+			"Sep",
+			"Okt",
+			"Nov",
+			"Dec",
+		],
+		today: "Danas",
+		clear: "Resetiraj",
+		dateFormat: "dd/mm/yyyy",
+		timeFormat: "hh:ii",
+		firstDay: 1,
+	};
+})(jQuery);
+
+(function ($) {
+	$.fn.datepicker.language["hr"] = {
+		days: ["Nedjelja", "Ponedjeljak", "Utorak", "Srijeda", "Četvrtak", "Petak", "Subota"],
+		daysShort: ["Ned", "Pon", "Uto", "Sri", "Čet", "Pet", "Sub"],
+		daysMin: ["Ne", "Po", "Ut", "Sr", "Če", "Pe", "Su"],
+		months: [
+			"Sječanj",
+			"Veljača",
+			"Ožujak",
+			"Travanj",
+			"Svibanj",
+			"Lipanj",
+			"Srpanj",
+			"Kolovoz",
+			"Rujan",
+			"Listopad",
+			"Studeni",
+			"Prosinac",
+		],
+		monthsShort: [
+			"Sje",
+			"Velj",
+			"Ožu",
+			"Tra",
+			"Svi",
+			"Lip",
+			"Srp",
+			"Kol",
+			"Ruj",
+			"Lis",
+			"Stu",
+			"Pro",
+		],
+		today: "Danas",
+		clear: "Resetiraj",
+		dateFormat: "dd/mm/yyyy",
+		timeFormat: "hh:ii",
+		firstDay: 1,
+	};
+})(jQuery);
+
+(function ($) {
+	$.fn.datepicker.language["th"] = {
+		days: ["อาทิตย์", "จันทร์", "อังคาร", "พุธ", "พฤหัสบดี", "ศุกร์", "เสาร์"],
+		daysShort: ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."],
+		daysMin: ["อา.", "จ.", "อ.", "พ.", "พฤ.", "ศ.", "ส."],
+		months: [
+			"มกราคม",
+			"กุมภาพันธ์",
+			"มีนาคม",
+			"เมษายน",
+			"พฤษภาคม",
+			"มิถุนายน",
+			"กรกฎาคม",
+			"สิงหาคม",
+			"กันยายน",
+			"ตุลาคม",
+			"พฤศจิกายน",
+			"ธันวาคม",
+		],
+		monthsShort: [
+			"ม.ค.",
+			"ก.พ.",
+			"มี.ค.",
+			"เม.ย.",
+			"พ.ค.",
+			"มิ.ย.",
+			"ก.ค.",
+			"ส.ค.",
+			"ก.ย.",
+			"ต.ค.",
+			"พ.ย.",
+			"ธ.ค.",
+		],
+		today: "ในวันนี้",
+		clear: "เคลียร์",
+		dateFormat: "dd/mm/yyyy",
+		timeFormat: "hh:ii aa",
+		firstDay: 0,
 	};
 })(jQuery);
 
@@ -272,8 +394,8 @@ import "air-datepicker/dist/js/i18n/datepicker.zh.js";
 			"Mart",
 			"April",
 			"Maj",
-			"Juni",
-			"Juli",
+			"Jun",
+			"Jul",
 			"Avgust",
 			"Septembar",
 			"Oktobar",
@@ -295,7 +417,7 @@ import "air-datepicker/dist/js/i18n/datepicker.zh.js";
 			"Dec",
 		],
 		today: "Danas",
-		clear: "Resetiraj",
+		clear: "Resetuj",
 		dateFormat: "dd/mm/yyyy",
 		timeFormat: "hh:ii",
 		firstDay: 1,
