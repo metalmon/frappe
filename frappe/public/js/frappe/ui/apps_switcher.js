@@ -57,7 +57,7 @@ frappe.ui.AppsSwitcher = class AppsSwitcher {
 						alt="${__("App Logo")}"
 					>
 				</div>
-				<span class="app-item-title">${app.app_title}</span>
+				<span class="app-item-title">${__(app.app_title)}</span>
 			</a>
 		</div>`).appendTo(this.app_switcher_menu);
 	}
@@ -86,7 +86,7 @@ frappe.ui.AppsSwitcher = class AppsSwitcher {
 						alt="${__("App Logo")}"
 					>
 				</div>
-				<span class="app-item-title">${app.app_title}</span>
+				<span class="app-item-title">${__(app.app_title)}</span>
 			</a>
 		</div>`).prependTo(this.app_switcher_menu);
 	}
