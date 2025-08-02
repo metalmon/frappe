@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-08-02 07:43+0000\n"
-"PO-Revision-Date: 2025-08-02 11:48+0400\n"
+"POT-Creation-Date: 2025-08-02 09:59+0000\n"
+"PO-Revision-Date: 2025-08-02 13:59+0400\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -880,9 +880,7 @@ msgstr "Секрет API"
 msgid "ASC"
 msgstr "По возрастанию"
 
-#. Label of a standard help item
-#. Type: Action
-#: frappe/hooks.py
+#: frappe/hooks.py:524
 msgid "About"
 msgstr "О нас"
 
@@ -2463,9 +2461,7 @@ msgstr "Применяется: {0}"
 msgid "Approval Required"
 msgstr "Требуется одобрение"
 
-#. Label of a standard navbar item
-#. Type: Route
-#: frappe/hooks.py frappe/templates/includes/navbar/navbar_login.html:18
+#: frappe/hooks.py:492 frappe/templates/includes/navbar/navbar_login.html:18
 #: frappe/website/js/website.js:619 frappe/www/me.html:80
 msgid "Apps"
 msgstr "Приложения"
@@ -11195,6 +11191,10 @@ msgstr "Фракция"
 msgid "Fraction Units"
 msgstr "Дробные единицы"
 
+#: frappe/hooks.py:6
+msgid "Framework"
+msgstr "Фреймворк"
+
 #. Option for the 'Social Login Provider' (Select) field in DocType 'Social
 #. Login Key'
 #: frappe/integrations/doctype/social_login_key/social_login_key.json
@@ -11233,11 +11233,13 @@ msgstr "Ошибка Frappe Mail OAuth"
 msgid "Frappe Mail Site"
 msgstr "Почтовый сайт Frappe"
 
-#. Label of a standard help item
-#. Type: Route
-#: frappe/hooks.py
+#: frappe/hooks.py:542
 msgid "Frappe Support"
 msgstr "Поддержка"
+
+#: frappe/hooks.py:7
+msgid "Frappe Technologies"
+msgstr "Frappe Technologies"
 
 #: frappe/website/doctype/web_page/web_page.js:92
 msgid "Frappe page builder using components"
@@ -11351,6 +11353,10 @@ msgstr "На ширину страницы"
 #: frappe/website/doctype/web_page/web_page.json
 msgid "Full Width"
 msgstr "На всю ширину"
+
+#: frappe/hooks.py:8
+msgid "Full stack web framework with Python, Javascript, MariaDB, Redis, Node"
+msgstr "Веб-фреймворк полного стека с Python, Javascript, MariaDB, Redis, Node"
 
 #. Label of the function (Select) field in DocType 'Number Card'
 #. Label of the report_function (Select) field in DocType 'Number Card'
@@ -14364,9 +14370,7 @@ msgstr "Отслеживает все сообщения"
 msgid "Key"
 msgstr "Ключ"
 
-#. Label of a standard help item
-#. Type: Action
-#: frappe/hooks.py frappe/public/js/frappe/ui/keyboard.js:130
+#: frappe/hooks.py:530 frappe/public/js/frappe/ui/keyboard.js:130
 msgid "Keyboard Shortcuts"
 msgstr "Горячие клавиши"
 
@@ -15422,9 +15426,7 @@ msgstr "Настройки журнала"
 msgid "Log in to access this page."
 msgstr "Войдите, чтобы открыть эту страницу."
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
+#: frappe/hooks.py:515
 #: frappe/website/doctype/website_settings/website_settings.py:182
 msgid "Log out"
 msgstr "Выйти из системы"
@@ -21644,10 +21646,8 @@ msgstr "Перепривязка коммуникации"
 msgid "Relinked"
 msgstr "Перепривязано"
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/custom/doctype/customize_form/customize_form.js:120 frappe/hooks.py
-#: frappe/public/js/frappe/form/toolbar.js:447
+#: frappe/custom/doctype/customize_form/customize_form.js:120
+#: frappe/hooks.py:480 frappe/public/js/frappe/form/toolbar.js:447
 msgid "Reload"
 msgstr "Перезагрузить"
 
@@ -24164,12 +24164,10 @@ msgstr "Сессия - По-умолчанию"
 msgid "Session Default Settings"
 msgstr "Сессия - Настройки по-умолчанию"
 
-#. Label of a standard navbar item
-#. Type: Action
 #. Label of the session_defaults (Table) field in DocType 'Session Default
 #. Settings'
 #: frappe/core/doctype/session_default_settings/session_default_settings.json
-#: frappe/hooks.py frappe/public/js/frappe/ui/toolbar/toolbar.js:363
+#: frappe/hooks.py:474 frappe/public/js/frappe/ui/toolbar/toolbar.js:363
 msgid "Session Defaults"
 msgstr "Установки сессии"
 
@@ -26139,9 +26137,7 @@ msgstr "Системная консоль"
 msgid "System Generated Fields can not be renamed"
 msgstr "Сгенерированные системой поля не могут быть переименованы"
 
-#. Label of a standard help item
-#. Type: Route
-#: frappe/hooks.py
+#: frappe/hooks.py:536
 msgid "System Health"
 msgstr "Здоровье системы"
 
@@ -27745,9 +27741,7 @@ msgstr "Сегодня"
 msgid "Toggle Chart"
 msgstr "Переключить диаграмму"
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
+#: frappe/hooks.py:498
 msgid "Toggle Full Width"
 msgstr "Переключить ширину"
 
@@ -27766,9 +27760,7 @@ msgctxt "Button in list view menu"
 msgid "Toggle Sidebar"
 msgstr "Переключить боковую панель"
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
+#: frappe/hooks.py:504
 msgid "Toggle Theme"
 msgstr "Переключить тему"
 
@@ -29148,9 +29140,7 @@ msgstr "Профиль роли пользователя"
 msgid "User Select Document Type"
 msgstr "Выбор пользователем типа документа"
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
+#: frappe/hooks.py:462
 msgid "User Settings"
 msgstr "Настройки пользователя"
 
@@ -29608,9 +29598,7 @@ msgstr "Настройки просмотра"
 msgid "View Switcher"
 msgstr "Переключатель просмотра"
 
-#. Label of a standard navbar item
-#. Type: Action
-#: frappe/hooks.py
+#: frappe/hooks.py:486
 #: frappe/website/doctype/website_settings/website_settings.js:16
 msgid "View Website"
 msgstr "Посмотреть сайт"
@@ -30394,11 +30382,9 @@ msgstr "Числовые блоки рабочего пространства"
 msgid "Workspace Quick List"
 msgstr "Быстрые списки рабочего пространства"
 
-#. Label of a standard navbar item
-#. Type: Action
 #. Name of a DocType
 #: frappe/desk/doctype/workspace_settings/workspace_settings.json
-#: frappe/hooks.py
+#: frappe/hooks.py:468
 msgid "Workspace Settings"
 msgstr "Настройки рабочей области"
 
