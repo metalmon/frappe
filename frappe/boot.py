@@ -209,11 +209,11 @@ def load_desktop_data(bootinfo):
 		bootinfo.app_data.append(
 			dict(
 				app_name=app_info.get("name") or app_name,
-				app_title=app_info.get("title")
+				app_title=frappe._(app_info.get("title"))
 				or (
 					(
 						frappe.get_hooks("app_title", app_name=app_name)
-						and frappe.get_hooks("app_title", app_name=app_name)[0]
+						and frappe._(frappe.get_hooks("app_title", app_name=app_name)[0])
 					)
 					or ""
 				)

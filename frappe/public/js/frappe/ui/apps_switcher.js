@@ -152,7 +152,7 @@ frappe.ui.AppsSwitcher = class AppsSwitcher {
 			.attr("src", app_data.app_logo_url);
 		this.sidebar_wrapper
 			.find(".app-switcher-dropdown .sidebar-item-label")
-			.html(app_data.app_title);
+			.html(__(app_data.app_title));
 
 		frappe.frappe_toolbar.set_app_logo(app_data.app_logo_url);
 
