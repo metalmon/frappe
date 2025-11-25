@@ -210,6 +210,8 @@ def get_translation_dict_from_file(path, lang, app, throw=False) -> dict[str, st
 		csv_content = read_csv_file(path)
 
 		for item in csv_content:
+			item[0] = item[0].replace("\\n", "\n")
+			item[1] = item[1].replace("\\n", "\n")
 			if len(item) == 3 and item[2]:
 				key = item[0] + ":" + item[2]
 				translation_map[key] = strip(item[1])
@@ -536,18 +538,7 @@ def get_server_messages(app):
 			if f.endswith(file_extensions):
 				messages.extend(get_messages_from_file(os.path.join(basepath, f)))
 
-	# Add messages from hooks.py *after* the main loop
-	messages.extend(get_messages_from_hooks_file(app))
-
 	return messages
-
-
-def get_messages_from_hooks_file(app):
-	"""Extracts messages from the app's hooks.py file."""
-	hooks_file = frappe.get_app_path(app, "hooks.py")
-	if os.path.exists(hooks_file):
-		return get_messages_from_file(hooks_file)
-	return []
 
 
 def get_messages_from_include_files(app_name=None):
@@ -706,9 +697,9 @@ def write_csv_file(path, app_messages, lang_dict):
 			if len(app_message) == 2:
 				path, message = app_message
 			elif len(app_message) == 3:
-				path, message, lineno = app_message
+				path, message, _lineno = app_message
 			elif len(app_message) == 4:
-				path, message, context, lineno = app_message
+				path, message, context, _lineno = app_message
 			else:
 				continue
 

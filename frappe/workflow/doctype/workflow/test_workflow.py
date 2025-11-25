@@ -32,6 +32,7 @@ class TestWorkflow(IntegrationTestCase):
 	def tearDown(self):
 		frappe.set_user("Administrator")
 		self.patcher.stop()
+
 		frappe.delete_doc("Workflow", "Test ToDo")
 
 	def test_default_condition(self):

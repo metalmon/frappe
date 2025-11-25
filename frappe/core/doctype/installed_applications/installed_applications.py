@@ -34,6 +34,13 @@ class InstalledApplications(Document):
 		for app in frappe.utils.get_installed_apps_info():
 			has_setup_wizard = 1
 			setup_complete = app_wise_setup_details.get(app.get("app_name")) or 0
+			if app.get("app_name") in ["frappe", "erpnext"] and not setup_complete:
+				if app.get("app_name") == "frappe" and has_non_admin_user():
+					setup_complete = 1
+
+				if app.get("app_name") == "erpnext" and has_company():
+					setup_complete = 1
+
 			if app.get("app_name") not in ["frappe", "erpnext"]:
 				setup_complete = 0
 				has_setup_wizard = 0
@@ -49,7 +56,15 @@ class InstalledApplications(Document):
 				},
 			)
 
-		self.save()
+		try:
+			savepoint = "update_installed_apps"
+			frappe.db.savepoint(savepoint)
+			self.save()
+		except frappe.db.DataError:
+			frappe.db.rollback(save_point=savepoint)
+			# Tolerate primary key change on versions during migrate
+			self.save(ignore_version=True)
+
 		frappe.clear_cache(doctype="System Settings")
 		frappe.db.set_single_value("System Settings", "setup_complete", frappe.is_setup_complete())
 
@@ -71,6 +86,22 @@ class InstalledApplications(Document):
 		frappe.reload_doc("core", "doctype", "installed_application")
 		frappe.reload_doc("core", "doctype", "installed_applications")
 		frappe.reload_doc("integrations", "doctype", "webhook")
+
+
+def has_non_admin_user():
+	if frappe.db.has_table("User") and frappe.db.get_value(
+		"User", {"user_type": "System User", "name": ["not in", ["Administrator", "Guest"]]}
+	):
+		return True
+
+	return False
+
+
+def has_company():
+	if frappe.db.has_table("Company") and frappe.get_all("Company", limit=1):
+		return True
+
+	return False
 
 
 @frappe.whitelist()
