@@ -84,6 +84,8 @@ dependencies = [
     "markdownify~=1.1.0",
 
     # integration dependencies
+    "boto3~=1.35.0",
+    "dropbox~=11.36.0",
     "google-api-python-client~=2.172.0",
     "google-auth-oauthlib~=1.2.2",
     "google-auth~=2.40.3",
