@@ -1,4 +1,4 @@
-import json
+import orjson
 
 
 def extract(fileobj, *args, **kwargs):
@@ -7,7 +7,7 @@ def extract(fileobj, *args, **kwargs):
 	:param fileobj: the file-like object the messages should be extracted from
 	:rtype: `iterator`
 	"""
-	data = json.load(fileobj)
+	data = orjson.loads(fileobj.read())
 
 	if isinstance(data, list):
 		return
@@ -79,7 +79,12 @@ def extract(fileobj, *args, **kwargs):
 		if quick_list.get("label")
 	)
 
-	content = json.loads(data.get("content", "[]"))
+	content_raw = data.get("content")
+	try:
+		content = orjson.loads(content_raw) if content_raw else []
+	except orjson.JSONDecodeError:
+		content = []
+
 	for item in content:
 		item_type = item.get("type")
 		if item_type in ("header", "paragraph"):

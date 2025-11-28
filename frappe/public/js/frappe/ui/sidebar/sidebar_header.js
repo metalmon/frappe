@@ -127,7 +127,7 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 						>`
 					}
 				</div>
-				<span class="menu-item-title">${item.label}</span>
+				<span class="menu-item-title">${__(item.label)}</span>
 			</a>
 		</div>`).appendTo(this.dropdown_menu);
 	}

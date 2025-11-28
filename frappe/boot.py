@@ -9,6 +9,7 @@ import os
 import frappe
 import frappe.defaults
 import frappe.desk.desk_page
+from frappe import _
 from frappe.core.doctype.installed_applications.installed_applications import (
 	get_setup_wizard_completed_apps,
 )

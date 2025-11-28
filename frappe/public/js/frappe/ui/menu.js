@@ -121,42 +121,54 @@ frappe.ui.create_menu = function attachContextMenuToElement(
 	open_on_left
 ) {
 	let contextMenu = new frappe.ui.menu(menuItems, open_on_left);
+	const menu_key = $(element).data("menu");
 
-	frappe.menu_map[$(element).data("menu")] = contextMenu;
+	if (!menu_key) {
+		console.warn("Context menu element is missing data-menu attribute.", element);
+		return;
+	}
+
+	frappe.menu_map[menu_key] = contextMenu;
+
+	const get_menu = () => frappe.menu_map[menu_key];
+
 	if (right_click) {
 		$(element).on("contextmenu", function (event) {
 			event.preventDefault();
 			event.stopPropagation();
-			if (
-				frappe.menu_map[$(element).data("menu")] &&
-				frappe.menu_map[$(element).data("menu")].visible
-			) {
-				frappe.menu_map[$(element).data("menu")].hide();
+			const menu = get_menu();
+			if (!menu) return;
+			if (menu.visible) {
+				menu.hide();
 			} else {
-				frappe.menu_map[$(element).data("menu")].show(this);
+				menu.show(this);
 			}
 		});
 	} else {
 		$(element).on("click", function (event) {
 			event.preventDefault();
 			event.stopPropagation();
-			if (frappe.menu_map[$(element).data("menu")].visible) {
-				frappe.menu_map[$(element).data("menu")].hide();
+			const menu = get_menu();
+			if (!menu) return;
+			if (menu.visible) {
+				menu.hide();
 			} else {
-				frappe.menu_map[$(element).data("menu")].show(this);
+				menu.show(this);
 			}
 		});
 	}
 
 	$(document).on("click", function () {
-		if (frappe.menu_map[$(element).data("menu")].visible) {
-			frappe.menu_map[$(element).data("menu")].hide();
+		const menu = get_menu();
+		if (menu?.visible) {
+			menu.hide();
 		}
 	});
 
 	$(document).on("keydown", function (e) {
-		if (e.key === "Escape" && frappe.menu_map[$(element).data("menu")].visible) {
-			frappe.menu_map[$(element).data("menu")].hide();
+		const menu = get_menu();
+		if (e.key === "Escape" && menu?.visible) {
+			menu.hide();
 		}
 	});
 };

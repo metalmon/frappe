@@ -2,7 +2,7 @@ import Block from "./block.js";
 export default class NumberCard extends Block {
 	static get toolbox() {
 		return {
-			title: "Number Card",
+			title: __("Number Card"),
 			icon: frappe.utils.icon("number-card", "sm"),
 		};
 	}

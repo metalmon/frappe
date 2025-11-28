@@ -34,6 +34,28 @@ function get_workspaces_from_app_name(app_name) {
 	if (app.length > 0) return app[0].workspaces;
 }
 
+function get_workspaces_plural_text(count) {
+	// Pluralization rule: n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2
+	// 0: 1, 21, 31... (singular)
+	// 1: 2-4, 22-24... (few)
+	// 2: 5-20, 25-30... (many)
+	let plural_form = 2; // default
+	if (count % 10 == 1 && count % 100 != 11) {
+		plural_form = 0;
+	} else if (count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 10 || count % 100 >= 20)) {
+		plural_form = 1;
+	}
+	
+	// Use context for plural forms
+	if (plural_form === 0) {
+		return __("Workspace", null, "plural_single");
+	}
+	if (plural_form === 1) {
+		return __("Workspaces", null, "plural_few");
+	}
+	return __("Workspaces", null, "plural_many");
+}
+
 function get_route(desktop_icon) {
 	let route;
 	if (!desktop_icon) return;
@@ -82,7 +104,7 @@ function save_desktop() {
 		`${frappe.session.user}:desktop`,
 		JSON.stringify(frappe.boot.desktop_icons)
 	);
-	frappe.toast("Desktop Saved");
+	frappe.toast(__("Desktop Saved"));
 	frappe.pages["desktop"].desktop_page.update();
 }
 
@@ -166,17 +188,17 @@ class DesktopPage {
 		let menu_items = [
 			{
 				icon: "edit",
-				label: "Edit Profile",
+				label: __("Edit Profile"),
 				url: `/update-profile/${frappe.session.user}`,
 			},
 			{
 				icon: "lock",
-				label: "Reset Password",
+				label: __("Reset Password"),
 				url: "/update-password",
 			},
 			{
 				icon: "rotate-ccw",
-				label: "Reset to Default",
+				label: __("Reset to Default"),
 				onClick: function () {
 					reset_to_default();
 					window.location.reload();
@@ -184,7 +206,7 @@ class DesktopPage {
 			},
 			{
 				icon: "log-out",
-				label: "Logout",
+				label: __("Logout"),
 				onClick: function () {
 					frappe.app.logout();
 				},
@@ -447,7 +469,8 @@ class DesktopIconGrid {
 				pull: true,
 			},
 			setData: function (/** DataTransfer */ dataTransfer, /** HTMLElement*/ dragEl) {
-				let title = $(dragEl).find(".icon-title").text();
+				let titleElement = $(dragEl).find(".icon-title");
+				let title = titleElement.attr("data-original-label") || titleElement.text();
 				let icon = me.icons.find((d) => {
 					return d.icon_title === title;
 				});
@@ -465,7 +488,8 @@ class DesktopIconGrid {
 					} else {
 						let from = $(evt.from.parentElement);
 						let to = $(evt.to.parentElement);
-						let title = $(evt.item).find(".icon-title").text();
+						let titleElement = $(evt.item).find(".icon-title");
+						let title = titleElement.attr("data-original-label") || titleElement.text();
 						let selected_icon = get_desktop_icon_by_label(title);
 						if ($(to.get(0).parentElement)) {
 							me.reorder_icons(me.sortable.toArray());
@@ -477,7 +501,7 @@ class DesktopIconGrid {
 						}
 					}
 				} else {
-					frappe.toast("Nothing changed");
+					frappe.toast(__("Nothing changed"));
 				}
 				save_desktop();
 			},
@@ -553,8 +577,10 @@ class DesktopIcon {
 				modal.show();
 			});
 			if (this.icon_type == "App") {
+				let count = this.child_icons.length;
+				let plural_text = get_workspaces_plural_text(count);
 				$($(this.icon_caption_area).children()[1]).html(
-					`${this.child_icons.length} Workspaces`
+					`${count} ${plural_text}`
 				);
 			}
 		} else {
@@ -566,7 +592,7 @@ class DesktopIcon {
 				if (me.icon_data.sidebar == "My Workspaces") {
 					let sidebar_name = me.icon_data.sidebar.toLowerCase();
 					if (frappe.boot.workspace_sidebar_item[sidebar_name].items.length == 0) {
-						frappe.toast("No Private Workspaces for user");
+						frappe.toast(__("No Private Workspaces for user"));
 					} else {
 						let workspace_name =
 							frappe.boot.workspace_sidebar_item[sidebar_name].items[0]["link_to"];
@@ -648,15 +674,16 @@ class DesktopModal {
 		});
 	}
 	make_modal(icon_title) {
+		const translated_title = __(icon_title);
 		if ($(".desktop-modal").length == 0) {
-			this.modal = new frappe.get_modal(icon_title, "");
+			this.modal = new frappe.get_modal(translated_title, "");
 			this.modal.find(".modal-header").addClass("desktop-modal-heading");
 			this.modal.addClass("desktop-modal");
 			this.modal.find(".modal-dialog").attr("id", "desktop-modal");
 			this.modal.find(".modal-body").addClass("desktop-modal-body");
 			this.$child_icons_wrapper = this.modal.find(".desktop-modal-body");
 		} else {
-			this.modal.find(".modal-title").text(icon_title);
+			this.modal.find(".modal-title").text(translated_title);
 			$(this.modal.find(".modal-body")).empty();
 			if (frappe.desktop_utils.modal_stack.length == 1) {
 				this.title_section.find(".icon").remove();

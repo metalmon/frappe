@@ -62,7 +62,7 @@ frappe.ui.Sidebar = class Sidebar {
 			this.header_subtitle = icon.parent_icon;
 		}
 
-		if (this.workspace_title == "My Workspaces") {
+		if (this.workspace_title == __("My Workspaces")) {
 			this.header_subtitle = frappe.session.user;
 		}
 	}
@@ -98,7 +98,7 @@ frappe.ui.Sidebar = class Sidebar {
 	}
 	check_for_private_workspace(workspace_title) {
 		if (workspace_title == "private" || workspace_title == "Personal") {
-			this.workspace_title = "My Workspaces";
+			this.workspace_title = __("My Workspaces");
 		}
 	}
 	setup_events() {
@@ -323,7 +323,7 @@ frappe.ui.Sidebar = class Sidebar {
 			if (route[0] == "Workspaces") {
 				let workspace;
 				if (!route[1]) {
-					workspace = "My Workspaces";
+					workspace = __("My Workspaces");
 				} else {
 					workspace = route[1];
 				}
@@ -470,7 +470,7 @@ frappe.ui.Sidebar = class Sidebar {
 		});
 	}
 	make_dialog(opts) {
-		let title = "New Sidebar Item";
+		let title = __("New Sidebar Item");
 
 		const me = this;
 		this.dialog_opts = opts;
@@ -481,32 +481,37 @@ frappe.ui.Sidebar = class Sidebar {
 				fieldname: "label",
 				fieldtype: "Data",
 				in_list_view: 1,
-				label: "Label",
+				label: __("Label"),
 				onchange: function (opts) {
 					let label = this.get_value();
 					switch (label) {
+						case __("Home"):
 						case "Home":
 							d.set_value("icon", "home");
 							d.set_value("link_type", "Workspace");
 							d.set_value("link_to", me.workspace_title);
 							break;
 
+						case __("Reports"):
 						case "Reports":
 							d.set_value("type", "Section Break");
 							d.set_value("link_to", null);
 							break;
 
+						case __("Dashboard"):
 						case "Dashboard":
 							d.set_value("link_type", "Dashboard");
 							d.set_value("link_to", me.workspace_title);
 							d.set_value("icon", "layout-dashboard");
 							break;
 
+						case __("Learn"):
 						case "Learn":
 							d.set_value("icon", "graduation-cap");
 							d.set_value("link_type", "URL");
 							break;
 
+						case __("Settings"):
 						case "Settings":
 							d.set_value("icon", "settings");
 							break;
@@ -519,7 +524,8 @@ frappe.ui.Sidebar = class Sidebar {
 					if (
 						me.dialog_opts &&
 						me.dialog_opts.parent_item &&
-						me.dialog_opts.parent_item.label == "Reports"
+						(me.dialog_opts.parent_item.label == __("Reports") ||
+							me.dialog_opts.parent_item.label == "Reports")
 					) {
 						d.set_value("icon", "table");
 						d.set_value("link_type", "Report");
@@ -531,8 +537,8 @@ frappe.ui.Sidebar = class Sidebar {
 				fieldname: "type",
 				fieldtype: "Select",
 				in_list_view: 1,
-				label: "Type",
-				options: "Link\nSection Break\nSpacer\nSidebar Item Group",
+				label: __("Type"),
+				options: __("Link") + "\n" + __("Section Break") + "\n" + __("Spacer") + "\n" + __("Sidebar Item Group"),
 				onchange: function () {
 					let type = this.get_value();
 					if (type == "Section Break") {
@@ -546,8 +552,8 @@ frappe.ui.Sidebar = class Sidebar {
 				fieldname: "link_type",
 				fieldtype: "Select",
 				in_list_view: 1,
-				label: "Link Type",
-				options: "DocType\nPage\nReport\nWorkspace\nDashboard\nURL",
+				label: __("Link Type"),
+				options: __("DocType") + "\n" + __("Page") + "\n" + __("Report") + "\n" + __("Workspace") + "\n" + __("Dashboard") + "\n" + __("URL"),
 				onchange: function () {
 					d.set_value("link_to", null);
 				},
@@ -557,7 +563,7 @@ frappe.ui.Sidebar = class Sidebar {
 				fieldname: "link_to",
 				fieldtype: "Dynamic Link",
 				in_list_view: 1,
-				label: "Link To",
+				label: __("Link To"),
 				options: "link_type",
 				onchange: function () {
 					if (d.get_value("link_type") == "DocType") {
@@ -572,7 +578,7 @@ frappe.ui.Sidebar = class Sidebar {
 				depends_on: 'eval: doc.link_type == "URL"',
 				fieldname: "url",
 				fieldtype: "Data",
-				label: "URL",
+				label: __("URL"),
 			},
 			{
 				depends_on:
@@ -581,7 +587,7 @@ frappe.ui.Sidebar = class Sidebar {
 				fieldtype: "Icon",
 				options: "Emojis",
 				in_list_view: 1,
-				label: "Icon",
+				label: __("Icon"),
 			},
 			{
 				fieldtype: "HTML",
@@ -591,27 +597,27 @@ frappe.ui.Sidebar = class Sidebar {
 				depends_on: 'eval: doc.type == "Section Break"',
 				fieldname: "display_section",
 				fieldtype: "Section Break",
-				label: "Options",
+				label: __("Options"),
 			},
 			{
 				default: "0",
 				depends_on: 'eval: doc.type == "Section Break"',
 				fieldname: "indent",
 				fieldtype: "Check",
-				label: "Indent",
+				label: __("Indent"),
 			},
 			{
 				depends_on: "eval: doc.indent == 1",
 				fieldname: "show_arrow",
 				fieldtype: "Check",
-				label: "Show Arrow",
+				label: __("Show Arrow"),
 			},
 			{
 				default: "1",
 				depends_on: 'eval: doc.type == "Section Break"',
 				fieldname: "collapsible",
 				fieldtype: "Check",
-				label: "Collapsible",
+				label: __("Collapsible"),
 			},
 			{
 				fieldname: "column_break_krzu",
@@ -622,12 +628,12 @@ frappe.ui.Sidebar = class Sidebar {
 				depends_on: 'eval: doc.type == "Section Break"',
 				fieldname: "keep_closed",
 				fieldtype: "Check",
-				label: "Keep Closed",
+				label: __("Keep Closed"),
 			},
 			{
 				fieldname: "details_section",
 				fieldtype: "Section Break",
-				label: "Details",
+				label: __("Details"),
 			},
 
 			{
@@ -636,7 +642,7 @@ frappe.ui.Sidebar = class Sidebar {
 			{
 				fieldname: "display_depends_on",
 				fieldtype: "Code",
-				label: "Display Depends On (JS)",
+				label: __("Display Depends On (JS)"),
 				options: "JS",
 				max_height: "10px",
 			},
@@ -647,7 +653,7 @@ frappe.ui.Sidebar = class Sidebar {
 				fieldname: "route_options",
 				fieldtype: "Code",
 				display_depends_on: "eval: doc.link_type == 'Page'",
-				label: "Route Options",
+				label: __("Route Options"),
 				options: "JSON",
 				max_height: "50px",
 			},
@@ -662,13 +668,13 @@ frappe.ui.Sidebar = class Sidebar {
 					f.default = opts.item[f.fieldname];
 				}
 			});
-			title = "Edit Sidebar Item";
+			title = __("Edit Sidebar Item");
 		}
 		let d;
 		this.dialog = d = new frappe.ui.Dialog({
 			title: title,
 			fields: dialog_fields,
-			primary_action_label: "Save",
+			primary_action_label: __("Save"),
 			size: "small",
 			primary_action(values) {
 				if (me.filter_group) {

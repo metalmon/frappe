@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-11-25 17:29+0000\n"
-"PO-Revision-Date: 2025-11-26 21:09+0300\n"
+"POT-Creation-Date: 2025-11-28 10:36+0000\n"
+"PO-Revision-Date: 2025-11-28 13:51+0300\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -901,7 +901,9 @@ msgid "API Method"
 msgstr "Метод API"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/api_request_log/api_request_log.json
+#: frappe/workspace_sidebar/system.json
 msgid "API Request Log"
 msgstr "Журнал запросов API"
 
@@ -987,8 +989,9 @@ msgstr "Секрет ключа доступа"
 
 #. Name of a DocType
 #. Label of a Link in the Users Workspace
+#. Workspace Sidebar Link label under Users
 #: frappe/core/doctype/access_log/access_log.json
-#: frappe/core/workspace/users/users.json
+#: frappe/core/workspace/users/users.json frappe/workspace_sidebar/users.json
 msgid "Access Log"
 msgstr "Журнал доступа"
 
@@ -1174,9 +1177,10 @@ msgstr "Активности"
 #. Name of a DocType
 #. Label of a Link in the Build Workspace
 #. Label of a Link in the Users Workspace
+#. Workspace Sidebar Link label under Users
 #: frappe/core/doctype/activity_log/activity_log.json
 #: frappe/core/workspace/build/build.json
-#: frappe/core/workspace/users/users.json
+#: frappe/core/workspace/users/users.json frappe/workspace_sidebar/users.json
 msgid "Activity Log"
 msgstr "Журнал активности"
 
@@ -1283,9 +1287,17 @@ msgstr "Группировка"
 msgid "Add Indexes"
 msgstr "Добавить индексы"
 
+#: frappe/public/js/frappe/ui/sidebar/sidebar_item.js:89
+msgid "Add Item Below"
+msgstr "Добавить элемент ниже"
+
 #: frappe/public/js/frappe/form/grid.js:66
 msgid "Add Multiple"
 msgstr "Добавить несколько"
+
+#: frappe/public/js/frappe/ui/sidebar/sidebar_item.js:271
+msgid "Add Nested Items"
+msgstr "Добавить вложенные элементы"
 
 #: frappe/core/page/permission_manager/permission_manager.js:450
 msgid "Add New Permission Rule"
@@ -1307,6 +1319,10 @@ msgstr "Добавить роли"
 #: frappe/public/js/frappe/form/grid.js:66
 msgid "Add Row"
 msgstr "Добавить строку"
+
+#: frappe/public/js/frappe/ui/sidebar/sidebar.html:14
+msgid "Add Sidebar Item"
+msgstr "Добавить пункт"
 
 #. Label of the add_signature (Check) field in DocType 'Email Account'
 #: frappe/email/doctype/email_account/email_account.json
@@ -2787,11 +2803,12 @@ msgstr "Дни назначений"
 #. Label of a Link in the Tools Workspace
 #. Label of a shortcut in the Tools Workspace
 #. Label of the assignment_rule (Link) field in DocType 'ToDo'
+#. Workspace Sidebar Link label under Automation
 #: frappe/automation/doctype/assignment_rule/assignment_rule.json
 #: frappe/automation/workspace/tools/tools.json
-#: frappe/desk/doctype/todo/todo.json
+#: frappe/desk/doctype/todo/todo.json frappe/workspace_sidebar/automation.json
 msgid "Assignment Rule"
-msgstr "Правило назначения"
+msgstr "Правила назначения"
 
 #. Name of a DocType
 #: frappe/automation/doctype/assignment_rule_day/assignment_rule_day.json
@@ -2998,6 +3015,11 @@ msgstr "Аудит системных хуков"
 msgid "Audit Trail"
 msgstr "Аудиторский журнал"
 
+#. Workspace Sidebar Section Break label under Users
+#: frappe/workspace_sidebar/users.json
+msgid "Audits"
+msgstr "Аудиты"
+
 #. Label of the auth_url_data (Code) field in DocType 'Social Login Key'
 #: frappe/integrations/doctype/social_login_key/social_login_key.json
 msgid "Auth URL Data"
@@ -3030,6 +3052,11 @@ msgstr "Доступные приложения для аутентификац�
 #: frappe/email/doctype/email_account/email_account.py:339
 msgid "Authentication failed while receiving emails from Email Account: {0}."
 msgstr "Не удалось пройти аутентификацию при получении писем с учетной записи электронной почты: {0}."
+
+#. Workspace Sidebar Section Break label under Integrations
+#: frappe/workspace_sidebar/integrations.json
+msgid "Authetication"
+msgstr "Аутентификация"
 
 #. Label of the author (Data) field in DocType 'Help Article'
 #: frappe/website/doctype/help_article/help_article.json
@@ -3120,8 +3147,10 @@ msgstr "Авто"
 
 #. Label of a Link in the Tools Workspace
 #. Name of a DocType
+#. Workspace Sidebar Link label under Automation
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/email/doctype/auto_email_report/auto_email_report.json
+#: frappe/workspace_sidebar/automation.json
 msgid "Auto Email Report"
 msgstr "Автоматический отчет по электронной почте"
 
@@ -3134,9 +3163,11 @@ msgstr "Автоматическое имя"
 
 #. Name of a DocType
 #. Label of a Link in the Tools Workspace
+#. Workspace Sidebar Link label under Automation
 #: frappe/automation/doctype/auto_repeat/auto_repeat.json
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/public/js/frappe/utils/common.js:451
+#: frappe/workspace_sidebar/automation.json
 msgid "Auto Repeat"
 msgstr "Автоповтор"
 
@@ -3272,7 +3303,10 @@ msgid "Automatically delete account within (hours)"
 msgstr "Автоматическое удаление аккаунта в течение (часов)"
 
 #. Label of a Card Break in the Tools Workspace
+#. Desktop Icon label (parent: Framework)
+#. Workspace Sidebar title
 #: frappe/automation/workspace/tools/tools.json
+#: frappe/desktop_icon/automation.json frappe/workspace_sidebar/automation.json
 msgid "Automation"
 msgstr "Автоматизация"
 
@@ -3439,6 +3473,11 @@ msgstr "Цвет фона"
 msgid "Background Image"
 msgstr "Фоновое изображение"
 
+#. Workspace Sidebar Section Break label under System
+#: frappe/workspace_sidebar/system.json
+msgid "Background Job"
+msgstr "Фоновая задача"
+
 #. Label of a chart in the System Workspace
 #: frappe/core/workspace/system/system.json
 msgid "Background Job Activity"
@@ -3535,8 +3574,10 @@ msgstr "Резервное копирование публичных и личн
 #. Label of the backups_tab (Tab Break) field in DocType 'System Settings'
 #. Label of the backups_section (Section Break) field in DocType 'System Health
 #. Report'
+#. Workspace Sidebar Link label under Data
 #: frappe/core/doctype/system_settings/system_settings.json
 #: frappe/desk/doctype/system_health_report/system_health_report.json
+#: frappe/workspace_sidebar/data.json
 msgid "Backups"
 msgstr "Резервные копии"
 
@@ -3953,7 +3994,10 @@ msgid "Bufferpool Size"
 msgstr "Размер буферного пула"
 
 #. Name of a Workspace
-#: frappe/core/workspace/build/build.json
+#. Desktop Icon label (parent: Framework)
+#. Workspace Sidebar title
+#: frappe/core/workspace/build/build.json frappe/desktop_icon/build.json
+#: frappe/workspace_sidebar/build.json
 msgid "Build"
 msgstr "Конструктор"
 
@@ -4001,8 +4045,10 @@ msgstr "Массовый экспорт PDF"
 
 #. Label of a Link in the Tools Workspace
 #. Name of a DocType
+#. Workspace Sidebar Link label under Data
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/desk/doctype/bulk_update/bulk_update.json
+#: frappe/workspace_sidebar/data.json
 msgid "Bulk Update"
 msgstr "Массовое обновление"
 
@@ -4572,6 +4618,7 @@ msgstr "Запись"
 
 #. Label of the card (Link) field in DocType 'Number Card Link'
 #: frappe/desk/doctype/number_card_link/number_card_link.json
+#: frappe/public/js/frappe/views/workspace/blocks/card.js:5
 msgid "Card"
 msgstr "Числовой блок"
 
@@ -4709,6 +4756,7 @@ msgstr "Канал"
 
 #. Label of the chart (Link) field in DocType 'Dashboard Chart Link'
 #: frappe/desk/doctype/dashboard_chart_link/dashboard_chart_link.json
+#: frappe/public/js/frappe/views/workspace/blocks/chart.js:5
 msgid "Chart"
 msgstr "Диаграмма"
 
@@ -5082,10 +5130,12 @@ msgstr "Метаданные клиента"
 #. Label of a Link in the Build Workspace
 #. Name of a DocType
 #. Label of the client_script (Code) field in DocType 'DocType Layout'
+#. Workspace Sidebar Link label under Build
 #: frappe/core/workspace/build/build.json
 #: frappe/custom/doctype/client_script/client_script.json
 #: frappe/custom/doctype/doctype_layout/doctype_layout.json
 #: frappe/website/doctype/web_page/web_page.js:103
+#: frappe/workspace_sidebar/build.json
 msgid "Client Script"
 msgstr "Клиентский скрипт"
 
@@ -5217,6 +5267,7 @@ msgstr "Свернуть все"
 #: frappe/custom/doctype/custom_field/custom_field.json
 #: frappe/custom/doctype/customize_form_field/customize_form_field.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:620
 msgid "Collapsible"
 msgstr "Сворачиваемый"
 
@@ -5442,10 +5493,12 @@ msgstr "Общие имена и фамилии легко угадать."
 #. 'Communication'
 #. Label of the communication (Data) field in DocType 'Email Flag Queue'
 #. Label of the communication (Link) field in DocType 'Email Queue'
+#. Workspace Sidebar Link label under Email
 #: frappe/core/doctype/communication/communication.json
 #: frappe/email/doctype/email_flag_queue/email_flag_queue.json
 #: frappe/email/doctype/email_queue/email_queue.json
 #: frappe/tests/test_translate.py:35 frappe/tests/test_translate.py:119
+#: frappe/workspace_sidebar/email.json
 msgid "Communication"
 msgstr "Коммуникация"
 
@@ -5711,9 +5764,11 @@ msgstr "Подключиться к {}"
 #. Label of the connected_app (Link) field in DocType 'Email Account'
 #. Name of a DocType
 #. Label of the connected_app (Link) field in DocType 'Token Cache'
+#. Workspace Sidebar Link label under Integrations
 #: frappe/email/doctype/email_account/email_account.json
 #: frappe/integrations/doctype/connected_app/connected_app.json
 #: frappe/integrations/doctype/token_cache/token_cache.json
+#: frappe/workspace_sidebar/integrations.json
 msgid "Connected App"
 msgstr "Подключенное приложение"
 
@@ -6371,6 +6426,10 @@ msgstr "Пользовательский"
 msgid "Custom Base URL"
 msgstr "Пользовательский базовый URL"
 
+#: frappe/public/js/frappe/views/workspace/blocks/custom_block.js:5
+msgid "Custom Block"
+msgstr "Пользовательский блок"
+
 #. Label of the custom_block_name (Link) field in DocType 'Workspace Custom
 #. Block'
 #: frappe/desk/doctype/workspace_custom_block/workspace_custom_block.json
@@ -6421,8 +6480,10 @@ msgstr "Пользовательские документы"
 
 #. Label of a Link in the Build Workspace
 #. Name of a DocType
+#. Workspace Sidebar Link label under Build
 #: frappe/core/workspace/build/build.json
 #: frappe/custom/doctype/custom_field/custom_field.json
+#: frappe/workspace_sidebar/build.json
 msgid "Custom Field"
 msgstr "Пользовательское поле"
 
@@ -6551,10 +6612,12 @@ msgstr "Пользовательский"
 #. Group in Module Def's connections
 #. Label of a Card Break in the Build Workspace
 #. Label of the customization_tab (Tab Break) field in DocType 'Web Form'
+#. Workspace Sidebar Section Break label under Build
 #: frappe/core/doctype/doctype/doctype.json
 #: frappe/core/doctype/module_def/module_def.json
 #: frappe/core/workspace/build/build.json
 #: frappe/website/doctype/web_form/web_form.json
+#: frappe/workspace_sidebar/build.json
 msgid "Customization"
 msgstr "Индивидуальная настройка"
 
@@ -6570,10 +6633,12 @@ msgstr "Сброс пользовательских настроек"
 msgid "Customizations for <b>{0}</b> exported to:<br>{1}"
 msgstr "Настройки для <b>{0}</b> экспортируется в:<br>{1}"
 
+#. Workspace Sidebar Section Break label under Website
 #: frappe/printing/page/print/print.js:184
 #: frappe/public/js/frappe/form/templates/print_layout.html:39
 #: frappe/public/js/frappe/form/toolbar.js:626
 #: frappe/public/js/frappe/views/dashboard/dashboard_view.js:197
+#: frappe/workspace_sidebar/website.json
 msgid "Customize"
 msgstr "Настроить"
 
@@ -6592,11 +6657,13 @@ msgstr "Настроить инфопанель"
 
 #. Label of a Link in the Build Workspace
 #. Name of a DocType
+#. Workspace Sidebar Link label under Build
 #: frappe/automation/doctype/auto_repeat/auto_repeat.js:33
 #: frappe/core/doctype/doctype/doctype.js:61
 #: frappe/core/workspace/build/build.json
 #: frappe/custom/doctype/customize_form/customize_form.json
 #: frappe/public/js/frappe/views/kanban/kanban_view.js:357
+#: frappe/workspace_sidebar/build.json
 msgid "Customize Form"
 msgstr "Настроить форму"
 
@@ -6724,6 +6791,7 @@ msgstr "Темная тема"
 #. Option for the 'DocType View' (Select) field in DocType 'Workspace Shortcut'
 #. Option for the 'Link Type' (Select) field in DocType 'Workspace Sidebar
 #. Item'
+#. Workspace Sidebar Link label under Build
 #: frappe/core/doctype/user/user.json
 #: frappe/core/page/dashboard_view/dashboard_view.js:10
 #: frappe/core/workspace/build/build.json
@@ -6731,8 +6799,11 @@ msgstr "Темная тема"
 #: frappe/desk/doctype/form_tour/form_tour.json
 #: frappe/desk/doctype/workspace_shortcut/workspace_shortcut.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:501
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:556
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:571
 #: frappe/public/js/frappe/utils/utils.js:937
+#: frappe/workspace_sidebar/build.json
 msgid "Dashboard"
 msgstr "Аналитика"
 
@@ -6794,10 +6865,12 @@ msgstr "Аналитика"
 #. Label of the data (Code) field in DocType 'Version'
 #. Option for the 'Field Type' (Select) field in DocType 'Custom Field'
 #. Option for the 'Type' (Select) field in DocType 'Customize Form Field'
+#. Desktop Icon label (parent: Framework)
 #. Label of the webhook_data (Table) field in DocType 'Webhook'
 #. Label of the data (Code) field in DocType 'Webhook Request Log'
 #. Option for the 'Fieldtype' (Select) field in DocType 'Web Form Field'
 #. Option for the 'Fieldtype' (Select) field in DocType 'Web Template Field'
+#. Workspace Sidebar title
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/core/doctype/deleted_document/deleted_document.json
 #: frappe/core/doctype/docfield/docfield.json
@@ -6807,10 +6880,12 @@ msgstr "Аналитика"
 #: frappe/core/doctype/version/version.json
 #: frappe/custom/doctype/custom_field/custom_field.json
 #: frappe/custom/doctype/customize_form_field/customize_form_field.json
+#: frappe/desktop_icon/data.json
 #: frappe/integrations/doctype/webhook/webhook.json
 #: frappe/integrations/doctype/webhook_request_log/webhook_request_log.json
 #: frappe/website/doctype/web_form_field/web_form_field.json
 #: frappe/website/doctype/web_template_field/web_template_field.json
+#: frappe/workspace_sidebar/data.json
 msgid "Data"
 msgstr "Данные"
 
@@ -6819,14 +6894,18 @@ msgid "Data Clipped"
 msgstr "Вырезанные данные"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Data
 #: frappe/core/doctype/data_export/data_export.json
+#: frappe/workspace_sidebar/data.json
 msgid "Data Export"
 msgstr "Экспорт данных"
 
 #. Name of a DocType
 #. Label of the data_import (Link) field in DocType 'Data Import Log'
+#. Workspace Sidebar Link label under Data
 #: frappe/core/doctype/data_import/data_import.json
 #: frappe/core/doctype/data_import_log/data_import_log.json
+#: frappe/workspace_sidebar/data.json
 msgid "Data Import"
 msgstr "Импорт данных"
 
@@ -7239,8 +7318,11 @@ msgstr "Задерживается"
 #: frappe/public/js/frappe/form/footer/form_timeline.js:627
 #: frappe/public/js/frappe/form/grid.js:66
 #: frappe/public/js/frappe/form/toolbar.js:490
+#: frappe/public/js/frappe/ui/sidebar/sidebar_item.js:104
+#: frappe/public/js/frappe/ui/sidebar/sidebar_item.js:289
 #: frappe/public/js/frappe/views/reports/report_view.js:1764
 #: frappe/public/js/frappe/views/treeview.js:329
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:160
 #: frappe/public/js/frappe/web_form/web_form_list.js:283
 #: frappe/templates/discussions/reply_card.html:35
 #: frappe/templates/discussions/reply_section.html:29
@@ -7270,6 +7352,10 @@ msgstr "Удалить все"
 #: frappe/core/doctype/system_settings/system_settings.json
 msgid "Delete Background Exported Reports After (Hours)"
 msgstr "Удалять экспортированные отчеты через (часы)"
+
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:161
+msgid "Delete Block"
+msgstr "Удалить блок"
 
 #: frappe/public/js/form_builder/components/Section.vue:196
 msgctxt "Title of confirmation dialog"
@@ -7362,7 +7448,9 @@ msgid "Deleted DocType"
 msgstr "Удаленный ДокТайп"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Data
 #: frappe/core/doctype/deleted_document/deleted_document.json
+#: frappe/workspace_sidebar/data.json
 msgid "Deleted Document"
 msgstr "Удаленный документ"
 
@@ -7590,6 +7678,10 @@ msgstr "Иконка рабочего стола"
 msgid "Desktop Icon already exists"
 msgstr "Иконка рабочего стола уже существует"
 
+#: frappe/desk/page/desktop/desktop.js:107
+msgid "Desktop Saved"
+msgstr "Сохранено на рабочем столе"
+
 #. Name of a DocType
 #: frappe/desk/doctype/desktop_settings/desktop_settings.json
 msgid "Desktop Settings"
@@ -7610,6 +7702,7 @@ msgstr "Настройки рабочего стола"
 #: frappe/public/js/form_builder/store.js:259
 #: frappe/public/js/form_builder/utils.js:38
 #: frappe/public/js/frappe/form/layout.js:154
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:636
 #: frappe/public/js/frappe/views/treeview.js:292
 msgid "Details"
 msgstr "Подробности"
@@ -7784,6 +7877,7 @@ msgid "Disabled Auto Reply"
 msgstr "Отключен автоответчик"
 
 #: frappe/public/js/frappe/form/toolbar.js:364
+#: frappe/public/js/frappe/ui/sidebar/sidebar.html:21
 #: frappe/public/js/frappe/views/dashboard/dashboard_view.js:71
 #: frappe/public/js/frappe/views/workspace/workspace.js:374
 #: frappe/public/js/frappe/web_form/web_form.js:193
@@ -7860,6 +7954,7 @@ msgstr "Отображение зависит от"
 #. Item'
 #: frappe/core/doctype/docfield/docfield.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:645
 msgid "Display Depends On (JS)"
 msgstr "Отображение зависит от (JS)"
 
@@ -7964,6 +8059,7 @@ msgstr ""
 #. Label of the webhook_doctype (Link) field in DocType 'Webhook'
 #. Label of the doc_type (Link) field in DocType 'Print Format'
 #. Option for the 'Print Format For' (Select) field in DocType 'Print Format'
+#. Workspace Sidebar Link label under Build
 #: frappe/core/doctype/amended_document_naming_settings/amended_document_naming_settings.json
 #: frappe/core/doctype/audit_trail/audit_trail.json
 #: frappe/core/doctype/data_export/exporter.py:26
@@ -7985,8 +8081,10 @@ msgstr ""
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
 #: frappe/integrations/doctype/webhook/webhook.json
 #: frappe/printing/doctype/print_format/print_format.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:556
 #: frappe/public/js/frappe/widgets/widget_dialog.js:164
 #: frappe/website/doctype/website_slideshow/website_slideshow.js:18
+#: frappe/workspace_sidebar/build.json
 msgid "DocType"
 msgstr "ДокТайп"
 
@@ -8673,6 +8771,10 @@ msgstr "Дата выполнения основана на"
 
 #: frappe/public/js/frappe/form/grid_row_form.js:42
 #: frappe/public/js/frappe/form/toolbar.js:448
+#: frappe/public/js/frappe/ui/sidebar/sidebar_item.js:96
+#: frappe/public/js/frappe/ui/sidebar/sidebar_item.js:281
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:190
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:191
 msgid "Duplicate"
 msgstr "Дублировать"
 
@@ -8880,6 +8982,11 @@ msgstr "Изменить заголовок"
 msgid "Edit Heading"
 msgstr "Редактировать заголовок"
 
+#: frappe/public/js/frappe/ui/sidebar/sidebar_item.js:82
+#: frappe/public/js/frappe/ui/sidebar/sidebar_item.js:263
+msgid "Edit Item"
+msgstr "Редактировать элемент"
+
 #: frappe/public/js/print_format_builder/LetterHeadEditor.vue:52
 msgid "Edit Letter Head"
 msgstr "Редактирование заголовков писем"
@@ -8904,7 +9011,7 @@ msgstr "Редактировать введения в курс дела"
 msgid "Edit Print Format"
 msgstr "Редактирование формата печати"
 
-#: frappe/www/me.html:38
+#: frappe/desk/page/desktop/desktop.js:191 frappe/www/me.html:38
 msgid "Edit Profile"
 msgstr "Изменить профиль"
 
@@ -8922,7 +9029,11 @@ msgstr "Редактировать ярлык"
 
 #: frappe/public/js/frappe/ui/sidebar/sidebar_header.js:19
 msgid "Edit Sidebar"
-msgstr "Редактировать боковую панель"
+msgstr "Редактировать"
+
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:671
+msgid "Edit Sidebar Item"
+msgstr "Изменить элемент боковой панели"
 
 #. Label of the edit_values (Button) field in DocType 'Web Page Block'
 #. Label of the edit_navbar_template_values (Button) field in DocType 'Website
@@ -9004,12 +9115,14 @@ msgstr "Селектор элементов"
 #. Label of the email (Check) field in DocType 'User Document Type'
 #. Label of the email (Data) field in DocType 'User Invitation'
 #. Label of the email (Data) field in DocType 'Event Participants'
+#. Desktop Icon label (parent: Framework)
 #. Label of the email (Data) field in DocType 'Email Group Member'
 #. Label of the email (Data) field in DocType 'Email Unsubscribe'
 #. Option for the 'Channel' (Select) field in DocType 'Notification'
 #. Label of the email (Data) field in DocType 'Personal Data Deletion Request'
 #. Label of a field in the request-data Web Form
 #. Label of a field in the request-to-delete-data Web Form
+#. Workspace Sidebar title
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/core/doctype/communication/communication.json
 #: frappe/core/doctype/custom_docperm/custom_docperm.json
@@ -9020,6 +9133,7 @@ msgstr "Селектор элементов"
 #: frappe/core/doctype/user_document_type/user_document_type.json
 #: frappe/core/doctype/user_invitation/user_invitation.json
 #: frappe/desk/doctype/event_participants/event_participants.json
+#: frappe/desktop_icon/email.json
 #: frappe/email/doctype/email_group_member/email_group_member.json
 #: frappe/email/doctype/email_unsubscribe/email_unsubscribe.json
 #: frappe/email/doctype/newsletter/newsletter.js:156
@@ -9031,7 +9145,8 @@ msgstr "Селектор элементов"
 #: frappe/website/doctype/personal_data_deletion_request/personal_data_deletion_request.json
 #: frappe/website/web_form/request_data/request_data.json
 #: frappe/website/web_form/request_to_delete_data/request_to_delete_data.json
-#: frappe/www/login.html:8 frappe/www/login.py:104
+#: frappe/workspace_sidebar/email.json frappe/www/login.html:8
+#: frappe/www/login.py:104
 msgid "Email"
 msgstr "Электронная почта"
 
@@ -9042,6 +9157,7 @@ msgstr "Электронная почта"
 #. Label of the email_account (Data) field in DocType 'Email Flag Queue'
 #. Label of the email_account (Link) field in DocType 'Email Queue'
 #. Label of the email_account (Link) field in DocType 'Unhandled Email'
+#. Workspace Sidebar Link label under Email
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/core/doctype/communication/communication.js:199
 #: frappe/core/doctype/communication/communication.json
@@ -9050,8 +9166,9 @@ msgstr "Электронная почта"
 #: frappe/email/doctype/email_flag_queue/email_flag_queue.json
 #: frappe/email/doctype/email_queue/email_queue.json
 #: frappe/email/doctype/unhandled_email/unhandled_email.json
+#: frappe/workspace_sidebar/email.json
 msgid "Email Account"
-msgstr "Учетная запись электронной почты"
+msgstr "Учетная запись почты"
 
 #: frappe/email/doctype/email_account/email_account.py:343
 msgid "Email Account Disabled."
@@ -9099,8 +9216,10 @@ msgstr "Электронные почты"
 
 #. Label of a Link in the Tools Workspace
 #. Name of a DocType
+#. Workspace Sidebar Link label under Email
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/email/doctype/email_domain/email_domain.json
+#: frappe/workspace_sidebar/email.json
 msgid "Email Domain"
 msgstr "Домен электронной почты"
 
@@ -9163,7 +9282,9 @@ msgid "Email Inbox"
 msgstr "Почтовый ящик"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Email
 #: frappe/email/doctype/email_queue/email_queue.json
+#: frappe/workspace_sidebar/email.json
 msgid "Email Queue"
 msgstr "Очередь электронной почты"
 
@@ -9242,10 +9363,12 @@ msgstr "Опция синхронизации электронной почты"
 #. Label of a Link in the Tools Workspace
 #. Label of the email_template (Link) field in DocType 'Communication'
 #. Name of a DocType
+#. Workspace Sidebar Link label under Email
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/core/doctype/communication/communication.json
 #: frappe/email/doctype/email_template/email_template.json
 #: frappe/public/js/frappe/views/communication.js:98
+#: frappe/workspace_sidebar/email.json
 msgid "Email Template"
 msgstr "Шаблон электронной почты"
 
@@ -9774,7 +9897,9 @@ msgid "Error"
 msgstr "Ошибка"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/error_log/error_log.json
+#: frappe/workspace_sidebar/system.json
 msgid "Error Log"
 msgstr "Журнал ошибок"
 
@@ -9863,8 +9988,10 @@ msgstr "Ошибки"
 #. Option for the 'Type' (Select) field in DocType 'Communication'
 #. Name of a DocType
 #. Option for the 'Event Category' (Select) field in DocType 'Event'
+#. Workspace Sidebar Link label under Productivity
 #: frappe/core/doctype/communication/communication.json
 #: frappe/desk/doctype/event/event.json
+#: frappe/workspace_sidebar/productivity.json
 msgid "Event"
 msgstr "Событие"
 
@@ -10016,6 +10143,7 @@ msgstr "Существующая роль"
 #: frappe/public/js/frappe/views/treeview.js:115
 #: frappe/public/js/frappe/views/treeview.js:127
 #: frappe/public/js/frappe/views/treeview.js:137
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:166
 #: frappe/public/js/frappe/widgets/base_widget.js:159
 msgid "Expand"
 msgstr "Развернуть"
@@ -10029,6 +10157,10 @@ msgstr "Развернуть"
 #: frappe/public/js/frappe/views/treeview.js:133
 msgid "Expand All"
 msgstr "Развернуть все"
+
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:167
+msgid "Expand Block"
+msgstr "Развернуть блок"
 
 #: frappe/database/query.py:581
 msgid "Expected 'and' or 'or' operator, found: {0}"
@@ -10687,11 +10819,13 @@ msgstr "Тип поля не может быть изменен с {0} на {1} 
 #. Label of a shortcut in the Tools Workspace
 #. Name of a DocType
 #. Option for the 'Select List View' (Select) field in DocType 'Form Tour'
+#. Workspace Sidebar Link label under Productivity
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/core/doctype/file/file.json
 #: frappe/desk/doctype/form_tour/form_tour.json
+#: frappe/workspace_sidebar/productivity.json
 msgid "File"
-msgstr "Файл"
+msgstr "Файлы"
 
 #: frappe/public/js/frappe/file_uploader/FileUploader.vue:499
 msgid "File \"{0}\" was skipped because of invalid file type"
@@ -11451,7 +11585,8 @@ msgstr "Фракция"
 msgid "Fraction Units"
 msgstr "Дробные единицы"
 
-#: frappe/hooks.py:6
+#. Desktop Icon label (parent: frappe)
+#: frappe/desktop_icon/framework.json frappe/hooks.py:6
 msgid "Framework"
 msgstr "Фреймворк"
 
@@ -11905,7 +12040,9 @@ msgstr "Цель"
 
 #. Option for the 'Social Login Provider' (Select) field in DocType 'Social
 #. Login Key'
+#. Workspace Sidebar Section Break label under Integrations
 #: frappe/integrations/doctype/social_login_key/social_login_key.json
+#: frappe/workspace_sidebar/integrations.json
 msgid "Google"
 msgstr "Google"
 
@@ -11975,14 +12112,21 @@ msgstr "ID Google календаря"
 msgid "Google Calendar has been configured."
 msgstr "Google Календарь настроен."
 
+#. Workspace Sidebar Link label under Integrations
+#: frappe/workspace_sidebar/integrations.json
+msgid "Google Calender"
+msgstr "Календарь Google"
+
 #. Label of the sb_00 (Section Break) field in DocType 'Contact'
 #. Label of the google_contacts (Link) field in DocType 'Contact'
 #. Name of a DocType
 #. Label of the sb_00 (Section Break) field in DocType 'Google Contacts'
 #. Label of a Link in the Integrations Workspace
+#. Workspace Sidebar Link label under Integrations
 #: frappe/contacts/doctype/contact/contact.json
 #: frappe/integrations/doctype/google_contacts/google_contacts.json
 #: frappe/integrations/workspace/integrations/integrations.json
+#: frappe/workspace_sidebar/integrations.json
 msgid "Google Contacts"
 msgstr "Контакты Google"
 
@@ -12056,8 +12200,10 @@ msgstr "Сервиси Google"
 #. Name of a DocType
 #. Label of a Link in the Integrations Workspace
 #. Label of a shortcut in the Integrations Workspace
+#. Workspace Sidebar Link label under Integrations
 #: frappe/integrations/doctype/google_settings/google_settings.json
 #: frappe/integrations/workspace/integrations/integrations.json
+#: frappe/workspace_sidebar/integrations.json
 msgid "Google Settings"
 msgstr "Настройки Google"
 
@@ -12371,10 +12517,16 @@ msgstr "Заголовки должны представлять собой сл
 #: frappe/custom/doctype/custom_field/custom_field.json
 #: frappe/custom/doctype/customize_form_field/customize_form_field.json
 #: frappe/printing/page/print_format_builder/print_format_builder.js:609
+#: frappe/public/js/frappe/views/workspace/blocks/header.js:146
 #: frappe/website/doctype/contact_us_settings/contact_us_settings.json
 #: frappe/website/doctype/website_slideshow_item/website_slideshow_item.json
 msgid "Heading"
 msgstr "Заголовок"
+
+#. Workspace Sidebar Link label under System
+#: frappe/workspace_sidebar/system.json
+msgid "Health Report"
+msgstr "Здоровье системы"
 
 #. Option for the 'Type' (Select) field in DocType 'Dashboard Chart'
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.json
@@ -12669,7 +12821,11 @@ msgid "Hint: Include symbols, numbers and capital letters in the password"
 msgstr "Совет: Включите в пароль символы, цифры и заглавные буквы"
 
 #. Label of the home_tab (Tab Break) field in DocType 'Website Settings'
+#. Workspace Sidebar Link label under System
+#. Workspace Sidebar Link label under Users
+#. Workspace Sidebar Link label under Website
 #: frappe/public/js/frappe/file_uploader/FileBrowser.vue:38
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:488
 #: frappe/public/js/frappe/views/file/file_view.js:67
 #: frappe/public/js/frappe/views/file/file_view.js:88
 #: frappe/public/js/frappe/views/pageview.js:156 frappe/templates/doc.html:19
@@ -12679,8 +12835,9 @@ msgstr "Совет: Включите в пароль символы, цифры 
 #: frappe/website/doctype/blog_post/blog_post.py:273
 #: frappe/website/doctype/website_settings/website_settings.json
 #: frappe/website/web_template/primary_navbar/primary_navbar.html:9
-#: frappe/www/contact.py:25 frappe/www/login.html:170 frappe/www/me.html:76
-#: frappe/www/message.html:29
+#: frappe/workspace_sidebar/system.json frappe/workspace_sidebar/users.json
+#: frappe/workspace_sidebar/website.json frappe/www/contact.py:25
+#: frappe/www/login.html:170 frappe/www/me.html:76 frappe/www/message.html:29
 msgid "Home"
 msgstr "Главная"
 
@@ -12840,6 +12997,7 @@ msgstr "IP адрес"
 #: frappe/desk/doctype/workspace_shortcut/workspace_shortcut.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
 #: frappe/integrations/doctype/social_login_key/social_login_key.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:590
 #: frappe/public/js/frappe/views/workspace/workspace.js:481
 #: frappe/workflow/doctype/workflow_state/workflow_state.json
 msgid "Icon"
@@ -13565,6 +13723,7 @@ msgstr "Неправильное значение:"
 
 #. Label of the indent (Check) field in DocType 'Workspace Sidebar Item'
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:607
 msgid "Indent"
 msgstr "Отступ"
 
@@ -13763,11 +13922,14 @@ msgid "Integration Request"
 msgstr "Запрос на интеграцию"
 
 #. Group in User's connections
+#. Desktop Icon label (parent: Framework)
 #. Name of a Workspace
 #. Label of the integrations (Tab Break) field in DocType 'Website Settings'
-#: frappe/core/doctype/user/user.json
+#. Workspace Sidebar title
+#: frappe/core/doctype/user/user.json frappe/desktop_icon/integrations.json
 #: frappe/integrations/workspace/integrations/integrations.json
 #: frappe/website/doctype/website_settings/website_settings.json
+#: frappe/workspace_sidebar/integrations.json
 msgid "Integrations"
 msgstr "Интеграции"
 
@@ -14684,6 +14846,7 @@ msgstr "Канбан"
 
 #. Label of the keep_closed (Check) field in DocType 'Workspace Sidebar Item'
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:631
 msgid "Keep Closed"
 msgstr "Оставить закрытым"
 
@@ -14858,8 +15021,10 @@ msgstr "Url сервера LDAP"
 
 #. Name of a DocType
 #. Label of a Link in the Integrations Workspace
+#. Workspace Sidebar Link label under Integrations
 #: frappe/integrations/doctype/ldap_settings/ldap_settings.json
 #: frappe/integrations/workspace/integrations/integrations.json
+#: frappe/workspace_sidebar/integrations.json
 msgid "LDAP Settings"
 msgstr "Настройки LDAP"
 
@@ -14933,6 +15098,7 @@ msgstr "Неверные настройки LDAP. Ответ на проверк
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
 #: frappe/printing/page/print_format_builder/print_format_builder.js:474
 #: frappe/public/js/form_builder/components/Field.vue:216
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:484
 #: frappe/public/js/frappe/widgets/widget_dialog.js:183
 #: frappe/public/js/frappe/widgets/widget_dialog.js:251
 #: frappe/public/js/frappe/widgets/widget_dialog.js:313
@@ -15162,6 +15328,10 @@ msgstr "Сброс макета"
 #: frappe/custom/doctype/customize_form/customize_form.js:186
 msgid "Layout will be reset to standard layout, are you sure you want to do this?"
 msgstr "Макет будет сброшен на стандартный, Вы уверены, что хотите это сделать?"
+
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:508
+msgid "Learn"
+msgstr "Подробнее"
 
 #: frappe/website/web_template/section_with_features/section_with_features.html:26
 msgid "Learn more"
@@ -15448,6 +15618,7 @@ msgstr "Линия"
 #: frappe/desk/doctype/workspace_link/workspace_link.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
 #: frappe/public/js/frappe/file_uploader/FileUploader.vue:128
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:541
 #: frappe/website/doctype/web_form_field/web_form_field.json
 #: frappe/website/doctype/web_template_field/web_template_field.json
 #: frappe/workflow/doctype/workflow_transition_task/workflow_transition_task.json
@@ -15538,6 +15709,7 @@ msgstr "Заголовок ссылки"
 #: frappe/desk/doctype/workspace_link/workspace_link.json
 #: frappe/desk/doctype/workspace_shortcut/workspace_shortcut.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:566
 #: frappe/public/js/frappe/views/workspace/workspace.js:441
 #: frappe/public/js/frappe/widgets/widget_dialog.js:281
 #: frappe/public/js/frappe/widgets/widget_dialog.js:427
@@ -15556,6 +15728,7 @@ msgstr "Ссылка в строке"
 #: frappe/desk/doctype/workspace/workspace.json
 #: frappe/desk/doctype/workspace_link/workspace_link.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:555
 #: frappe/public/js/frappe/views/workspace/workspace.js:433
 #: frappe/public/js/frappe/widgets/widget_dialog.js:273
 msgid "Link Type"
@@ -15789,8 +15962,9 @@ msgid "Log Setting User"
 msgstr "Настройка журнала - Пользователь"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/log_settings/log_settings.json
-#: frappe/public/js/frappe/logtypes.js:20
+#: frappe/public/js/frappe/logtypes.js:20 frappe/workspace_sidebar/system.json
 msgid "Log Settings"
 msgstr "Настройки журнала"
 
@@ -15943,7 +16117,8 @@ msgid "Logo URL"
 msgstr "Ссылка на логотип"
 
 #. Option for the 'Operation' (Select) field in DocType 'Activity Log'
-#: frappe/core/doctype/activity_log/activity_log.json frappe/www/apps.html:59
+#: frappe/core/doctype/activity_log/activity_log.json
+#: frappe/desk/page/desktop/desktop.js:209 frappe/www/apps.html:59
 #: frappe/www/me.html:84
 msgid "Logout"
 msgstr "Выход из системы"
@@ -15965,7 +16140,9 @@ msgstr "Выход из системы со всех устройств посл
 
 #. Group in User's connections
 #. Label of a Card Break in the Users Workspace
+#. Workspace Sidebar Section Break label under System
 #: frappe/core/doctype/user/user.json frappe/core/workspace/users/users.json
+#: frappe/workspace_sidebar/system.json
 msgid "Logs"
 msgstr "Журналы"
 
@@ -16628,8 +16805,10 @@ msgstr "Отчество (необязательно)"
 
 #. Name of a DocType
 #. Label of a Link in the Tools Workspace
+#. Workspace Sidebar Link label under Automation
 #: frappe/automation/doctype/milestone/milestone.json
 #: frappe/automation/workspace/tools/tools.json
+#: frappe/workspace_sidebar/automation.json
 msgid "Milestone"
 msgstr "Веха"
 
@@ -16804,10 +16983,11 @@ msgstr "Модуль (для экспорта)"
 #. Name of a DocType
 #. Label of a Link in the Build Workspace
 #. Label of a shortcut in the Build Workspace
+#. Workspace Sidebar Link label under Build
 #: frappe/core/doctype/module_def/module_def.json
-#: frappe/core/workspace/build/build.json
+#: frappe/core/workspace/build/build.json frappe/workspace_sidebar/build.json
 msgid "Module Def"
-msgstr "Определение модуля"
+msgstr "Модуль"
 
 #. Label of the module_html (HTML) field in DocType 'Module Profile'
 #: frappe/core/doctype/module_profile/module_profile.json
@@ -16985,6 +17165,11 @@ msgstr "Скорее всего, Ваш пароль слишком длинны
 msgid "Move"
 msgstr "Переместить"
 
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:184
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:185
+msgid "Move Down"
+msgstr "Вниз"
+
 #: frappe/public/js/frappe/form/grid_row.js:194
 msgid "Move To"
 msgstr "Перейти к"
@@ -16992,6 +17177,11 @@ msgstr "Перейти к"
 #: frappe/core/doctype/communication/communication.js:104
 msgid "Move To Trash"
 msgstr "Удалить"
+
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:178
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:179
+msgid "Move Up"
+msgstr "Вверх"
 
 #: frappe/public/js/form_builder/components/Section.vue:295
 msgid "Move current and all subsequent sections to a new tab"
@@ -17099,7 +17289,14 @@ msgstr "Мой аккаунт"
 msgid "My Device"
 msgstr "Мое устройство"
 
+#. Desktop Icon label (parent: frappe)
+#. Workspace Sidebar title
+#: frappe/desktop_icon/my_workspaces.json
 #: frappe/public/js/frappe/ui/apps_switcher.js:71
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:65
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:101
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:326
+#: frappe/workspace_sidebar/my_workspaces.json
 msgid "My Workspaces"
 msgstr "Мои рабочие места"
 
@@ -17421,6 +17618,10 @@ msgstr "Новая роль"
 #: frappe/public/js/frappe/widgets/widget_dialog.js:60
 msgid "New Shortcut"
 msgstr "Новый ярлык"
+
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:473
+msgid "New Sidebar Item"
+msgstr "Новый элемент в боковой панели"
 
 #. Label of the new_users (Int) field in DocType 'System Health Report'
 #: frappe/desk/doctype/system_health_report/system_health_report.json
@@ -17815,6 +18016,10 @@ msgstr "Предосмотр недоступен"
 #: frappe/printing/page/print/print.js:926
 msgid "No Printer is Available."
 msgstr "Принтер не доступен."
+
+#: frappe/desk/page/desktop/desktop.js:595
+msgid "No Private Workspaces for user"
+msgstr "Нет личных рабочих пространств для пользователя"
 
 #: frappe/core/doctype/rq_worker/rq_worker_list.js:3
 msgid "No RQ Workers connected. Try restarting the bench."
@@ -18280,9 +18485,11 @@ msgstr "Не разрешено. {0}."
 
 #. Label of a Link in the Tools Workspace
 #. Name of a DocType
+#. Workspace Sidebar Link label under Productivity
 #: frappe/automation/doctype/auto_repeat/auto_repeat.py:438
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/desk/doctype/note/note.json
+#: frappe/workspace_sidebar/productivity.json
 msgid "Note"
 msgstr "Заметка"
 
@@ -18340,6 +18547,10 @@ msgstr "Примечания:"
 msgid "Nothing New"
 msgstr "Ничего нового"
 
+#: frappe/desk/page/desktop/desktop.js:504
+msgid "Nothing changed"
+msgstr "Ничего не изменилось"
+
 #: frappe/public/js/frappe/form/undo_manager.js:43
 msgid "Nothing left to redo"
 msgstr "Нечего больше повторить"
@@ -18365,11 +18576,13 @@ msgstr "Нечего обновлять"
 #. Name of a DocType
 #. Label of the notification_section (Section Break) field in DocType 'S3
 #. Backup Settings'
+#. Workspace Sidebar Link label under System
 #: frappe/automation/doctype/auto_repeat/auto_repeat.json
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/core/doctype/communication/mixins.py:142
 #: frappe/email/doctype/notification/notification.json
 #: frappe/integrations/doctype/s3_backup_settings/s3_backup_settings.json
+#: frappe/workspace_sidebar/system.json
 msgid "Notification"
 msgstr "Уведомление"
 
@@ -18385,9 +18598,11 @@ msgstr "Получатель уведомления"
 
 #. Label of a Link in the Tools Workspace
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/desk/doctype/notification_settings/notification_settings.json
 #: frappe/public/js/frappe/ui/notifications/notifications.js:37
+#: frappe/workspace_sidebar/system.json
 msgid "Notification Settings"
 msgstr "Настройки уведомлений"
 
@@ -18418,9 +18633,11 @@ msgid "Notification: user {0} has no Mobile number set"
 msgstr "Уведомление: у пользователя {0} не установлен номер мобильного телефона"
 
 #. Label of the notifications (Check) field in DocType 'User'
+#. Workspace Sidebar Section Break label under System
 #: frappe/core/doctype/user/user.json
 #: frappe/public/js/frappe/ui/notifications/notifications.js:50
 #: frappe/public/js/frappe/ui/notifications/notifications.js:187
+#: frappe/workspace_sidebar/system.json
 msgid "Notifications"
 msgstr "Уведомления"
 
@@ -18476,6 +18693,7 @@ msgstr "Номер"
 
 #. Name of a DocType
 #: frappe/desk/doctype/number_card/number_card.json
+#: frappe/public/js/frappe/views/workspace/blocks/number_card.js:5
 #: frappe/public/js/frappe/widgets/widget_dialog.js:628
 msgid "Number Card"
 msgstr "Числовой блок"
@@ -18585,8 +18803,10 @@ msgstr "Токен носителя OAuth"
 
 #. Name of a DocType
 #. Label of a Link in the Integrations Workspace
+#. Workspace Sidebar Link label under Integrations
 #: frappe/integrations/doctype/oauth_client/oauth_client.json
 #: frappe/integrations/workspace/integrations/integrations.json
+#: frappe/workspace_sidebar/integrations.json
 msgid "OAuth Client"
 msgstr "Клиент OAuth"
 
@@ -18603,6 +18823,11 @@ msgstr "Роль клиента OAuth"
 #: frappe/email/oauth.py:30
 msgid "OAuth Error"
 msgstr "Ошибка OAuth"
+
+#. Workspace Sidebar Link label under Integrations
+#: frappe/workspace_sidebar/integrations.json
+msgid "OAuth Provider"
+msgstr "Провайдер OAuth"
 
 #. Name of a DocType
 #. Label of a Link in the Integrations Workspace
@@ -18794,6 +19019,10 @@ msgstr "На {0}, {1} написал(а):"
 msgid "Onboard"
 msgstr "Адаптация"
 
+#: frappe/public/js/frappe/views/workspace/blocks/onboarding.js:6
+msgid "Onboarding"
+msgstr "Начало работы"
+
 #: frappe/public/js/frappe/widgets/widget_dialog.js:232
 msgid "Onboarding Name"
 msgstr "Название обзора"
@@ -18958,8 +19187,8 @@ msgctxt "Access"
 msgid "Open"
 msgstr "Открыть"
 
-#: frappe/desk/page/desktop/desktop.js:211
-#: frappe/desk/page/desktop/desktop.js:220
+#: frappe/desk/page/desktop/desktop.js:233
+#: frappe/desk/page/desktop/desktop.js:242
 #: frappe/public/js/frappe/ui/keyboard.js:207
 #: frappe/public/js/frappe/ui/keyboard.js:217
 #: frappe/public/js/frappe/ui/keyboard.js:227
@@ -19128,6 +19357,7 @@ msgstr "Необязательно: Оповещение будет отправ
 #: frappe/core/doctype/report_filter/report_filter.json
 #: frappe/custom/doctype/custom_field/custom_field.json
 #: frappe/custom/doctype/customize_form_field/customize_form_field.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:600
 #: frappe/templates/form_grid/fields.html:43
 #: frappe/website/doctype/web_form_field/web_form_field.json
 #: frappe/website/doctype/web_form_list_column/web_form_list_column.json
@@ -19397,6 +19627,7 @@ msgstr "Пакеты - это легковесные приложения (ко�
 #. Option for the 'Type' (Select) field in DocType 'Workspace Shortcut'
 #. Option for the 'Link Type' (Select) field in DocType 'Workspace Sidebar
 #. Item'
+#. Workspace Sidebar Link label under Build
 #: frappe/core/doctype/custom_role/custom_role.json
 #: frappe/core/doctype/page/page.json
 #: frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.json
@@ -19406,6 +19637,8 @@ msgstr "Пакеты - это легковесные приложения (ко�
 #: frappe/desk/doctype/workspace_link/workspace_link.json
 #: frappe/desk/doctype/workspace_shortcut/workspace_shortcut.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:556
+#: frappe/workspace_sidebar/build.json
 msgid "Page"
 msgstr "Страница"
 
@@ -19727,7 +19960,9 @@ msgid "Patch"
 msgstr "Патч"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/patch_log/patch_log.json
+#: frappe/workspace_sidebar/system.json
 msgid "Patch Log"
 msgstr "Журнал исправлений"
 
@@ -19871,9 +20106,11 @@ msgid "Permission Error"
 msgstr "Ошибка доступа"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Users
 #: frappe/core/doctype/permission_inspector/permission_inspector.json
+#: frappe/workspace_sidebar/users.json
 msgid "Permission Inspector"
-msgstr "Инспектор по выдаче разрешений"
+msgstr "Инспектор разрешений"
 
 #. Label of the permlevel (Int) field in DocType 'Custom Field'
 #: frappe/core/page/permission_manager/permission_manager.js:468
@@ -19886,12 +20123,15 @@ msgid "Permission Levels"
 msgstr "Уровни доступа"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Users
 #: frappe/core/doctype/permission_log/permission_log.json
+#: frappe/workspace_sidebar/users.json
 msgid "Permission Log"
 msgstr "Журнал разрешений"
 
 #. Label of a shortcut in the Users Workspace
-#: frappe/core/workspace/users/users.json
+#. Workspace Sidebar Link label under Users
+#: frappe/core/workspace/users/users.json frappe/workspace_sidebar/users.json
 msgid "Permission Manager"
 msgstr "Менеджер разрешений"
 
@@ -19928,6 +20168,7 @@ msgstr "Тип разрешения '{0}' зарезервирован. Пожа
 #. Label of a Card Break in the Users Workspace
 #. Label of the permissions (Section Break) field in DocType 'Customize Form
 #. Field'
+#. Workspace Sidebar Section Break label under Users
 #: frappe/core/doctype/custom_docperm/custom_docperm.json
 #: frappe/core/doctype/docfield/docfield.json
 #: frappe/core/doctype/docperm/docperm.json
@@ -19938,6 +20179,7 @@ msgstr "Тип разрешения '{0}' зарезервирован. Пожа
 #: frappe/core/page/permission_manager/permission_manager.js:221
 #: frappe/core/workspace/users/users.json
 #: frappe/custom/doctype/customize_form_field/customize_form_field.json
+#: frappe/workspace_sidebar/users.json
 msgid "Permissions"
 msgstr "Права доступа"
 
@@ -20543,7 +20785,9 @@ msgid "Portal Menu Item"
 msgstr "Пункт меню портала"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Website
 #: frappe/website/doctype/portal_settings/portal_settings.json
+#: frappe/workspace_sidebar/website.json
 msgid "Portal Settings"
 msgstr "Настройки портала"
 
@@ -20832,6 +21076,7 @@ msgstr "Печать документов"
 #. Label of the print_format (Link) field in DocType 'Notification'
 #. Name of a DocType
 #. Label of the print_format (Link) field in DocType 'Web Form'
+#. Workspace Sidebar Link label under Printing
 #: frappe/automation/doctype/auto_repeat/auto_repeat.json
 #: frappe/core/workspace/build/build.json
 #: frappe/email/doctype/notification/notification.json
@@ -20840,16 +21085,19 @@ msgstr "Печать документов"
 #: frappe/printing/page/print/print.js:885
 #: frappe/public/js/frappe/list/bulk_operations.js:59
 #: frappe/website/doctype/web_form/web_form.json
+#: frappe/workspace_sidebar/printing.json
 msgid "Print Format"
 msgstr "Формат печати"
 
 #. Label of a Link in the Tools Workspace
 #. Label of the print_format_builder (Check) field in DocType 'Print Format'
+#. Workspace Sidebar Link label under Printing
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/printing/doctype/print_format/print_format.json
 #: frappe/printing/page/print_format_builder/print_format_builder.js:44
 #: frappe/printing/page/print_format_builder/print_format_builder.js:67
 #: frappe/printing/page/print_format_builder_beta/print_format_builder_beta.js:4
+#: frappe/workspace_sidebar/printing.json
 msgid "Print Format Builder"
 msgstr "Конструктор форматов печати"
 
@@ -20899,8 +21147,10 @@ msgstr "Формат печати {0} отключен"
 #. Label of a Link in the Tools Workspace
 #. Name of a DocType
 #. Label of the print_heading (Data) field in DocType 'Print Heading'
+#. Workspace Sidebar Link label under Printing
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/printing/doctype/print_heading/print_heading.json
+#: frappe/workspace_sidebar/printing.json
 msgid "Print Heading"
 msgstr "Заголовок для печати"
 
@@ -20939,12 +21189,14 @@ msgstr "Сервер печати"
 
 #. Label of a Link in the Tools Workspace
 #. Name of a DocType
+#. Workspace Sidebar Link label under Printing
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/printing/doctype/print_settings/print_settings.json
 #: frappe/printing/doctype/print_style/print_style.js:6
 #: frappe/printing/page/print/print.js:173
 #: frappe/public/js/frappe/form/print_utils.js:99
 #: frappe/public/js/frappe/form/templates/print_layout.html:35
+#: frappe/workspace_sidebar/printing.json
 msgid "Print Settings"
 msgstr "Настройки печати"
 
@@ -21014,7 +21266,10 @@ msgid "Printer mapping not set."
 msgstr "Сопоставление принтера не установлено."
 
 #. Label of a Card Break in the Tools Workspace
+#. Desktop Icon label (parent: Framework)
+#. Workspace Sidebar title
 #: frappe/automation/workspace/tools/tools.json
+#: frappe/desktop_icon/printing.json frappe/workspace_sidebar/printing.json
 msgid "Printing"
 msgstr "Печать"
 
@@ -21079,6 +21334,13 @@ msgstr "Обработка"
 msgid "Processing..."
 msgstr "В обработке..."
 
+#. Desktop Icon label (parent: Framework)
+#. Workspace Sidebar title
+#: frappe/desktop_icon/productivity.json
+#: frappe/workspace_sidebar/productivity.json
+msgid "Productivity"
+msgstr "Продуктивность"
+
 #: frappe/desk/page/setup_wizard/install_fixtures.py:51
 msgid "Prof"
 msgstr "Профессор"
@@ -21123,7 +21385,9 @@ msgid "Property Depends On"
 msgstr "Свойство зависит от"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Build
 #: frappe/custom/doctype/property_setter/property_setter.json
+#: frappe/workspace_sidebar/build.json
 msgid "Property Setter"
 msgstr "Установщик свойств"
 
@@ -21307,6 +21571,11 @@ msgstr "Пользователь по закупкам"
 #: frappe/desk/doctype/kanban_board_column/kanban_board_column.json
 msgid "Purple"
 msgstr "Пурпурный"
+
+#. Workspace Sidebar Link label under Integrations
+#: frappe/workspace_sidebar/integrations.json
+msgid "Push Notification"
+msgstr "Push-уведомления"
 
 #. Name of a DocType
 #. Label of a Link in the Integrations Workspace
@@ -21505,6 +21774,10 @@ msgstr "Быстрый ввод"
 msgid "Quick Help for Setting Permissions"
 msgstr "Краткая справка по настройке разрешений"
 
+#: frappe/public/js/frappe/views/workspace/blocks/quick_list.js:5
+msgid "Quick List"
+msgstr "Быстрый список"
+
 #. Label of the quick_list_filter (Code) field in DocType 'Workspace Quick
 #. List'
 #: frappe/desk/doctype/workspace_quick_list/workspace_quick_list.json
@@ -21528,12 +21801,15 @@ msgid "RAW Information Log"
 msgstr "Информационный журнал RAW"
 
 #. Name of a DocType
-#: frappe/core/doctype/rq_job/rq_job.json
+#. Workspace Sidebar Link label under System
+#: frappe/core/doctype/rq_job/rq_job.json frappe/workspace_sidebar/system.json
 msgid "RQ Job"
 msgstr "Работа RQ"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/rq_worker/rq_worker.json
+#: frappe/workspace_sidebar/system.json
 msgid "RQ Worker"
 msgstr "Работник RQ"
 
@@ -21786,7 +22062,9 @@ msgid "Recipients"
 msgstr "Получатели"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/recorder/recorder.json
+#: frappe/workspace_sidebar/system.json
 msgid "Recorder"
 msgstr "Рекордер"
 
@@ -22231,7 +22509,9 @@ msgid "Remind Me In"
 msgstr "Напомнить мне в"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Automation
 #: frappe/automation/doctype/reminder/reminder.json
+#: frappe/workspace_sidebar/automation.json
 msgid "Reminder"
 msgstr "Напоминание"
 
@@ -22436,6 +22716,7 @@ msgstr "Ответить всем"
 #. Label of the report (Link) field in DocType 'Auto Email Report'
 #. Option for the 'Print Format For' (Select) field in DocType 'Print Format'
 #. Label of the report (Link) field in DocType 'Print Format'
+#. Workspace Sidebar Link label under Build
 #: frappe/core/doctype/custom_docperm/custom_docperm.json
 #: frappe/core/doctype/custom_role/custom_role.json
 #: frappe/core/doctype/docperm/docperm.json
@@ -22457,7 +22738,9 @@ msgstr "Ответить всем"
 #: frappe/printing/doctype/print_format/print_format.py:104
 #: frappe/public/js/frappe/form/print_utils.js:31
 #: frappe/public/js/frappe/request.js:616
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:556
 #: frappe/public/js/frappe/utils/utils.js:925
+#: frappe/workspace_sidebar/build.json
 msgid "Report"
 msgstr "Отчет"
 
@@ -22626,6 +22909,8 @@ msgstr "Отчёт:"
 #. Label of the prepared_report_section (Section Break) field in DocType
 #. 'System Settings'
 #: frappe/core/doctype/system_settings/system_settings.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:495
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:527
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:556
 msgid "Reports"
 msgstr "Отчёты"
@@ -22780,9 +23065,9 @@ msgstr "Сбросить макет"
 msgid "Reset OTP Secret"
 msgstr "Сброс секретов OTP"
 
-#: frappe/core/doctype/user/user.js:156 frappe/www/login.html:194
-#: frappe/www/me.html:48 frappe/www/update-password.html:3
-#: frappe/www/update-password.html:32
+#: frappe/core/doctype/user/user.js:156 frappe/desk/page/desktop/desktop.js:196
+#: frappe/www/login.html:194 frappe/www/me.html:48
+#: frappe/www/update-password.html:3 frappe/www/update-password.html:32
 msgid "Reset Password"
 msgstr "Сбросить пароль"
 
@@ -22814,6 +23099,10 @@ msgstr "Восстановление значений по умолчанию"
 #: frappe/public/js/frappe/utils/datatable.js:8
 msgid "Reset sorting"
 msgstr "Сбросить сортировку"
+
+#: frappe/desk/page/desktop/desktop.js:201
+msgid "Reset to Default"
+msgstr "Сбросить по умолчанию"
 
 #: frappe/public/js/frappe/form/grid_row.js:433
 msgid "Reset to default"
@@ -23022,6 +23311,7 @@ msgstr "Robots.txt"
 #. Label of the role (Link) field in DocType 'OAuth Client Role'
 #. Label of the role (Link) field in DocType 'Portal Menu Item'
 #. Label of the role (Link) field in DocType 'Workflow Action Permitted Role'
+#. Workspace Sidebar Link label under Users
 #: frappe/core/doctype/custom_docperm/custom_docperm.json
 #: frappe/core/doctype/custom_role/custom_role.json
 #: frappe/core/doctype/docperm/docperm.json
@@ -23038,6 +23328,7 @@ msgstr "Robots.txt"
 #: frappe/integrations/doctype/oauth_client_role/oauth_client_role.json
 #: frappe/website/doctype/portal_menu_item/portal_menu_item.json
 #: frappe/workflow/doctype/workflow_action_permitted_role/workflow_action_permitted_role.json
+#: frappe/workspace_sidebar/users.json
 msgid "Role"
 msgstr "Роль"
 
@@ -23222,6 +23513,7 @@ msgstr "История маршрута"
 
 #. Label of the route_options (Code) field in DocType 'Workspace Sidebar Item'
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:656
 msgid "Route Options"
 msgstr "Маршрутные опции"
 
@@ -23538,6 +23830,8 @@ msgstr "Суббота"
 #: frappe/public/js/frappe/list/list_settings.js:37
 #: frappe/public/js/frappe/list/list_settings.js:245
 #: frappe/public/js/frappe/list/list_sidebar_group_by.js:25
+#: frappe/public/js/frappe/ui/sidebar/sidebar.html:24
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:677
 #: frappe/public/js/frappe/ui/toolbar/toolbar.js:377
 #: frappe/public/js/frappe/utils/common.js:452
 #: frappe/public/js/frappe/views/kanban/kanban_settings.js:45
@@ -23610,7 +23904,7 @@ msgstr "Сохранение"
 msgid "Saving Customization..."
 msgstr "Сохранение настроек..."
 
-#: frappe/public/js/frappe/ui/sidebar/sidebar.js:756
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:762
 msgid "Saving Sidebar"
 msgstr "Сохранить боковую панель"
 
@@ -23674,7 +23968,9 @@ msgid "Scheduled Job"
 msgstr "Запланированное задание"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/scheduled_job_log/scheduled_job_log.json
+#: frappe/workspace_sidebar/system.json
 msgid "Scheduled Job Log"
 msgstr "Журнал запланированных заданий"
 
@@ -23682,9 +23978,11 @@ msgstr "Журнал запланированных заданий"
 #. Label of a Link in the Build Workspace
 #. Label of the scheduled_job_type (Link) field in DocType 'System Health
 #. Report Failing Jobs'
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/scheduled_job_type/scheduled_job_type.json
 #: frappe/core/workspace/build/build.json
 #: frappe/desk/doctype/system_health_report_failing_jobs/system_health_report_failing_jobs.json
+#: frappe/workspace_sidebar/system.json
 msgid "Scheduled Job Type"
 msgstr "Планировщик задач"
 
@@ -23721,9 +24019,11 @@ msgstr "Планировщик"
 #. Label of the scheduler_event (Link) field in DocType 'Scheduled Job Type'
 #. Name of a DocType
 #. Option for the 'Script Type' (Select) field in DocType 'Server Script'
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/scheduled_job_type/scheduled_job_type.json
 #: frappe/core/doctype/scheduler_event/scheduler_event.json
 #: frappe/core/doctype/server_script/server_script.json
+#: frappe/workspace_sidebar/system.json
 msgid "Scheduler Event"
 msgstr "Планировщик событий"
 
@@ -23889,6 +24189,10 @@ msgstr "Поиск типов полей..."
 msgid "Search for anything"
 msgstr "Искать что-нибудь"
 
+#: frappe/desk/page/desktop/desktop.html:17
+msgid "Search for type a command"
+msgstr "Введите команду для поиска"
+
 #: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:300
 #: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:306
 msgid "Search for {0}"
@@ -23941,6 +24245,7 @@ msgstr "Раздел"
 #: frappe/custom/doctype/custom_field/custom_field.json
 #: frappe/custom/doctype/customize_form_field/customize_form_field.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:541
 #: frappe/website/doctype/web_form_field/web_form_field.json
 #: frappe/website/doctype/web_template_field/web_template_field.json
 msgid "Section Break"
@@ -24696,9 +25001,10 @@ msgstr "IP сервера"
 #. Label of the server_script (Link) field in DocType 'Scheduled Job Type'
 #. Name of a DocType
 #. Label of a Link in the Build Workspace
+#. Workspace Sidebar Link label under Build
 #: frappe/core/doctype/scheduled_job_type/scheduled_job_type.json
 #: frappe/core/doctype/server_script/server_script.json
-#: frappe/core/workspace/build/build.json
+#: frappe/core/workspace/build/build.json frappe/workspace_sidebar/build.json
 msgid "Server Script"
 msgstr "Серверный скрипт"
 
@@ -25015,14 +25321,17 @@ msgstr "Настройка Вашей системы"
 #. Label of a Card Break in the Integrations Workspace
 #. Label of the settings_tab (Tab Break) field in DocType 'Web Form'
 #. Label of the settings (Tab Break) field in DocType 'Web Page'
+#. Workspace Sidebar Link label under Website
 #: frappe/core/doctype/doctype/doctype.json frappe/core/doctype/user/user.json
 #: frappe/integrations/workspace/integrations/integrations.json
 #: frappe/public/js/frappe/form/templates/print_layout.html:25
 #: frappe/public/js/frappe/ui/apps_switcher.js:137
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:514
 #: frappe/public/js/frappe/ui/toolbar/toolbar.js:334
 #: frappe/public/js/frappe/views/workspace/workspace.js:385
 #: frappe/website/doctype/web_form/web_form.json
-#: frappe/website/doctype/web_page/web_page.json frappe/www/me.html:20
+#: frappe/website/doctype/web_page/web_page.json
+#: frappe/workspace_sidebar/website.json frappe/www/me.html:20
 msgid "Settings"
 msgstr "Настройки"
 
@@ -25144,6 +25453,10 @@ msgstr "Короткое имя"
 msgid "Short keyboard patterns are easy to guess"
 msgstr "Короткие сочетания клавиш проще угадать"
 
+#: frappe/public/js/frappe/views/workspace/blocks/shortcut.js:5
+msgid "Shortcut"
+msgstr "Быстрый доступ"
+
 #. Label of the shortcuts (Table) field in DocType 'Workspace'
 #. Label of the tab_break_15 (Tab Break) field in DocType 'Workspace'
 #: frappe/desk/doctype/workspace/workspace.json
@@ -25189,6 +25502,7 @@ msgstr "Показывать значки приложений как папки
 
 #. Label of the show_arrow (Check) field in DocType 'Workspace Sidebar Item'
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:613
 msgid "Show Arrow"
 msgstr "Показать стрелку"
 
@@ -25507,6 +25821,14 @@ msgstr "Отображение в отчете только числовых п�
 msgid "Showing only first {0} rows out of {1}"
 msgstr "Показываются только первые {0} рядов из {1}"
 
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:172
+msgid "Shrink"
+msgstr "Уменьшить"
+
+#: frappe/public/js/frappe/views/workspace/blocks/block.js:173
+msgid "Shrink Block"
+msgstr "Уменьшить блок"
+
 #. Label of the list_sidebar (Check) field in DocType 'User'
 #. Label of the form_sidebar (Check) field in DocType 'User'
 #. Label of the sidebar (Link) field in DocType 'Desktop Icon'
@@ -25521,6 +25843,7 @@ msgstr "Боковая панель"
 #. Option for the 'Type' (Select) field in DocType 'Workspace Sidebar Item'
 #: frappe/desk/doctype/sidebar_item_group/sidebar_item_group.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:541
 msgid "Sidebar Item Group"
 msgstr "Группа элементов боковой панели"
 
@@ -25784,8 +26107,10 @@ msgstr "Тип социальной ссылки"
 
 #. Name of a DocType
 #. Label of a Link in the Integrations Workspace
+#. Workspace Sidebar Link label under Integrations
 #: frappe/integrations/doctype/social_login_key/social_login_key.json
 #: frappe/integrations/workspace/integrations/integrations.json
+#: frappe/workspace_sidebar/integrations.json
 msgid "Social Login Key"
 msgstr "Ключ социального входа"
 
@@ -25917,6 +26242,8 @@ msgstr "Источник"
 
 #. Option for the 'Type' (Select) field in DocType 'Workspace Sidebar Item'
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:541
+#: frappe/public/js/frappe/views/workspace/blocks/spacer.js:5
 #: frappe/public/js/frappe/views/workspace/blocks/spacer.js:23
 #: frappe/public/js/print_format_builder/PrintFormatControls.vue:174
 msgid "Spacer"
@@ -26777,14 +27104,19 @@ msgstr "Синтаксическая ошибка"
 
 #. Option for the 'Show in Module Section' (Select) field in DocType 'DocType'
 #. Name of a Workspace
+#. Desktop Icon label (parent: Framework)
+#. Workspace Sidebar title
 #: frappe/core/doctype/doctype/doctype.json
-#: frappe/core/workspace/system/system.json
+#: frappe/core/workspace/system/system.json frappe/desktop_icon/system.json
+#: frappe/workspace_sidebar/system.json
 msgid "System"
-msgstr "Системный"
+msgstr "Система"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/desk/doctype/system_console/system_console.json
 #: frappe/public/js/frappe/ui/dropdown_console.js:4
+#: frappe/workspace_sidebar/system.json
 msgid "System Console"
 msgstr "Системная консоль"
 
@@ -27251,6 +27583,7 @@ msgstr "Test_Folder"
 #: frappe/core/doctype/docfield/docfield.json
 #: frappe/custom/doctype/custom_field/custom_field.json
 #: frappe/custom/doctype/customize_form_field/customize_form_field.json
+#: frappe/public/js/frappe/views/workspace/blocks/paragraph.js:220
 #: frappe/website/doctype/web_form_field/web_form_field.json
 #: frappe/website/doctype/web_template_field/web_template_field.json
 msgid "Text"
@@ -28287,7 +28620,7 @@ msgstr "Поле \"К дате\""
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/desk/doctype/todo/todo_list.js:6
 msgid "To Do"
-msgstr "Дела"
+msgstr "Список дел"
 
 #. Description of the 'Subject' (Data) field in DocType 'Auto Repeat'
 #: frappe/automation/doctype/auto_repeat/auto_repeat.json
@@ -28404,13 +28737,18 @@ msgstr "К версии"
 #: frappe/automation/workspace/tools/tools.json
 #: frappe/desk/doctype/todo/todo.json frappe/desk/report/todo/todo.json
 msgid "ToDo"
-msgstr "Дела"
+msgstr "Список дел"
 
 #: frappe/public/js/frappe/form/controls/date.js:58
 #: frappe/public/js/frappe/ui/filters/filter.js:733
 #: frappe/public/js/frappe/views/calendar/calendar.js:274
 msgid "Today"
 msgstr "Сегодня"
+
+#. Workspace Sidebar Link label under Productivity
+#: frappe/workspace_sidebar/productivity.json
+msgid "Todo"
+msgstr "Список дел"
 
 #: frappe/public/js/frappe/views/reports/report_view.js:1572
 msgid "Toggle Chart"
@@ -28496,7 +28834,9 @@ msgstr "За последнее время зарегистрировалось 
 
 #. Name of a Workspace
 #. Label of a Card Break in the Tools Workspace
+#. Workspace Sidebar Section Break label under System
 #: frappe/automation/workspace/tools/tools.json
+#: frappe/workspace_sidebar/system.json
 msgid "Tools"
 msgstr "Инструменты"
 
@@ -28901,6 +29241,7 @@ msgstr "Метод двухфакторной аутентификации"
 #: frappe/desk/doctype/workspace_link/workspace_link.json
 #: frappe/desk/doctype/workspace_shortcut/workspace_shortcut.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:540
 #: frappe/public/js/frappe/views/file/file_view.js:371
 #: frappe/public/js/frappe/views/workspace/workspace.js:422
 #: frappe/public/js/frappe/widgets/widget_dialog.js:404
@@ -28990,6 +29331,8 @@ msgstr ""
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
 #: frappe/integrations/doctype/integration_request/integration_request.json
 #: frappe/integrations/doctype/webhook_request_log/webhook_request_log.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:556
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:581
 #: frappe/public/js/frappe/widgets/widget_dialog.js:471
 #: frappe/website/doctype/top_bar_item/top_bar_item.json
 #: frappe/website/doctype/website_slideshow_item/website_slideshow_item.json
@@ -29139,9 +29482,11 @@ msgid "Unfollow"
 msgstr "Отписка"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Email
 #: frappe/email/doctype/unhandled_email/unhandled_email.json
+#: frappe/workspace_sidebar/email.json
 msgid "Unhandled Email"
-msgstr "Не обработанная электронная почта"
+msgstr "Необработанная почта"
 
 #. Label of the unhandled_emails (Int) field in DocType 'System Health Report'
 #: frappe/desk/doctype/system_health_report/system_health_report.json
@@ -29607,6 +29952,7 @@ msgstr "Используемый OAuth"
 #. Label of the user (Link) field in DocType 'Blogger'
 #. Label of the user (Link) field in DocType 'Personal Data Download Request'
 #. Label of the user (Link) field in DocType 'Workflow Action'
+#. Workspace Sidebar Link label under Users
 #: frappe/automation/doctype/assignment_rule_user/assignment_rule_user.json
 #: frappe/automation/doctype/auto_repeat_user/auto_repeat_user.json
 #: frappe/automation/doctype/reminder/reminder.json
@@ -29639,6 +29985,7 @@ msgstr "Используемый OAuth"
 #: frappe/website/doctype/blogger/blogger.json
 #: frappe/website/doctype/personal_data_download_request/personal_data_download_request.json
 #: frappe/workflow/doctype/workflow_action/workflow_action.json
+#: frappe/workspace_sidebar/users.json
 msgid "User"
 msgstr "Пользователь"
 
@@ -29777,7 +30124,9 @@ msgid "User Name"
 msgstr "Имя пользователя"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Users
 #: frappe/core/doctype/user_permission/user_permission.json
+#: frappe/workspace_sidebar/users.json
 msgid "User Permission"
 msgstr "Разрешение пользователя"
 
@@ -29966,9 +30315,12 @@ msgstr "Имя пользователя {0} уже существует"
 #. Label of a Card Break in the Users Workspace
 #. Label of the users_section (Section Break) field in DocType 'System Health
 #. Report'
+#. Desktop Icon label (parent: Framework)
+#. Workspace Sidebar title
 #: frappe/automation/doctype/assignment_rule/assignment_rule.json
 #: frappe/core/workspace/users/users.json
 #: frappe/desk/doctype/system_health_report/system_health_report.json
+#: frappe/desktop_icon/users.json frappe/workspace_sidebar/users.json
 msgid "Users"
 msgstr "Пользователи"
 
@@ -30254,7 +30606,9 @@ msgid "View List"
 msgstr "Просмотр списка"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under System
 #: frappe/core/doctype/view_log/view_log.json
+#: frappe/workspace_sidebar/system.json
 msgid "View Log"
 msgstr "Посмотреть лог"
 
@@ -30444,7 +30798,9 @@ msgid "Weak"
 msgstr "Слабый"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Website
 #: frappe/website/doctype/web_form/web_form.json
+#: frappe/workspace_sidebar/website.json
 msgid "Web Form"
 msgstr "Веб-форма"
 
@@ -30464,7 +30820,9 @@ msgid "Web Form List Column"
 msgstr "Колонка списка веб-формы"
 
 #. Name of a DocType
+#. Workspace Sidebar Link label under Website
 #: frappe/website/doctype/web_page/web_page.json
+#: frappe/workspace_sidebar/website.json
 msgid "Web Page"
 msgstr "Веб-страница"
 
@@ -30512,9 +30870,11 @@ msgstr "Веб-представление"
 #. Label of the webhook (Link) field in DocType 'Webhook Request Log'
 #. Label of a Link in the Integrations Workspace
 #. Label of a shortcut in the Integrations Workspace
+#. Workspace Sidebar Link label under Integrations
 #: frappe/integrations/doctype/webhook/webhook.json
 #: frappe/integrations/doctype/webhook_request_log/webhook_request_log.json
 #: frappe/integrations/workspace/integrations/integrations.json
+#: frappe/workspace_sidebar/integrations.json
 msgid "Webhook"
 msgstr "Вебхук"
 
@@ -30568,13 +30928,17 @@ msgid "Webhook URL"
 msgstr "URL вебхука"
 
 #. Group in Module Def's connections
+#. Desktop Icon label (parent: Framework)
 #. Name of a Workspace
+#. Workspace Sidebar title
 #: frappe/core/doctype/module_def/module_def.json
+#: frappe/desktop_icon/website.json
 #: frappe/email/doctype/newsletter/newsletter.py:457
 #: frappe/public/js/frappe/ui/apps_switcher.js:125
 #: frappe/public/js/frappe/ui/sidebar/sidebar_header.js:28
 #: frappe/public/js/frappe/ui/toolbar/about.js:11
 #: frappe/website/workspace/website/website.json
+#: frappe/workspace_sidebar/website.json
 msgid "Website"
 msgstr "Сайт"
 
@@ -30621,8 +30985,10 @@ msgstr "Перенаправление маршрута веб-сайта"
 
 #. Name of a DocType
 #. Label of a Link in the Website Workspace
+#. Workspace Sidebar Link label under Website
 #: frappe/website/doctype/website_script/website_script.json
 #: frappe/website/workspace/website/website.json
+#: frappe/workspace_sidebar/website.json
 msgid "Website Script"
 msgstr "Скрипт сайта"
 
@@ -30669,9 +31035,11 @@ msgstr "Элемент слайд-шоу на сайте"
 #. Label of the website_theme (Link) field in DocType 'Website Settings'
 #. Name of a DocType
 #. Label of a Link in the Website Workspace
+#. Workspace Sidebar Link label under Website
 #: frappe/website/doctype/website_settings/website_settings.json
 #: frappe/website/doctype/website_theme/website_theme.json
 #: frappe/website/workspace/website/website.json
+#: frappe/workspace_sidebar/website.json
 msgid "Website Theme"
 msgstr "Тема сайта"
 
@@ -30898,10 +31266,12 @@ msgstr "Имя воркера"
 #. Option for the 'Comment Type' (Select) field in DocType 'Comment'
 #. Group in DocType's connections
 #. Name of a DocType
+#. Workspace Sidebar Link label under Build
 #: frappe/core/doctype/comment/comment.json
 #: frappe/core/doctype/doctype/doctype.json
 #: frappe/public/js/workflow_builder/store.js:129
 #: frappe/workflow/doctype/workflow/workflow.json
+#: frappe/workspace_sidebar/build.json
 msgid "Workflow"
 msgstr "Рабочий процесс"
 
@@ -31036,15 +31406,23 @@ msgstr "Рабочий процесс успешно обновлен"
 #. Option for the 'Type' (Select) field in DocType 'Workspace'
 #. Option for the 'Link Type' (Select) field in DocType 'Workspace Sidebar
 #. Item'
+#. Workspace Sidebar Link label under Build
 #: frappe/core/doctype/user/user.json frappe/core/workspace/build/build.json
 #: frappe/desk/doctype/desktop_icon/desktop_icon.json
 #: frappe/desk/doctype/workspace/workspace.json
 #: frappe/desk/doctype/workspace_sidebar_item/workspace_sidebar_item.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar.js:556
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:566
 #: frappe/public/js/frappe/utils/utils.js:934
 #: frappe/public/js/frappe/views/workspace/workspace.js:10
+#: frappe/workspace_sidebar/build.json
 msgid "Workspace"
 msgstr "Рабочая область"
+
+#: frappe/desk/page/desktop/desktop.js:51
+msgctxt "plural_single"
+msgid "Workspace"
+msgstr "Пространство"
 
 #: frappe/public/js/frappe/router.js:180
 msgid "Workspace <b>{0}</b> does not exist"
@@ -31124,6 +31502,16 @@ msgstr "Рабочее пространство {0} создано"
 #: frappe/desk/doctype/form_tour/form_tour.json
 msgid "Workspaces"
 msgstr "Рабочие пространства"
+
+#: frappe/desk/page/desktop/desktop.js:54
+msgctxt "plural_few"
+msgid "Workspaces"
+msgstr "Пространства"
+
+#: frappe/desk/page/desktop/desktop.js:56
+msgctxt "plural_many"
+msgid "Workspaces"
+msgstr "Пространств"
 
 #: frappe/public/js/frappe/form/footer/form_timeline.js:757
 msgid "Would you like to publish this comment? This means it will become visible to website/portal users."

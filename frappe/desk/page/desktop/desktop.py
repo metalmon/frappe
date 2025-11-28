@@ -13,4 +13,5 @@ def get_context(context):
 	context.brand_logo = brand_logo
 	context.desktop_icons = get_desktop_icons()
 	context.current_user = frappe.session.user
+	context["__"] = frappe._
 	return context

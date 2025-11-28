@@ -12,7 +12,7 @@
         {% if (item.type == "Section Break" && item.indent != 1) { %}
             <div class="divider hidden"></div>
             <div class="item-anchor section-break">
-                <span class="sidebar-item-label">{{ item.label }}</span>
+                <span class="sidebar-item-label">{%= __(item.label) %}</span>
                 <div class="sidebar-item-control"></div>
             </div>
         {% } else if (item.type == "Spacer") { %}
@@ -34,7 +34,7 @@
                         {%= frappe.utils.icon(icon, "sm", "", "", "text-ink-gray-7 current-color", true) %}
                     {% } %}
                 </span>
-                <span class="sidebar-item-label">{{ item.label }}</span>
+                <span class="sidebar-item-label">{%= __(item.label) %}</span>
                 {% if (!item.show_arrow) { %}
                 <div class="sidebar-item-control"></div>
                 {% } %}

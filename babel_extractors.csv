@@ -1,10 +1,12 @@
 **/hooks.py,frappe.gettext.extractors.python.extract
 **/doctype/*/*.json,frappe.gettext.extractors.doctype.extract
 **/workspace/*/*.json,frappe.gettext.extractors.workspace.extract
+**/workspace_sidebar/*.json,frappe.gettext.extractors.workspace_sidebar.extract
 **/web_form/*/*.json,frappe.gettext.extractors.web_form.extract
 **/onboarding_step/*/*.json,frappe.gettext.extractors.onboarding_step.extract
 **/module_onboarding/*/*.json,frappe.gettext.extractors.module_onboarding.extract
 **/report/*/*.json,frappe.gettext.extractors.report.extract
+**/desktop_icon/*.json,frappe.gettext.extractors.desktop_icon.extract
 **.py,frappe.gettext.extractors.python.extract
 **/templates/**.js,frappe.gettext.extractors.html_template.extract
 **.js,frappe.gettext.extractors.javascript.extract

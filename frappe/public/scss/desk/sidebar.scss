@@ -4,7 +4,7 @@
 	--sidebar-active-color: rgba(255, 255, 255, 1);
 	--sidebar-border-color: #ededed;
 	--divider-color: rgba(237, 237, 237, 1);
-	--sidebar-width: 220px;
+	--sidebar-width: 260px;
 }
 [data-theme="dark"] {
 	--sidebar-hover-color: rgba(43, 43, 43, 1);
@@ -244,7 +244,8 @@
 }
 .bottom-edit-controls {
 	display: flex;
-	gap: 35%;
+	gap: 12px;
+	align-items: center;
 }
 .body-sidebar-container[data-mode="edit"] {
 	.standard-sidebar-item:hover {
