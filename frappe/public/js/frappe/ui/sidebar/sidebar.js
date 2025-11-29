@@ -537,7 +537,12 @@ frappe.ui.Sidebar = class Sidebar {
 				fieldtype: "Select",
 				in_list_view: 1,
 				label: __("Type"),
-				options: __("Link") + "\n" + __("Section Break") + "\n" + __("Spacer") + "\n" + __("Sidebar Item Group"),
+				options: [
+					{ value: "Link", label: __("Link") },
+					{ value: "Section Break", label: __("Section Break") },
+					{ value: "Spacer", label: __("Spacer") },
+					{ value: "Sidebar Item Group", label: __("Sidebar Item Group") },
+				],
 				onchange: function () {
 					let type = this.get_value();
 					if (type == "Section Break") {
@@ -552,7 +557,14 @@ frappe.ui.Sidebar = class Sidebar {
 				fieldtype: "Select",
 				in_list_view: 1,
 				label: __("Link Type"),
-				options: __("DocType") + "\n" + __("Page") + "\n" + __("Report") + "\n" + __("Workspace") + "\n" + __("Dashboard") + "\n" + __("URL"),
+				options: [
+					{ value: "DocType", label: __("DocType") },
+					{ value: "Page", label: __("Page") },
+					{ value: "Report", label: __("Report") },
+					{ value: "Workspace", label: __("Workspace") },
+					{ value: "Dashboard", label: __("Dashboard") },
+					{ value: "URL", label: __("URL") },
+				],
 				onchange: function () {
 					d.set_value("link_to", null);
 				},
@@ -710,8 +722,16 @@ frappe.ui.Sidebar = class Sidebar {
 							...me.new_sidebar_items[index],
 							...values,
 						};
+						// Ensure nested_items exists for Section Break items
+						if (values.type === "Section Break" && !me.new_sidebar_items[index].nested_items) {
+							me.new_sidebar_items[index].nested_items = [];
+						}
 					}
 				} else {
+					// Initialize nested_items for Section Break items
+					if (values.type === "Section Break" && !values.nested_items) {
+						values.nested_items = [];
+					}
 					me.new_sidebar_items.push(values);
 				}
 				me.create_sidebar(me.new_sidebar_items);
