@@ -15,8 +15,6 @@ on:
         description: 'Tag of release like v13.0.0'
         required: true
         type: string
-  release:
-    types: [released]
 
 permissions:
   contents: read

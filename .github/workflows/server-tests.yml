@@ -1,13 +1,7 @@
 name: Server
 
 on:
-  repository_dispatch:
-    types: [frappe-framework-change]
-  pull_request:
   workflow_dispatch:
-  schedule:
-    # Run everday at midnight UTC / 5:30 IST
-    - cron: "0 0 * * *"
 
 concurrency:
   group: server-${{ github.event_name }}-${{ github.event.number }}
