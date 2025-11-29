@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-11-29 16:04+0000\n"
-"PO-Revision-Date: 2025-11-29 16:04+0000\n"
+"POT-Creation-Date: 2025-11-29 16:38+0000\n"
+"PO-Revision-Date: 2025-11-29 16:38+0000\n"
 "Last-Translator: developers@frappe.io\n"
 "Language-Team: developers@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -4108,11 +4108,11 @@ msgstr ""
 msgid "Cache Cleared"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:240
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:243
 msgid "Calculate"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:445
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:448
 msgid "Calculator"
 msgstr ""
 
@@ -6110,7 +6110,7 @@ msgstr ""
 msgid "Create a new ..."
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:215
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:218
 msgid "Create a new record"
 msgstr ""
 
@@ -6256,7 +6256,7 @@ msgstr ""
 
 #. Option for the 'Address Type' (Select) field in DocType 'Address'
 #: frappe/contacts/doctype/address/address.json
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:399
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:402
 msgid "Current"
 msgstr ""
 
@@ -10953,8 +10953,8 @@ msgstr ""
 msgid "Find '{0}' in ..."
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:391
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:393
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:394
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:396
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:161
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:164
 msgid "Find {0} in {1}"
@@ -11730,7 +11730,7 @@ msgstr ""
 msgid "Generate New Report"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:459
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:462
 msgid "Generate Random Password"
 msgstr ""
 
@@ -15719,7 +15719,7 @@ msgstr ""
 msgid "List View Settings"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:220
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:223
 msgid "List a document type"
 msgstr ""
 
@@ -19115,7 +19115,7 @@ msgstr ""
 msgid "Open a dialog with mandatory fields to create a new record quickly. There must be at least one mandatory field to show in dialog."
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:235
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:238
 msgid "Open a module or tool"
 msgstr ""
 
@@ -23098,8 +23098,8 @@ msgctxt "Title of message showing restrictions in list view"
 msgid "Restrictions"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:447
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:462
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:450
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:465
 msgid "Result"
 msgstr ""
 
@@ -24019,7 +24019,7 @@ msgstr ""
 #: frappe/public/js/frappe/list/list_sidebar.html:69
 #: frappe/public/js/frappe/ui/address_autocomplete/autocomplete_dialog.js:20
 #: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:22
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:369
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:372
 #: frappe/public/js/frappe/ui/toolbar/search.js:49
 #: frappe/public/js/frappe/ui/toolbar/search.js:68
 #: frappe/templates/discussions/search.html:2
@@ -24039,7 +24039,7 @@ msgstr ""
 msgid "Search Fields"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:245
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:248
 msgid "Search Help"
 msgstr ""
 
@@ -24078,13 +24078,17 @@ msgstr ""
 msgid "Search for type a command"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:359
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:366
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:362
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:369
 msgid "Search for {0}"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:225
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:228
 msgid "Search in a document type"
+msgstr ""
+
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:27
+msgid "Search or type a command"
 msgstr ""
 
 #: frappe/desk/page/desktop/desktop.js:231
@@ -27313,7 +27317,7 @@ msgstr ""
 #: frappe/public/js/frappe/list/list_sidebar.js:253
 #: frappe/public/js/frappe/model/meta.js:215
 #: frappe/public/js/frappe/model/model.js:133
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:230
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:233
 msgid "Tags"
 msgstr ""
 
@@ -32238,7 +32242,7 @@ msgstr ""
 msgid "descending"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:222
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:225
 msgid "document type..., e.g. customer"
 msgstr ""
 
@@ -32248,7 +32252,7 @@ msgstr ""
 msgid "e.g. \"Support\", \"Sales\", \"Jerry Yang\""
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:242
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:245
 msgid "e.g. (55 + 434) / 4 or =Math.sin(Math.PI/2)..."
 msgstr ""
 
@@ -32299,7 +32303,7 @@ msgstr ""
 msgid "empty"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:42
 msgid "esc"
 msgstr ""
 
@@ -32448,7 +32452,7 @@ msgstr ""
 msgid "mm/dd/yyyy"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:237
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:240
 msgid "module name..."
 msgstr ""
 
@@ -32456,7 +32460,7 @@ msgstr ""
 msgid "new"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:217
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:220
 msgid "new type of document"
 msgstr ""
 
@@ -32674,11 +32678,11 @@ msgstr ""
 msgid "submit"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:232
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:235
 msgid "tag name..., e.g. #tag"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:227
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:230
 msgid "text in document type"
 msgstr ""
 
@@ -32690,15 +32694,15 @@ msgstr ""
 msgid "this shouldn't break"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:42
 msgid "to close"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:42
 msgid "to navigate"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:42
 msgid "to select"
 msgstr ""
 
@@ -32837,8 +32841,8 @@ msgstr ""
 msgid "{0} ({1}) - {2}%"
 msgstr ""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:438
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:442
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:441
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:445
 msgid "{0} = {1}"
 msgstr ""
 

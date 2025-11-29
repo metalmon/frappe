@@ -7,16 +7,17 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-11-29 16:04+0000\n"
-"PO-Revision-Date: 2025-11-29 18:18+0300\n"
+"POT-Creation-Date: 2025-11-29 16:38+0000\n"
+"PO-Revision-Date: 2025-11-29 19:39+0300\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
-"Language: ru\n"
 "Language-Team: developers@frappe.io\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "Generated-By: Babel 2.16.0\n"
+"X-Generator: Poedit 3.8\n"
 
 #. Option for the 'Condition' (Select) field in DocType 'Document Naming Rule
 #. Condition'
@@ -4219,11 +4220,11 @@ msgstr "Кэш"
 msgid "Cache Cleared"
 msgstr "Кэш очищен"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:240
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:243
 msgid "Calculate"
 msgstr "Рассчитать"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:445
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:448
 msgid "Calculator"
 msgstr "Калькулятор"
 
@@ -6229,7 +6230,7 @@ msgstr "Создать напоминание"
 msgid "Create a new ..."
 msgstr "Создайте новый ..."
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:215
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:218
 msgid "Create a new record"
 msgstr "Создать новую запись"
 
@@ -6375,7 +6376,7 @@ msgstr "Список валют хранит значение валюты, ее
 
 #. Option for the 'Address Type' (Select) field in DocType 'Address'
 #: frappe/contacts/doctype/address/address.json
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:399
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:402
 msgid "Current"
 msgstr "Текущий"
 
@@ -11073,8 +11074,8 @@ msgstr "Фильтры:"
 msgid "Find '{0}' in ..."
 msgstr "Найти '{0}' в ..."
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:391
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:393
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:394
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:396
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:161
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:164
 msgid "Find {0} in {1}"
@@ -11850,7 +11851,7 @@ msgstr "Создание ключей"
 msgid "Generate New Report"
 msgstr "Создать новый отчет"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:459
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:462
 msgid "Generate Random Password"
 msgstr "Сгенерировать случайный пароль"
 
@@ -15836,7 +15837,7 @@ msgstr "Список"
 msgid "List View Settings"
 msgstr "Настройки вида списка"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:220
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:223
 msgid "List a document type"
 msgstr "Перечислите тип документа"
 
@@ -19238,7 +19239,7 @@ msgstr "Открыть URL в новой вкладке"
 msgid "Open a dialog with mandatory fields to create a new record quickly. There must be at least one mandatory field to show in dialog."
 msgstr "Откройте диалог с обязательными полями, чтобы быстро создать новую запись. В диалоге должно быть хотя бы одно обязательное поле."
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:235
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:238
 msgid "Open a module or tool"
 msgstr "Откройте модуль или инструмент"
 
@@ -23218,8 +23219,8 @@ msgctxt "Title of message showing restrictions in list view"
 msgid "Restrictions"
 msgstr "Ограничения"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:447
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:462
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:450
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:465
 msgid "Result"
 msgstr "Результат"
 
@@ -24139,7 +24140,7 @@ msgstr "Скрипты"
 #: frappe/public/js/frappe/list/list_sidebar.html:69
 #: frappe/public/js/frappe/ui/address_autocomplete/autocomplete_dialog.js:20
 #: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:22
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:369
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:372
 #: frappe/public/js/frappe/ui/toolbar/search.js:49
 #: frappe/public/js/frappe/ui/toolbar/search.js:68
 #: frappe/templates/discussions/search.html:2
@@ -24159,7 +24160,7 @@ msgstr "Панель поиска"
 msgid "Search Fields"
 msgstr "Поля поиска"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:245
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:248
 msgid "Search Help"
 msgstr "Помощь в поиске"
 
@@ -24198,14 +24199,18 @@ msgstr "Искать что-нибудь"
 msgid "Search for type a command"
 msgstr "Введите команду для поиска"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:359
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:366
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:362
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:369
 msgid "Search for {0}"
 msgstr "Поиск {0}"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:225
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:228
 msgid "Search in a document type"
 msgstr "Поиск в типе документа"
+
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:27
+msgid "Search or type a command"
+msgstr "Введите запрос или команду"
 
 #: frappe/desk/page/desktop/desktop.js:231
 #: frappe/public/js/frappe/ui/toolbar/navbar.html:28
@@ -27458,7 +27463,7 @@ msgstr "Ссылка тега"
 #: frappe/public/js/frappe/list/list_sidebar.js:253
 #: frappe/public/js/frappe/model/meta.js:215
 #: frappe/public/js/frappe/model/model.js:133
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:230
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:233
 msgid "Tags"
 msgstr "Теги"
 
@@ -32418,7 +32423,7 @@ msgstr "удалить"
 msgid "descending"
 msgstr "по убыванию"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:222
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:225
 msgid "document type..., e.g. customer"
 msgstr "тип документа..., например, клиент"
 
@@ -32428,7 +32433,7 @@ msgstr "тип документа..., например, клиент"
 msgid "e.g. \"Support\", \"Sales\", \"Jerry Yang\""
 msgstr "например, \"Поддержка\", \"Продажи\", \"Сергей Иванов\""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:242
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:245
 msgid "e.g. (55 + 434) / 4 or =Math.sin(Math.PI/2)..."
 msgstr "например, (55 + 434) / 4 или =Math.sin(Math.PI/2)..."
 
@@ -32479,7 +32484,7 @@ msgstr "почтовый ящик"
 msgid "empty"
 msgstr "пусто"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:42
 msgid "esc"
 msgstr "esc"
 
@@ -32628,7 +32633,7 @@ msgstr "мм/дд/гггг"
 msgid "mm/dd/yyyy"
 msgstr "мм/дд/гггг"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:237
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:240
 msgid "module name..."
 msgstr "имя модуля..."
 
@@ -32636,7 +32641,7 @@ msgstr "имя модуля..."
 msgid "new"
 msgstr "новый"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:217
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:220
 msgid "new type of document"
 msgstr "новый тип документа"
 
@@ -32854,11 +32859,11 @@ msgstr "строковое значение, т.е. {0} или uid={0},ou=users,
 msgid "submit"
 msgstr "провести"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:232
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:235
 msgid "tag name..., e.g. #tag"
 msgstr "имя тега..., например, #tag"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:227
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:230
 msgid "text in document type"
 msgstr "текст в типе документа"
 
@@ -32870,15 +32875,15 @@ msgstr "эта форма"
 msgid "this shouldn't break"
 msgstr "это не должно прерываться"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:42
 msgid "to close"
 msgstr "закрыть"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:42
 msgid "to navigate"
 msgstr "перейти"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:42
 msgid "to select"
 msgstr "выбрать"
 
@@ -33017,8 +33022,8 @@ msgstr "{0} ({1}) (1 ряд обязателен)"
 msgid "{0} ({1}) - {2}%"
 msgstr "{0} ({1}) - {2}%"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:438
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:442
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:441
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:445
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
@@ -33904,4 +33909,3 @@ msgstr "{} не найден в PATH! Это необходимо для соз�
 #: frappe/public/js/frappe/file_uploader/WebLink.vue:4
 msgid "← Back to upload files"
 msgstr "← Назад, чтобы загрузить файлы"
-

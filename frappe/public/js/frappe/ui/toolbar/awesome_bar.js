@@ -22,7 +22,10 @@ frappe.search.AwesomeBar = class AwesomeBar {
 		let search_modal = new frappe.get_modal(__("Search"), "");
 
 		search_modal.on("shown.bs.modal", () => {
-			search_modal.find("#navbar-search").get(0).focus();
+			let $input = search_modal.find("#navbar-search");
+			// Update placeholder when modal is shown (translations are loaded by then)
+			$input.attr("placeholder", __("Search or type a command"));
+			$input.get(0).focus();
 		});
 
 		let search_modal_body = `<div class="align-baseline flex py-2 px-1 relative navbar-modal-wrapper">
