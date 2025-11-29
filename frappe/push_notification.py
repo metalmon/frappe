@@ -241,11 +241,23 @@ class PushNotification:
 			raise Exception("Push Notification Relay is not enabled")
 
 		relay_server_endpoint = frappe.conf.get("push_relay_server_url")
+		# Get SSL verification setting from config, default to True
+		# Set to 0 in site_config.json to disable SSL verification for self-signed certificates
+		verify_ssl_config = frappe.conf.get("push_relay_verify_ssl")
+		if verify_ssl_config is not None:
+			verify_ssl = sbool(verify_ssl_config)
+			# Ensure verify_ssl is always a boolean
+			if not isinstance(verify_ssl, bool):
+				verify_ssl = bool(verify_ssl)
+		else:
+			verify_ssl = True
 		if use_authentication:
 			api_key, api_secret = self._get_credential()
-			client = FrappeClient(relay_server_endpoint, api_key=api_key, api_secret=api_secret)
+			client = FrappeClient(
+				relay_server_endpoint, api_key=api_key, api_secret=api_secret, verify=verify_ssl
+			)
 		else:
-			client = FrappeClient(relay_server_endpoint)
+			client = FrappeClient(relay_server_endpoint, verify=verify_ssl)
 		params["project_name"] = self.project_name
 		params["site_name"] = self._site_name
 		return client.post_api(method, params)
