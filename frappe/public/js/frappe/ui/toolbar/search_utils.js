@@ -105,7 +105,7 @@ frappe.search.utils = {
 						break;
 				}
 
-				out.label = icon + __(view_name.bold()) + " " + labelSuffix;
+				out.label = icon + __(view_name).bold() + " " + labelSuffix;
 				out.value = __(view_name) + " " + labelSuffix;
 			} else if (match[0]) {
 				out.label = frappe.utils.escape_html(match[0]).bold();

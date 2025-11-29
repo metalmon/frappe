@@ -19,7 +19,7 @@ frappe.search.AwesomeBar = class AwesomeBar {
 		let is_event_listeners_added = false;
 		let $search_element = $(element);
 
-		let search_modal = new frappe.get_modal("Search", "");
+		let search_modal = new frappe.get_modal(__("Search"), "");
 
 		search_modal.on("shown.bs.modal", () => {
 			search_modal.find("#navbar-search").get(0).focus();
@@ -366,7 +366,7 @@ frappe.search.AwesomeBar = class AwesomeBar {
 			value: __("Search for {0}", [frappe.utils.xss_sanitise(txt)]),
 			match: txt,
 			index: 100,
-			default: "Search",
+			default: __("Search"),
 			onclick: function () {
 				frappe.searchdialog.search.init_search(txt, "global_search");
 			},
@@ -396,7 +396,7 @@ frappe.search.AwesomeBar = class AwesomeBar {
 					cur_list.show();
 				},
 				index: 90,
-				default: "Current",
+				default: __("Current"),
 				match: txt,
 			});
 		}
@@ -442,7 +442,7 @@ frappe.search.AwesomeBar = class AwesomeBar {
 					value: __("{0} = {1}", [frappe.utils.xss_sanitise(txt), rounded_val]),
 					match: rounded_val,
 					index: 80,
-					default: "Calculator",
+					default: __("Calculator"),
 					onclick: function () {
 						frappe.msgprint(formatted_value, __("Result"));
 					},

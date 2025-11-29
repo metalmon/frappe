@@ -227,7 +227,9 @@ class DesktopPage {
 
 		$(".desktop-search-wrapper #navbar-search").attr(
 			"placeholder",
-			`Search or type a command (${frappe.utils.is_mac() ? "⌘ + K" : "Ctrl + K"})`
+			__("Search or type a command ({0})", [
+				frappe.utils.is_mac() ? "⌘ + K" : "Ctrl + K",
+			])
 		);
 		if (frappe.boot.desk_settings.search_bar) {
 			let awesome_bar = new frappe.search.AwesomeBar();

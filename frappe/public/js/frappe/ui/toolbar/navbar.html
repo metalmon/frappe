@@ -25,7 +25,7 @@
 						<div
 							id="navbar-modal-search"
 							class=""
-							placeholder={%= __('Search for type a command') %}
+							placeholder={%= __('Search or type a command ({0})', [frappe.utils.is_mac() ? '⌘ + K' : 'Ctrl + K']) %}
 						>
 							{%= __('Search or type a command ({0})', [frappe.utils.is_mac() ? '⌘ + K' : 'Ctrl + K']) %}
 						</div>
