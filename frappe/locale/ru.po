@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-11-29 15:17+0000\n"
+"POT-Creation-Date: 2025-11-29 16:04+0000\n"
 "PO-Revision-Date: 2025-11-29 18:18+0300\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language: ru\n"
@@ -1348,7 +1348,7 @@ msgstr "Добавить подписчиков"
 msgid "Add Tags"
 msgstr "Добавить теги"
 
-#: frappe/public/js/frappe/list/list_view.js:2158
+#: frappe/public/js/frappe/list/list_view.js:2152
 msgctxt "Button in list view actions menu"
 msgid "Add Tags"
 msgstr "Добавить теги"
@@ -2500,7 +2500,7 @@ msgstr "Применяется к (ДокТайп)"
 msgid "Apply"
 msgstr "Применить"
 
-#: frappe/public/js/frappe/list/list_view.js:2143
+#: frappe/public/js/frappe/list/list_view.js:2137
 msgctxt "Button in list view actions menu"
 msgid "Apply Assignment Rule"
 msgstr "Применить правило назначения"
@@ -2588,7 +2588,7 @@ msgstr "Архивные колонки"
 msgid "Are you sure you want to cancel the invitation?"
 msgstr "Вы уверены, что хотите отменить приглашение?"
 
-#: frappe/public/js/frappe/list/list_view.js:2122
+#: frappe/public/js/frappe/list/list_view.js:2116
 msgid "Are you sure you want to clear the assignments?"
 msgstr "Вы уверены, что хотите очистить назначения?"
 
@@ -2710,7 +2710,7 @@ msgstr "Условие назначения"
 msgid "Assign To"
 msgstr "Назначить кому"
 
-#: frappe/public/js/frappe/list/list_view.js:2104
+#: frappe/public/js/frappe/list/list_view.js:2098
 msgctxt "Button in list view actions menu"
 msgid "Assign To"
 msgstr "Назначить на"
@@ -4219,11 +4219,11 @@ msgstr "Кэш"
 msgid "Cache Cleared"
 msgstr "Кэш очищен"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:247
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:240
 msgid "Calculate"
 msgstr "Рассчитать"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:452
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:445
 msgid "Calculator"
 msgstr "Калькулятор"
 
@@ -4335,7 +4335,7 @@ msgstr "Невозможно переименовать {0} в {1}, потому
 msgid "Cancel"
 msgstr "Отмена"
 
-#: frappe/public/js/frappe/list/list_view.js:2213
+#: frappe/public/js/frappe/list/list_view.js:2207
 msgctxt "Button in list view actions menu"
 msgid "Cancel"
 msgstr "Отмена"
@@ -4365,7 +4365,7 @@ msgstr "Отменить подготовленный отчет"
 msgid "Cancel Scheduling"
 msgstr "Отмена планирования"
 
-#: frappe/public/js/frappe/list/list_view.js:2218
+#: frappe/public/js/frappe/list/list_view.js:2212
 msgctxt "Title of confirmation dialog"
 msgid "Cancel {0} documents?"
 msgstr "Отменить документы? ({0})"
@@ -4971,7 +4971,7 @@ msgstr "Очистить и добавить шаблон"
 msgid "Clear All"
 msgstr "Очистить все"
 
-#: frappe/public/js/frappe/list/list_view.js:2119
+#: frappe/public/js/frappe/list/list_view.js:2113
 msgctxt "Button in list view actions menu"
 msgid "Clear Assignment"
 msgstr "Очистить назначения"
@@ -5074,7 +5074,7 @@ msgstr "Нажмите, чтобы установить динамические
 msgid "Click to Set Filters"
 msgstr "Нажмите, чтобы установить фильтры"
 
-#: frappe/public/js/frappe/list/list_view.js:741
+#: frappe/public/js/frappe/list/list_view.js:735
 msgid "Click to sort by {0}"
 msgstr "Нажмите, чтобы отсортировать по {0}"
 
@@ -5997,7 +5997,7 @@ msgstr "Контролирует, могут ли новые пользоват�
 msgid "Copied to clipboard."
 msgstr "Скопировано в буфер обмена."
 
-#: frappe/public/js/frappe/list/list_view.js:2417
+#: frappe/public/js/frappe/list/list_view.js:2411
 msgid "Copied {0} {1} to clipboard"
 msgstr "Скопировано {0} {1} в буфер обмена"
 
@@ -6014,7 +6014,7 @@ msgid "Copy error to clipboard"
 msgstr "Скопируйте ошибку в буфер обмена"
 
 #: frappe/public/js/frappe/form/toolbar.js:540
-#: frappe/public/js/frappe/list/list_view.js:2301
+#: frappe/public/js/frappe/list/list_view.js:2295
 msgid "Copy to Clipboard"
 msgstr "Копировать в буфер обмена"
 
@@ -6146,10 +6146,13 @@ msgstr "Cr"
 #: frappe/desk/doctype/desktop_icon/desktop_icon.js:28
 #: frappe/printing/page/print_format_builder_beta/print_format_builder_beta.js:46
 #: frappe/public/js/frappe/form/reminders.js:49
+#: frappe/public/js/frappe/list/list_view.js:505
+#: frappe/public/js/frappe/list/list_view.js:508
 #: frappe/public/js/frappe/views/file/file_view.js:112
 #: frappe/public/js/frappe/views/interaction.js:18
 #: frappe/public/js/frappe/views/reports/query_report.js:1290
 #: frappe/public/js/frappe/views/workspace/workspace.js:492
+#: frappe/public/js/frappe/web_form/web_form_list.js:226
 #: frappe/workflow/page/workflow_builder/workflow_builder.js:46
 msgid "Create"
 msgstr "Создать"
@@ -6202,11 +6205,6 @@ msgstr "Создать журнал"
 msgid "Create New"
 msgstr "Создать"
 
-#: frappe/public/js/frappe/list/list_view.js:514
-msgctxt "Create a new document from list view"
-msgid "Create New"
-msgstr "Создать"
-
 #: frappe/core/doctype/doctype/doctype_list.js:101
 msgid "Create New DocType"
 msgstr "Создайте новый тип документа"
@@ -6231,15 +6229,13 @@ msgstr "Создать напоминание"
 msgid "Create a new ..."
 msgstr "Создайте новый ..."
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:222
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:215
 msgid "Create a new record"
 msgstr "Создать новую запись"
 
 #: frappe/public/js/frappe/form/controls/link.js:319
 #: frappe/public/js/frappe/form/controls/link.js:321
 #: frappe/public/js/frappe/form/link_selector.js:139
-#: frappe/public/js/frappe/list/list_view.js:506
-#: frappe/public/js/frappe/web_form/web_form_list.js:226
 msgid "Create a new {0}"
 msgstr "Создать {0}"
 
@@ -6259,10 +6255,6 @@ msgstr "Создание или редактирование формата пе
 #: frappe/workflow/page/workflow_builder/workflow_builder.js:34
 msgid "Create or Edit Workflow"
 msgstr "Создание или редактирование рабочего процесса"
-
-#: frappe/public/js/frappe/list/list_view.js:509
-msgid "Create your first {0}"
-msgstr "Создайте свой первый {0}"
 
 #: frappe/workflow/doctype/workflow/workflow.js:16
 msgid "Create your workflow visually using the Workflow Builder."
@@ -6383,7 +6375,7 @@ msgstr "Список валют хранит значение валюты, ее
 
 #. Option for the 'Address Type' (Select) field in DocType 'Address'
 #: frappe/contacts/doctype/address/address.json
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:406
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:399
 msgid "Current"
 msgstr "Текущий"
 
@@ -6652,7 +6644,7 @@ msgstr "Настройки для <b>{0}</b> экспортируется в:<br
 msgid "Customize"
 msgstr "Настроить"
 
-#: frappe/public/js/frappe/list/list_view.js:1956
+#: frappe/public/js/frappe/list/list_view.js:1950
 msgctxt "Button in list view menu"
 msgid "Customize"
 msgstr "Настроить"
@@ -7339,7 +7331,7 @@ msgstr "Задерживается"
 msgid "Delete"
 msgstr "Удалить"
 
-#: frappe/public/js/frappe/list/list_view.js:2181
+#: frappe/public/js/frappe/list/list_view.js:2175
 msgctxt "Button in list view actions menu"
 msgid "Delete"
 msgstr "Удалить"
@@ -7432,12 +7424,12 @@ msgstr "Удалить вкладку"
 msgid "Delete this record to allow sending to this email address"
 msgstr "Удалите эту запись, чтобы разрешить отправку на этот адрес электронной почты"
 
-#: frappe/public/js/frappe/list/list_view.js:2186
+#: frappe/public/js/frappe/list/list_view.js:2180
 msgctxt "Title of confirmation dialog"
 msgid "Delete {0} item permanently?"
 msgstr "Удалить элемент навсегда? ({0})"
 
-#: frappe/public/js/frappe/list/list_view.js:2192
+#: frappe/public/js/frappe/list/list_view.js:2186
 msgctxt "Title of confirmation dialog"
 msgid "Delete {0} items permanently?"
 msgstr "Удалить элементы навсегда? ({0})"
@@ -8492,15 +8484,15 @@ msgstr "Документ не может быть использован в ка
 msgid "Document follow is not enabled for this user."
 msgstr "Для этого пользователя не включена функция отслеживания документов."
 
-#: frappe/public/js/frappe/list/list_view.js:1309
+#: frappe/public/js/frappe/list/list_view.js:1303
 msgid "Document has been cancelled"
 msgstr "Документ был отменен"
 
-#: frappe/public/js/frappe/list/list_view.js:1308
+#: frappe/public/js/frappe/list/list_view.js:1302
 msgid "Document has been submitted"
 msgstr "Документ был проведен"
 
-#: frappe/public/js/frappe/list/list_view.js:1307
+#: frappe/public/js/frappe/list/list_view.js:1301
 msgid "Document is in draft state"
 msgstr "Документ находится в состоянии черновика"
 
@@ -8913,7 +8905,7 @@ msgstr "ESC"
 msgid "Edit"
 msgstr "Редактировать"
 
-#: frappe/public/js/frappe/list/list_view.js:2267
+#: frappe/public/js/frappe/list/list_view.js:2261
 msgctxt "Button in list view actions menu"
 msgid "Edit"
 msgstr "Редактировать"
@@ -8952,7 +8944,7 @@ msgstr "Редактирование пользовательского HTML"
 msgid "Edit DocType"
 msgstr "Редактировать DocType"
 
-#: frappe/public/js/frappe/list/list_view.js:1983
+#: frappe/public/js/frappe/list/list_view.js:1977
 msgctxt "Button in list view menu"
 msgid "Edit DocType"
 msgstr "Редактировать ДокТайп"
@@ -10236,7 +10228,7 @@ msgstr "Срок действия страницы с изображением Q
 msgid "Export"
 msgstr "Экспорт"
 
-#: frappe/public/js/frappe/list/list_view.js:2289
+#: frappe/public/js/frappe/list/list_view.js:2283
 msgctxt "Button in list view actions menu"
 msgid "Export"
 msgstr "Экспорт"
@@ -11081,8 +11073,8 @@ msgstr "Фильтры:"
 msgid "Find '{0}' in ..."
 msgstr "Найти '{0}' в ..."
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:398
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:400
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:391
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:393
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:161
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:164
 msgid "Find {0} in {1}"
@@ -11858,7 +11850,7 @@ msgstr "Создание ключей"
 msgid "Generate New Report"
 msgstr "Создать новый отчет"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:466
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:459
 msgid "Generate Random Password"
 msgstr "Сгенерировать случайный пароль"
 
@@ -12767,7 +12759,7 @@ msgstr "Скрыть боковую панель, меню и комментар
 msgid "Hide Standard Menu"
 msgstr "Скрыть стандартное меню"
 
-#: frappe/public/js/frappe/list/list_view.js:1858
+#: frappe/public/js/frappe/list/list_view.js:1852
 msgid "Hide Tags"
 msgstr "Скрыть теги"
 
@@ -12932,7 +12924,7 @@ msgstr "Думаю, у Вас пока нет доступа ни к одном�
 #: frappe/public/js/frappe/list/list_settings.js:335
 #: frappe/public/js/frappe/list/list_view.js:386
 #: frappe/public/js/frappe/list/list_view.js:450
-#: frappe/public/js/frappe/list/list_view.js:2339
+#: frappe/public/js/frappe/list/list_view.js:2333
 #: frappe/public/js/frappe/model/meta.js:208
 #: frappe/public/js/frappe/model/model.js:122
 msgid "ID"
@@ -13415,7 +13407,7 @@ msgstr "Скрытый"
 msgid "Import"
 msgstr "Импорт"
 
-#: frappe/public/js/frappe/list/list_view.js:1920
+#: frappe/public/js/frappe/list/list_view.js:1914
 msgctxt "Button in list view menu"
 msgid "Import"
 msgstr "Импорт"
@@ -15830,7 +15822,7 @@ msgstr "Фильтр списка"
 msgid "List Settings"
 msgstr "Настройки списка"
 
-#: frappe/public/js/frappe/list/list_view.js:2000
+#: frappe/public/js/frappe/list/list_view.js:1994
 msgctxt "Button in list view menu"
 msgid "List Settings"
 msgstr "Настройки списка"
@@ -15844,7 +15836,7 @@ msgstr "Список"
 msgid "List View Settings"
 msgstr "Настройки вида списка"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:227
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:220
 msgid "List a document type"
 msgstr "Перечислите тип документа"
 
@@ -17446,12 +17438,12 @@ msgstr "Шаблон панели навигации"
 msgid "Navbar Template Values"
 msgstr "Значения шаблона панели навигации"
 
-#: frappe/public/js/frappe/list/list_view.js:1387
+#: frappe/public/js/frappe/list/list_view.js:1381
 msgctxt "Description of a list view shortcut"
 msgid "Navigate list down"
 msgstr "Перемещение по списку вниз"
 
-#: frappe/public/js/frappe/list/list_view.js:1394
+#: frappe/public/js/frappe/list/list_view.js:1388
 msgctxt "Description of a list view shortcut"
 msgid "Navigate list up"
 msgstr "Перемещение по списку вверх"
@@ -18238,7 +18230,7 @@ msgstr "Никакие записи не будут экспортированы
 msgid "No rows"
 msgstr "Нет строк"
 
-#: frappe/public/js/frappe/list/list_view.js:2306
+#: frappe/public/js/frappe/list/list_view.js:2300
 msgid "No rows selected"
 msgstr "Строки не выбраны"
 
@@ -19246,7 +19238,7 @@ msgstr "Открыть URL в новой вкладке"
 msgid "Open a dialog with mandatory fields to create a new record quickly. There must be at least one mandatory field to show in dialog."
 msgstr "Откройте диалог с обязательными полями, чтобы быстро создать новую запись. В диалоге должно быть хотя бы одно обязательное поле."
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:242
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:235
 msgid "Open a module or tool"
 msgstr "Откройте модуль или инструмент"
 
@@ -19258,7 +19250,7 @@ msgstr "Открытая консоль"
 msgid "Open in a new tab"
 msgstr "Открыть в новой вкладке"
 
-#: frappe/public/js/frappe/list/list_view.js:1440
+#: frappe/public/js/frappe/list/list_view.js:1434
 msgctxt "Description of a list view shortcut"
 msgid "Open list item"
 msgstr "Открыть элемент списка"
@@ -21072,7 +21064,7 @@ msgstr "Первичный ключ доктайпа {0} не может быт�
 msgid "Print"
 msgstr "Печать"
 
-#: frappe/public/js/frappe/list/list_view.js:2173
+#: frappe/public/js/frappe/list/list_view.js:2167
 msgctxt "Button in list view actions menu"
 msgid "Print"
 msgstr "Печать"
@@ -22422,7 +22414,7 @@ msgstr "Обновить предпросмотр печати"
 msgid "Refresh Token"
 msgstr "Обновить токен"
 
-#: frappe/public/js/frappe/list/list_view.js:536
+#: frappe/public/js/frappe/list/list_view.js:530
 msgctxt "Document count in list view"
 msgid "Refreshing"
 msgstr "Обновление"
@@ -23226,8 +23218,8 @@ msgctxt "Title of message showing restrictions in list view"
 msgid "Restrictions"
 msgstr "Ограничения"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:454
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:469
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:447
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:462
 msgid "Result"
 msgstr "Результат"
 
@@ -23378,7 +23370,7 @@ msgstr "Ролевые разрешения"
 msgid "Role Permissions Manager"
 msgstr "Менеджер ролевых разрешений"
 
-#: frappe/public/js/frappe/list/list_view.js:1942
+#: frappe/public/js/frappe/list/list_view.js:1936
 msgctxt "Button in list view menu"
 msgid "Role Permissions Manager"
 msgstr "Менеджер ролевых разрешений"
@@ -24147,7 +24139,7 @@ msgstr "Скрипты"
 #: frappe/public/js/frappe/list/list_sidebar.html:69
 #: frappe/public/js/frappe/ui/address_autocomplete/autocomplete_dialog.js:20
 #: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:22
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:376
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:369
 #: frappe/public/js/frappe/ui/toolbar/search.js:49
 #: frappe/public/js/frappe/ui/toolbar/search.js:68
 #: frappe/templates/discussions/search.html:2
@@ -24167,7 +24159,7 @@ msgstr "Панель поиска"
 msgid "Search Fields"
 msgstr "Поля поиска"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:252
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:245
 msgid "Search Help"
 msgstr "Помощь в поиске"
 
@@ -24206,18 +24198,14 @@ msgstr "Искать что-нибудь"
 msgid "Search for type a command"
 msgstr "Введите команду для поиска"
 
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:359
 #: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:366
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:373
 msgid "Search for {0}"
 msgstr "Поиск {0}"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:232
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:225
 msgid "Search in a document type"
 msgstr "Поиск в типе документа"
-
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:34
-msgid "Search or type a command"
-msgstr "Введите поисковый запрос или команду"
 
 #: frappe/desk/page/desktop/desktop.js:231
 #: frappe/public/js/frappe/ui/toolbar/navbar.html:28
@@ -24601,13 +24589,13 @@ msgstr "Выберите не менее 1 записи для печати"
 msgid "Select atleast 2 actions"
 msgstr "Выберите не менее 2 действий"
 
-#: frappe/public/js/frappe/list/list_view.js:1454
+#: frappe/public/js/frappe/list/list_view.js:1448
 msgctxt "Description of a list view shortcut"
 msgid "Select list item"
 msgstr "Выберите элемент списка"
 
-#: frappe/public/js/frappe/list/list_view.js:1406
-#: frappe/public/js/frappe/list/list_view.js:1422
+#: frappe/public/js/frappe/list/list_view.js:1400
+#: frappe/public/js/frappe/list/list_view.js:1416
 msgctxt "Description of a list view shortcut"
 msgid "Select multiple list items"
 msgstr "Выбор нескольких элементов списка"
@@ -25693,7 +25681,7 @@ msgid "Show Social Login Key as Authorization Server"
 msgstr "Показать ключ социального входа в качестве сервера авторизации"
 
 #: frappe/public/js/frappe/list/list_sidebar.html:76
-#: frappe/public/js/frappe/list/list_view.js:1858
+#: frappe/public/js/frappe/list/list_view.js:1852
 msgid "Show Tags"
 msgstr "Показать теги"
 
@@ -26576,7 +26564,7 @@ msgstr "Интервал статистики"
 #: frappe/integrations/doctype/integration_request/integration_request.json
 #: frappe/integrations/doctype/oauth_bearer_token/oauth_bearer_token.json
 #: frappe/public/js/frappe/list/list_settings.js:357
-#: frappe/public/js/frappe/list/list_view.js:2345
+#: frappe/public/js/frappe/list/list_view.js:2339
 #: frappe/public/js/frappe/views/reports/report_view.js:980
 #: frappe/website/doctype/personal_data_deletion_request/personal_data_deletion_request.json
 #: frappe/website/doctype/personal_data_deletion_step/personal_data_deletion_step.json
@@ -26773,7 +26761,7 @@ msgstr "Очередь проведения"
 msgid "Submit"
 msgstr "Провести"
 
-#: frappe/public/js/frappe/list/list_view.js:2240
+#: frappe/public/js/frappe/list/list_view.js:2234
 msgctxt "Button in list view actions menu"
 msgid "Submit"
 msgstr "Провести"
@@ -26831,7 +26819,7 @@ msgstr "Проведите этот документ, чтобы заверши�
 msgid "Submit this document to confirm"
 msgstr "Проведите этот документ, чтобы подтвердить"
 
-#: frappe/public/js/frappe/list/list_view.js:2245
+#: frappe/public/js/frappe/list/list_view.js:2239
 msgctxt "Title of confirmation dialog"
 msgid "Submit {0} documents?"
 msgstr "Провести документы? ({0})"
@@ -27470,7 +27458,7 @@ msgstr "Ссылка тега"
 #: frappe/public/js/frappe/list/list_sidebar.js:253
 #: frappe/public/js/frappe/model/meta.js:215
 #: frappe/public/js/frappe/model/model.js:133
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:237
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:230
 msgid "Tags"
 msgstr "Теги"
 
@@ -27758,7 +27746,7 @@ msgstr "Комментарий не может быть пустым"
 msgid "The contents of this email are strictly confidential. Please do not forward this email to anyone."
 msgstr "Содержание этого письма строго конфиденциально. Пожалуйста, не пересылайте это письмо никому."
 
-#: frappe/public/js/frappe/list/list_view.js:687
+#: frappe/public/js/frappe/list/list_view.js:681
 msgid "The count shown is an estimated count. Click here to see the accurate count."
 msgstr "Показанное количество - приблизительное. Нажмите здесь, чтобы увидеть точное количество."
 
@@ -28787,7 +28775,7 @@ msgstr "Включить вид сетки"
 msgid "Toggle Sidebar"
 msgstr "Переключить боковую панель"
 
-#: frappe/public/js/frappe/list/list_view.js:1973
+#: frappe/public/js/frappe/list/list_view.js:1967
 msgctxt "Button in list view menu"
 msgid "Toggle Sidebar"
 msgstr "Переключить боковую панель"
@@ -30158,7 +30146,7 @@ msgstr "Разрешение пользователя"
 msgid "User Permissions"
 msgstr "Пользовательские разрешения"
 
-#: frappe/public/js/frappe/list/list_view.js:1931
+#: frappe/public/js/frappe/list/list_view.js:1925
 msgctxt "Button in list view menu"
 msgid "User Permissions"
 msgstr "Пользовательские разрешения"
@@ -32430,7 +32418,7 @@ msgstr "удалить"
 msgid "descending"
 msgstr "по убыванию"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:229
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:222
 msgid "document type..., e.g. customer"
 msgstr "тип документа..., например, клиент"
 
@@ -32440,7 +32428,7 @@ msgstr "тип документа..., например, клиент"
 msgid "e.g. \"Support\", \"Sales\", \"Jerry Yang\""
 msgstr "например, \"Поддержка\", \"Продажи\", \"Сергей Иванов\""
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:249
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:242
 msgid "e.g. (55 + 434) / 4 or =Math.sin(Math.PI/2)..."
 msgstr "например, (55 + 434) / 4 или =Math.sin(Math.PI/2)..."
 
@@ -32491,7 +32479,7 @@ msgstr "почтовый ящик"
 msgid "empty"
 msgstr "пусто"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:46
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
 msgid "esc"
 msgstr "esc"
 
@@ -32640,7 +32628,7 @@ msgstr "мм/дд/гггг"
 msgid "mm/dd/yyyy"
 msgstr "мм/дд/гггг"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:244
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:237
 msgid "module name..."
 msgstr "имя модуля..."
 
@@ -32648,7 +32636,7 @@ msgstr "имя модуля..."
 msgid "new"
 msgstr "новый"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:224
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:217
 msgid "new type of document"
 msgstr "новый тип документа"
 
@@ -32866,11 +32854,11 @@ msgstr "строковое значение, т.е. {0} или uid={0},ou=users,
 msgid "submit"
 msgstr "провести"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:239
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:232
 msgid "tag name..., e.g. #tag"
 msgstr "имя тега..., например, #tag"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:234
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:227
 msgid "text in document type"
 msgstr "текст в типе документа"
 
@@ -32882,15 +32870,15 @@ msgstr "эта форма"
 msgid "this shouldn't break"
 msgstr "это не должно прерываться"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:46
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
 msgid "to close"
 msgstr "закрыть"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:46
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
 msgid "to navigate"
 msgstr "перейти"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:46
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:39
 msgid "to select"
 msgstr "выбрать"
 
@@ -33029,8 +33017,8 @@ msgstr "{0} ({1}) (1 ряд обязателен)"
 msgid "{0} ({1}) - {2}%"
 msgstr "{0} ({1}) - {2}%"
 
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:445
-#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:449
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:438
+#: frappe/public/js/frappe/ui/toolbar/awesome_bar.js:442
 msgid "{0} = {1}"
 msgstr "{0} = {1}"
 
@@ -33361,7 +33349,7 @@ msgstr "{0} не является правильным Календарем. П�
 msgid "{0} is not a valid Cron expression."
 msgstr "{0} не является правильным выражением Cron."
 
-#: frappe/public/js/frappe/form/controls/dynamic_link.js:23
+#: frappe/public/js/frappe/form/controls/dynamic_link.js:26
 msgid "{0} is not a valid DocType for Dynamic Link"
 msgstr "{0} не является допустимым ДокТайпом для динамической ссылки"
 
@@ -33446,7 +33434,7 @@ msgstr "{0} установлено"
 msgid "{0} is within {1}"
 msgstr "{0} находится в пределах {1}"
 
-#: frappe/public/js/frappe/list/list_view.js:1848
+#: frappe/public/js/frappe/list/list_view.js:1842
 msgid "{0} items selected"
 msgstr "{0} выбранных элементов"
 
@@ -33532,11 +33520,11 @@ msgid "{0} not found"
 msgstr "{0} не найдено"
 
 #: frappe/core/doctype/report/report.py:432
-#: frappe/public/js/frappe/list/list_view.js:1220
+#: frappe/public/js/frappe/list/list_view.js:1214
 msgid "{0} of {1}"
 msgstr "{0} из {1}"
 
-#: frappe/public/js/frappe/list/list_view.js:1222
+#: frappe/public/js/frappe/list/list_view.js:1216
 msgid "{0} of {1} ({2} rows with children)"
 msgstr "{0} из {1} ({2} строки с дочерними элементами)"
 
