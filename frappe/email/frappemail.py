@@ -39,7 +39,13 @@ class FrappeMail:
 		api_secret: str | None = None,
 		access_token: str | None = None,
 	) -> FrappeClient | FrappeOAuth2Client:
-		"""Returns a FrappeClient or FrappeOAuth2Client instance."""
+		"""Returns a FrappeClient or FrappeOAuth2Client instance.
+
+		SSL Verification:
+			SSL certificate verification can be controlled via `frappe_mail_verify_ssl` in site_config.json.
+			Set to 0 to disable verification for self-signed certificates.
+			See frappe/SSL_CONFIG.md for more details.
+		"""
 
 		if hasattr(frappe.local, "frappe_mail_clients"):
 			if client := frappe.local.frappe_mail_clients.get(email):
@@ -49,6 +55,7 @@ class FrappeMail:
 
 		# Get SSL verification setting from config, default to True
 		# Set to 0 in site_config.json to disable SSL verification for self-signed certificates
+		# See frappe/SSL_CONFIG.md for documentation
 		verify_ssl_config = frappe.conf.get("frappe_mail_verify_ssl")
 		if verify_ssl_config is not None:
 			verify_ssl = sbool(verify_ssl_config)

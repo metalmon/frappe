@@ -235,6 +235,11 @@ class PushNotification:
 		:param params: (dict) The parameters to be sent with the request.
 		:param use_authentication: (bool) Whether to use authentication or not.
 		:return: (dict) Response data of the request.
+
+		SSL Verification:
+			SSL certificate verification can be controlled via `push_relay_verify_ssl` in site_config.json.
+			Set to 0 to disable verification for self-signed certificates.
+			See frappe/SSL_CONFIG.md for more details.
 		"""
 
 		if not self.is_enabled():
@@ -243,6 +248,7 @@ class PushNotification:
 		relay_server_endpoint = frappe.conf.get("push_relay_server_url")
 		# Get SSL verification setting from config, default to True
 		# Set to 0 in site_config.json to disable SSL verification for self-signed certificates
+		# See frappe/SSL_CONFIG.md for documentation
 		verify_ssl_config = frappe.conf.get("push_relay_verify_ssl")
 		if verify_ssl_config is not None:
 			verify_ssl = sbool(verify_ssl_config)
