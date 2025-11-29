@@ -524,8 +524,7 @@ frappe.ui.Sidebar = class Sidebar {
 					if (
 						me.dialog_opts &&
 						me.dialog_opts.parent_item &&
-						(me.dialog_opts.parent_item.label == __("Reports") ||
-							me.dialog_opts.parent_item.label == "Reports")
+						me.dialog_opts.parent_item.label == __("Reports")
 					) {
 						d.set_value("icon", "table");
 						d.set_value("link_type", "Report");

@@ -180,11 +180,10 @@ class DesktopPage {
 		this.setup_avatar();
 		this.setup_navbar();
 		this.setup_awesomebar();
-		this.handke_route_change();
+		this.handle_route_change();
 	}
 	setup_avatar() {
 		$(".desktop-avatar").html(frappe.avatar(frappe.session.user, "avatar-medium"));
-		$(".desktop-avatar").data("menu", "user-menu");
 		let menu_items = [
 			{
 				icon: "edit",
@@ -212,37 +211,39 @@ class DesktopPage {
 				},
 			},
 		];
-		frappe.ui.create_menu($(".desktop-avatar"), menu_items, null, true);
+		frappe.ui.create_menu({
+			parent: $(".desktop-avatar"),
+			menu_items: menu_items,
+			open_on_left: true,
+		});
 	}
 	setup_navbar() {
 		$(".sticky-top > .navbar").hide();
 	}
 
 	setup_awesomebar() {
+		if (this.awesomebar_setup) return;
+		this.awesomebar_setup = true;
+
+		$(".desktop-search-wrapper #navbar-search").attr(
+			"placeholder",
+			`Search or type a command (${frappe.utils.is_mac() ? "⌘ + K" : "Ctrl + K"})`
+		);
 		if (frappe.boot.desk_settings.search_bar) {
 			let awesome_bar = new frappe.search.AwesomeBar();
-			awesome_bar.setup(".desktop-search-wrapper #navbar-search");
+			awesome_bar.setup(".desktop-search-wrapper #navbar-modal-search");
 		}
 		frappe.ui.keys.add_shortcut({
 			shortcut: "ctrl+g",
 			action: function (e) {
-				$(".desktop-search-wrapper #navbar-search").focus();
-				e.preventDefault();
-				return false;
-			},
-			description: __("Open Awesomebar"),
-		});
-		frappe.ui.keys.add_shortcut({
-			shortcut: "ctrl+k",
-			action: function (e) {
-				$(".desktop-search-wrapper #navbar-search").focus();
+				$(".desktop-search-wrapper #navbar-modal-search").click();
 				e.preventDefault();
 				return false;
 			},
 			description: __("Open Awesomebar"),
 		});
 	}
-	handke_route_change() {
+	handle_route_change() {
 		const me = this;
 		frappe.router.on("change", function () {
 			if (frappe.get_route()[0] == "desktop" || frappe.get_route()[0] == "")
@@ -458,54 +459,56 @@ class DesktopIconGrid {
 		const me = this;
 		this.hoverTarget = null;
 		this.hoverTimer = null;
-		this.sortable = new Sortable($(grid).get(0), {
-			swapThreshold: 0.09,
-			animation: 150,
-			sort: true, // keep sorting normally
-			dragoverBubble: true,
-			group: {
-				name: "desktop",
-				put: true,
-				pull: true,
-			},
-			setData: function (/** DataTransfer */ dataTransfer, /** HTMLElement*/ dragEl) {
-				let titleElement = $(dragEl).find(".icon-title");
-				let title = titleElement.attr("data-original-label") || titleElement.text();
-				let icon = me.icons.find((d) => {
-					return d.icon_title === title;
-				});
-				dataTransfer.setData("text/plain", JSON.stringify(icon.icon_data)); // `dataTransfer` object of HTML5 DragEvent
-			},
-			onEnd: function (evt) {
-				if (evt.oldIndex !== evt.newIndex) {
-					if (evt.to.parentElement == evt.from.parentElement) {
-						let reordered_icons = me.sortable.toArray();
-						let filters = {
-							parent_icon: me.parent_icon?.icon_data.label || null,
-						};
-						me.reorder_icons(reordered_icons, filters);
-						me.parent_icon?.render_folder_thumbnail();
-					} else {
-						let from = $(evt.from.parentElement);
-						let to = $(evt.to.parentElement);
-						let titleElement = $(evt.item).find(".icon-title");
-						let title = titleElement.attr("data-original-label") || titleElement.text();
-						let selected_icon = get_desktop_icon_by_label(title);
-						if ($(to.get(0).parentElement)) {
-							me.reorder_icons(me.sortable.toArray());
-							me.reorder_icons(
-								frappe.pages["desktop"].desktop_page.icon_grid.sortable.toArray()
-							);
-							selected_icon.idx = evt.newIndex;
-							selected_icon.parent_icon = null;
+		if (!frappe.is_mobile()) {
+			this.sortable = new Sortable($(grid).get(0), {
+				swapThreshold: 0.09,
+				animation: 150,
+				sort: true, // keep sorting normally
+				dragoverBubble: true,
+				group: {
+					name: "desktop",
+					put: true,
+					pull: true,
+				},
+				setData: function (/** DataTransfer */ dataTransfer, /** HTMLElement*/ dragEl) {
+					let title = $(dragEl).find(".icon-title").text();
+					let icon = me.icons.find((d) => {
+						return d.icon_title === title;
+					});
+					dataTransfer.setData("text/plain", JSON.stringify(icon.icon_data)); // `dataTransfer` object of HTML5 DragEvent
+				},
+				onEnd: function (evt) {
+					if (evt.oldIndex !== evt.newIndex) {
+						if (evt.to.parentElement == evt.from.parentElement) {
+							let reordered_icons = me.sortable.toArray();
+							let filters = {
+								parent_icon: me.parent_icon?.icon_data.label || null,
+							};
+							me.reorder_icons(reordered_icons, filters);
+							me.parent_icon?.render_folder_thumbnail();
+						} else {
+							let from = $(evt.from.parentElement);
+							let to = $(evt.to.parentElement);
+							let title = $(evt.item).find(".icon-title").text();
+							let selected_icon = get_desktop_icon_by_label(title);
+							if ($(to.get(0).parentElement)) {
+								me.reorder_icons(me.sortable.toArray());
+								me.reorder_icons(
+									frappe.pages[
+										"desktop"
+									].desktop_page.icon_grid.sortable.toArray()
+								);
+								selected_icon.idx = evt.newIndex;
+								selected_icon.parent_icon = null;
+							}
 						}
+					} else {
+						frappe.toast(__("Nothing changed"));
 					}
-				} else {
-					frappe.toast(__("Nothing changed"));
-				}
-				save_desktop();
-			},
-		});
+					save_desktop();
+				},
+			});
+		}
 	}
 	reorder_icons(reordered_icons, filters) {
 		reordered_icons.forEach((d, idx) => {
@@ -674,16 +677,15 @@ class DesktopModal {
 		});
 	}
 	make_modal(icon_title) {
-		const translated_title = __(icon_title);
 		if ($(".desktop-modal").length == 0) {
-			this.modal = new frappe.get_modal(translated_title, "");
+			this.modal = new frappe.get_modal(__(icon_title), "");
 			this.modal.find(".modal-header").addClass("desktop-modal-heading");
 			this.modal.addClass("desktop-modal");
 			this.modal.find(".modal-dialog").attr("id", "desktop-modal");
 			this.modal.find(".modal-body").addClass("desktop-modal-body");
 			this.$child_icons_wrapper = this.modal.find(".desktop-modal-body");
 		} else {
-			this.modal.find(".modal-title").text(translated_title);
+			this.modal.find(".modal-title").text(icon_title);
 			$(this.modal.find(".modal-body")).empty();
 			if (frappe.desktop_utils.modal_stack.length == 1) {
 				this.title_section.find(".icon").remove();

@@ -244,8 +244,7 @@
 }
 .bottom-edit-controls {
 	display: flex;
-	gap: 12px;
-	align-items: center;
+	gap: 35%;
 }
 .body-sidebar-container[data-mode="edit"] {
 	.standard-sidebar-item:hover {
@@ -280,8 +279,4 @@
 }
 .indent + .nested-container {
 	margin-left: 16px;
-}
-.context-menu {
-	position: absolute;
-	z-index: 1030;
 }
