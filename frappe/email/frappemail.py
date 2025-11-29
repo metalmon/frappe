@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 from zoneinfo import ZoneInfo
 
 import frappe
-from frappe import _
+from frappe import _, sbool
 from frappe.frappeclient import FrappeClient, FrappeOAuth2Client
 from frappe.utils import convert_utc_to_system_timezone, get_datetime, get_system_timezone
 
@@ -47,10 +47,21 @@ class FrappeMail:
 		else:
 			frappe.local.frappe_mail_clients = {}
 
+		# Get SSL verification setting from config, default to True
+		# Set to 0 in site_config.json to disable SSL verification for self-signed certificates
+		verify_ssl_config = frappe.conf.get("frappe_mail_verify_ssl")
+		if verify_ssl_config is not None:
+			verify_ssl = sbool(verify_ssl_config)
+			# Ensure verify_ssl is always a boolean
+			if not isinstance(verify_ssl, bool):
+				verify_ssl = bool(verify_ssl)
+		else:
+			verify_ssl = True
+
 		client = (
-			FrappeOAuth2Client(url=site, access_token=access_token)
+			FrappeOAuth2Client(url=site, access_token=access_token, verify=verify_ssl)
 			if access_token
-			else FrappeClient(url=site, api_key=api_key, api_secret=api_secret)
+			else FrappeClient(url=site, api_key=api_key, api_secret=api_secret, verify=verify_ssl)
 		)
 		frappe.local.frappe_mail_clients[email] = client
 
