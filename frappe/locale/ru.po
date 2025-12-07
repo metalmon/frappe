@@ -7430,7 +7430,7 @@ msgctxt "Title of confirmation dialog"
 msgid "Delete {0} item permanently?"
 msgstr "Удалить элемент навсегда? ({0})"
 
-#: frappe/public/js/frappe/list/list_view.js:2186
+#: frappe/public/js/frappe/list/list_view.js:2189
 msgctxt "Title of confirmation dialog"
 msgid "Delete {0} items permanently?"
 msgstr "Удалить элементы навсегда? ({0})"
@@ -13490,7 +13490,7 @@ msgstr "Шаблон импорта должен содержать заголо
 msgid "Import timed out, please re-try."
 msgstr "Импорт завершился по таймеру, пожалуйста, повторите попытку."
 
-#: frappe/core/doctype/data_import/data_import.py:70
+#: frappe/core/doctype/data_import/data_import.py:71
 msgid "Importing {0} is not allowed."
 msgstr "Импорт {0} не разрешен."
 
@@ -14096,7 +14096,7 @@ msgstr "Неверный почтовый сервер. Пожалуйста, и
 msgid "Invalid Naming Series: {}"
 msgstr "Неверная серия именований: {}"
 
-#: frappe/core/doctype/data_import/data_import.py:167
+#: frappe/core/doctype/data_import/data_import.py:182
 #: frappe/core/doctype/prepared_report/prepared_report.py:200
 #: frappe/core/doctype/rq_job/rq_job.py:113
 #: frappe/core/doctype/rq_job/rq_job.py:122
@@ -14782,7 +14782,7 @@ msgstr "Задание успешно остановлено"
 msgid "Job is in {0} state and can't be cancelled"
 msgstr "Задание находится в состоянии {0} и не может быть отменено"
 
-#: frappe/core/doctype/data_import/data_import.py:167
+#: frappe/core/doctype/data_import/data_import.py:182
 #: frappe/core/doctype/prepared_report/prepared_report.py:200
 #: frappe/core/doctype/rq_job/rq_job.py:113
 msgid "Job is not running."
@@ -24031,7 +24031,7 @@ msgstr "Планировщик"
 msgid "Scheduler Event"
 msgstr "Планировщик событий"
 
-#: frappe/core/doctype/data_import/data_import.py:109
+#: frappe/core/doctype/data_import/data_import.py:124
 msgid "Scheduler Inactive"
 msgstr "Планировщик неактивен"
 
@@ -24044,7 +24044,7 @@ msgstr "Статус планировщика"
 msgid "Scheduler can not be re-enabled when maintenance mode is active."
 msgstr "Планировщик не может быть снова включен, если активен режим обслуживания."
 
-#: frappe/core/doctype/data_import/data_import.py:109
+#: frappe/core/doctype/data_import/data_import.py:124
 msgid "Scheduler is inactive. Cannot import data."
 msgstr "Планировщик неактивен. Невозможно импортировать данные."
 

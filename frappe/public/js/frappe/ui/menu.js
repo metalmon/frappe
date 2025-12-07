@@ -14,43 +14,79 @@ frappe.ui.menu = class ContextMenu {
 		this.template.empty();
 
 		this.menu_items.forEach((f) => {
-			this.add_menu_item(f);
+			f.condition =
+				f.condition ||
+				function () {
+					return true;
+				};
+			if (f.condition()) {
+				this.add_menu_item(f);
+			}
 		});
 
-		if (!$.contains(document.body, this.template[0])) {
-			$(document.body).append(this.template);
-		}
+		// if (!$.contains(document.body, this.template[0])) {
+		// 	$(document.body).append(this.template);
+		// }
+		$(document.body).append(this.template);
 	}
 	add_menu_item(item) {
 		const me = this;
-		let item_wrapper = $(`<div class="dropdown-menu-item">
-			<a>
-				<div class="menu-item-icon">
-					${
-						item.icon
-							? frappe.utils.icon(item.icon)
-							: `<img
-							class="logo"
-							src="${item.icon_url}"
-						>`
-					}
-				</div>
-				<span class="menu-item-title">${item.label}</span>
-			</a>
-		</div>`);
-		if (!item.url) {
-			item_wrapper.on("click", function () {
-				item.onClick();
-				me.opts.onItemClick && me.opts.onItemClick(me.opts.parent);
-				me.hide();
-			});
+		let item_wrapper = $(
+			`<div class="dropdown-menu-item"><div class="dropdown-divider documentation-links"></div></div>`
+		);
+		if (item?.is_divider) {
+			item_wrapper = $(
+				`<div class="dropdown-menu-item"><div class="dropdown-divider documentation-links"></div></div>`
+			);
 		} else {
-			$(item_wrapper).find("a").attr("href", item.url);
+			item_wrapper = $(`<div class="dropdown-menu-item">
+				<a>
+					<div class="menu-item-icon" ${!(item.icon || item.icon_url) ? "hidden" : ""}>
+						${
+							item.icon
+								? frappe.utils.icon(item.icon)
+								: `<img
+								class="logo"
+								src="${item.icon_url}"
+							>`
+						}
+					</div>
+					<span class="menu-item-title">${item.label}</span>
+					<div class="menu-item-icon" style="margin-left:auto">
+						${item.items && item.items.length ? frappe.utils.icon("chevron-right") : ""}
+					</div>
+
+				</a>
+			</div>`);
+			if (!item.url) {
+				item_wrapper.on("click", function () {
+					item.onClick && item.onClick();
+					if (!(item.items && item.items.length)) {
+						me.opts.onItemClick && me.opts.onItemClick(me.opts.parent);
+						me.hide();
+					}
+				});
+			} else if (item.items) {
+				$();
+			} else {
+				$(item_wrapper).find("a").attr("href", item.url);
+			}
 		}
 		item_wrapper.appendTo(this.template);
+		if (item.items) {
+			this.handle_nested_menu(item_wrapper, item);
+		}
+	}
+	handle_nested_menu(item_wrapper, item) {
+		frappe.ui.create_menu({
+			parent: item_wrapper,
+			menu_items: item.items,
+			nested: true,
+			parent_menu: this.name,
+		});
 	}
 	show(parent) {
-		this.close_all_other_menu();
+		// this.close_all_other_menu();
 
 		this.make();
 
@@ -58,12 +94,25 @@ frappe.ui.menu = class ContextMenu {
 		const height = $(parent).outerHeight();
 		this.left_offset = 0;
 		this.gap = 4;
-		this.template.css({
-			display: "block",
-			position: "absolute",
-			top: offset.top + height + this.gap + "px",
-			left: offset.left,
-		});
+		if (this.opts.nested && this.opts.parent_menu) {
+			let dropdown = frappe.menu_map[this.opts.parent_menu].template;
+			let width = dropdown.outerWidth();
+			let offset = $(dropdown).offset();
+			this.template.css({
+				display: "block",
+				position: "absolute",
+				top: offset.top + "px",
+				left: offset.left + width + this.gap + "px",
+			});
+		} else {
+			this.template.css({
+				display: "block",
+				position: "absolute",
+				top: offset.top + height + this.gap + "px",
+				left: offset.left,
+			});
+		}
+
 		if (this.open_on_left) {
 			this.left_offset = parent.getBoundingClientRect().width;
 			this.template.css({
@@ -151,12 +200,14 @@ frappe.ui.create_menu = function (opts) {
 	$(document).on("click", function () {
 		if (frappe.menu_map[context_menu.name].visible) {
 			frappe.menu_map[context_menu.name].hide();
+			opts.onHide && opts.onHide(opts.parent);
 		}
 	});
 
 	$(document).on("keydown", function (e) {
 		if (e.key === "Escape" && frappe.menu_map[context_menu.name].visible) {
 			frappe.menu_map[context_menu.name].hide();
+			opts.onHide && opts.onHide(opts.parent);
 		}
 	});
 };

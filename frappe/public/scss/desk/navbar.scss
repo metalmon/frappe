@@ -54,14 +54,7 @@
 
 	svg {
 		stroke: var(--text-light);
-	}
-
-	.search-icon {
-		position: absolute;
-		margin-left: 12px;
-		display: flex;
-		align-items: center;
-		height: 100%;
+		margin-bottom: 2px;
 	}
 	.awesomplete {
 		width: 100%;
@@ -90,6 +83,11 @@
 		input::placeholder {
 			color: var(--text-light);
 		}
+	}
+	.search-icon {
+		background-color: var(--control-bg);
+		border-radius: 16px;
+		padding: 6px;
 	}
 }
 
@@ -142,6 +140,9 @@
 			padding: 2px;
 			margin-right: 0.25rem;
 			border-radius: 4px;
+		}
+		.help-item-esc {
+			padding: 2px 4px;
 		}
 	}
 }

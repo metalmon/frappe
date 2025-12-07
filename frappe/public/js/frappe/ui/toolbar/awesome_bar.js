@@ -5,7 +5,7 @@ frappe.provide("frappe.tags");
 
 frappe.search.AwesomeBar = class AwesomeBar {
 	setup(element) {
-		$(".search-bar").removeClass("hidden");
+		$(".search-bar, .navbar-search-bar").removeClass("hidden");
 
 		this.options = [];
 		this.global_results = [];
@@ -50,7 +50,7 @@ frappe.search.AwesomeBar = class AwesomeBar {
 					<span class="help-item">${frappe.utils.icon("corner-down-left")}</span>
 					<span>${__("to select")}</span>
 				</span>
-				<span class="help-item">${__("esc")}</span>
+				<span class="help-item help-item-esc">${__("esc")}</span>
 				<span>${__("to close")}</span>
 			</div>
 			<div class="pointer">${frappe.utils.icon("circle-question-mark")}</div>
@@ -238,6 +238,11 @@ frappe.search.AwesomeBar = class AwesomeBar {
 			__("Open a module or tool") +
 			"</td><td>" +
 			__("module name...") +
+			"</td></tr>\
+			<tr><td>" +
+			__("Open in new tab") +
+			"</td><td>" +
+			(frappe.utils.is_mac() ? "⌘ + Enter" : "Ctrl + Enter") +
 			"</td></tr>\
 			<tr><td>" +
 			__("Calculate") +

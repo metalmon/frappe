@@ -225,20 +225,23 @@ class DesktopPage {
 		if (this.awesomebar_setup) return;
 		this.awesomebar_setup = true;
 
-		$(".desktop-search-wrapper #navbar-search").attr(
-			"placeholder",
-			__("Search or type a command ({0})", [
-				frappe.utils.is_mac() ? "⌘ + K" : "Ctrl + K",
-			])
-		);
 		if (frappe.boot.desk_settings.search_bar) {
 			let awesome_bar = new frappe.search.AwesomeBar();
-			awesome_bar.setup(".desktop-search-wrapper #navbar-modal-search");
+			awesome_bar.setup(".desktop-search-wrapper #desktop-navbar-modal-search");
 		}
 		frappe.ui.keys.add_shortcut({
 			shortcut: "ctrl+g",
 			action: function (e) {
-				$(".desktop-search-wrapper #navbar-modal-search").click();
+				$(".desktop-search-wrapper #desktop-navbar-modal-search").click();
+				e.preventDefault();
+				return false;
+			},
+			description: __("Open Awesomebar"),
+		});
+		frappe.ui.keys.add_shortcut({
+			shortcut: "ctrl+k",
+			action: function (e) {
+				$(".desktop-search-wrapper #desktop-navbar-modal-search").click();
 				e.preventDefault();
 				return false;
 			},
@@ -304,7 +307,12 @@ class DesktopIconGrid {
 
 	prepare() {
 		this.total_pages = 1;
-		this.icons_data = this.icons_data.sort((a, b) => a.name.localeCompare(b.name));
+		this.icons_data = this.icons_data.sort((a, b) => {
+			if (a.idx === b.idx) {
+				return a.label.localeCompare(b.label); // sort by label if idx is the same
+			}
+			return a.idx - b.idx; // sort by idx
+		});
 		this.icons_data_by_page =
 			this.icons_data || this.split_data(this.icons_data, this.page_size.total());
 	}
@@ -484,7 +492,7 @@ class DesktopIconGrid {
 						if (evt.to.parentElement == evt.from.parentElement) {
 							let reordered_icons = me.sortable.toArray();
 							let filters = {
-								parent_icon: me.parent_icon?.icon_data.label || null,
+								parent_icon: me.parent_icon?.icon_data.label || "" || null,
 							};
 							me.reorder_icons(reordered_icons, filters);
 							me.parent_icon?.render_folder_thumbnail();
@@ -514,11 +522,12 @@ class DesktopIconGrid {
 	}
 	reorder_icons(reordered_icons, filters) {
 		reordered_icons.forEach((d, idx) => {
-			let icon = get_desktop_icon_by_label(d, filters);
+			let icon = get_desktop_icon_by_label(d);
 			if (icon) {
 				icon.idx = idx;
 			}
 		});
+		frappe.boot.desktop_icons.sort((a, b) => a.idx - b.idx);
 	}
 	add_to_main_screen(title) {
 		let icon = get_desktop_icon_by_label(title);
@@ -528,6 +537,7 @@ class DesktopIconGrid {
 class DesktopIcon {
 	constructor(icon, in_folder) {
 		this.icon_data = icon;
+		this.icon_data.label = __(this.icon_data.label);
 		this.icon_title = this.icon_data.label;
 		this.icon_subtitle = "";
 		this.icon_type = this.icon_data.icon_type;

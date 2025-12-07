@@ -6,7 +6,8 @@ const jump_to_field = (field_label) => {
 		.wait(500)
 		.type("{enter}")
 		.wait(200)
-		.type("{enter}")
+		.findByRole("button", { name: "Go" })
+		.click()
 		.wait(1000);
 };
 
