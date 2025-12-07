@@ -9,7 +9,7 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 		this.dropdown_items = [
 			{
 				name: "workspaces",
-				label: "Workspaces",
+				label: __("Workspaces"),
 				icon: "wallpaper",
 				condition: function () {
 					return me.sibling_workspaces && me.sibling_workspaces.length > 0;
@@ -45,7 +45,7 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 		if (frappe.boot.desk_settings.notifications) {
 			this.dropdown_items.push({
 				name: "help",
-				label: "Help",
+				label: __("Help"),
 				icon: "info",
 				items: this.get_help_siblings(),
 			});
@@ -63,7 +63,7 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 			workspaces.forEach((w) => {
 				let item = {
 					name: w.toLowerCase(),
-					label: w,
+					label: __(w),
 					icon: "wallpaper",
 					url: frappe.utils.generate_route({
 						type: "Workspace",
