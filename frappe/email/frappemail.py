@@ -5,6 +5,8 @@ from typing import Any
 from urllib.parse import urljoin
 from zoneinfo import ZoneInfo
 
+import requests
+
 import frappe
 from frappe import _, sbool
 from frappe.frappeclient import FrappeClient, FrappeOAuth2Client
@@ -105,7 +107,7 @@ class FrappeMail:
 			headers=headers,
 			timeout=timeout,
 		)
-		response.raise_for_status()
+		raise_for_status(response)
 
 		return self.client.post_process(response)
 
@@ -175,3 +177,16 @@ def add_or_update_tzinfo(date_time: datetime | str, timezone: str | None = None)
 		date_time = date_time.astimezone(target_tz)
 
 	return str(date_time)
+
+
+def raise_for_status(response: requests.Response) -> None:
+	"""Raises an HTTPError if the response status code indicates an error."""
+
+	if not response.ok:
+		try:
+			error_text = response.json()
+		except Exception:
+			error_text = response.text.strip()
+
+		message = _("Error {0}: {1}").format(response.status_code, error_text)
+		raise requests.exceptions.HTTPError(message, response=response)
