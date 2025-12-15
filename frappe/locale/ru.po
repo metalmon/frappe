@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2025-12-07 16:34+0000\n"
-"PO-Revision-Date: 2025-12-15 13:32+0300\n"
+"POT-Creation-Date: 2025-12-15 12:22+0000\n"
+"PO-Revision-Date: 2025-12-15 15:36+0300\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -6746,7 +6746,7 @@ msgstr "ЧЕРНОВИК"
 #: frappe/public/js/frappe/utils/common.js:407
 #: frappe/website/report/website_analytics/website_analytics.js:23
 msgid "Daily"
-msgstr "Ежедневно"
+msgstr "День"
 
 #: frappe/templates/emails/upcoming_events.html:8
 msgid "Daily Event Digest is sent for Calendar Events where reminders are set."
@@ -12565,6 +12565,7 @@ msgstr "Здравствуйте,"
 #: frappe/custom/doctype/property_setter/property_setter.json
 #: frappe/public/js/frappe/form/templates/form_sidebar.html:41
 #: frappe/public/js/frappe/form/workflow.js:23
+#: frappe/public/js/frappe/ui/sidebar/sidebar_header.js:48
 #: frappe/public/js/frappe/utils/help.js:27
 msgid "Help"
 msgstr "Помощь"
@@ -17112,7 +17113,7 @@ msgstr "Месяц"
 #: frappe/public/js/frappe/utils/common.js:409
 #: frappe/website/report/website_analytics/website_analytics.js:25
 msgid "Monthly"
-msgstr "Ежемесячно"
+msgstr "Месяц"
 
 #. Option for the 'Frequency' (Select) field in DocType 'Scheduled Job Type'
 #. Option for the 'Event Frequency' (Select) field in DocType 'Server Script'
@@ -21646,7 +21647,7 @@ msgstr "Ошибка при работе с поддокументом."
 #: frappe/email/doctype/auto_email_report/auto_email_report.json
 #: frappe/public/js/frappe/utils/common.js:410
 msgid "Quarterly"
-msgstr "Ежеквартально"
+msgstr "Квартал"
 
 #. Label of the query (Data) field in DocType 'Recorder Query'
 #. Label of the query (Code) field in DocType 'Report'
@@ -31156,7 +31157,7 @@ msgstr "Рабочие дни"
 #: frappe/public/js/frappe/utils/common.js:408
 #: frappe/website/report/website_analytics/website_analytics.js:24
 msgid "Weekly"
-msgstr "Еженедельно"
+msgstr "Неделя"
 
 #. Option for the 'Frequency' (Select) field in DocType 'Scheduled Job Type'
 #. Option for the 'Event Frequency' (Select) field in DocType 'Server Script'
@@ -31530,6 +31531,7 @@ msgstr "Рабочее пространство {0} создано"
 
 #. Option for the 'View' (Select) field in DocType 'Form Tour'
 #: frappe/desk/doctype/form_tour/form_tour.json
+#: frappe/public/js/frappe/ui/sidebar/sidebar_header.js:12
 msgid "Workspaces"
 msgstr "Рабочие пространства"
 
@@ -31637,7 +31639,7 @@ msgstr "Год"
 #: frappe/email/doctype/auto_email_report/auto_email_report.json
 #: frappe/public/js/frappe/utils/common.js:412
 msgid "Yearly"
-msgstr "Раз в год"
+msgstr "Год"
 
 #. Option for the 'Color' (Select) field in DocType 'DocType State'
 #. Option for the 'Indicator' (Select) field in DocType 'Kanban Board Column'
