@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Frappe Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
 "POT-Creation-Date: 2025-12-07 16:34+0000\n"
-"PO-Revision-Date: 2025-12-07 19:38+0300\n"
+"PO-Revision-Date: 2025-12-15 13:32+0300\n"
 "Last-Translator: AlexKuzin <dev@olimpicfresh.ru>\n"
 "Language-Team: developers@frappe.io\n"
 "Language: ru\n"
@@ -8344,7 +8344,7 @@ msgstr "Документ сохранен"
 #. Settings'
 #: frappe/desk/doctype/notification_settings/notification_settings.json
 msgid "Document Share"
-msgstr "Делиться документом"
+msgstr "Поделились документом"
 
 #. Name of a DocType
 #: frappe/core/doctype/document_share_key/document_share_key.json
@@ -9384,7 +9384,7 @@ msgstr "Шаблон электронной почты"
 #. DocType 'Notification Settings'
 #: frappe/desk/doctype/notification_settings/notification_settings.json
 msgid "Email Threads on Assigned Document"
-msgstr "Потоки электронной почты по назначенному документу"
+msgstr "Обсуждения документов по электронной почте"
 
 #. Label of the email_to (Small Text) field in DocType 'Auto Email Report'
 #: frappe/email/doctype/auto_email_report/auto_email_report.json
@@ -18594,7 +18594,7 @@ msgstr "Нечего обновлять"
 #: frappe/public/js/frappe/ui/sidebar/sidebar.js:255
 #: frappe/workspace_sidebar/system.json
 msgid "Notification"
-msgstr "Уведомление"
+msgstr "Уведомления"
 
 #. Name of a DocType
 #: frappe/desk/doctype/notification_log/notification_log.json
@@ -21816,14 +21816,14 @@ msgstr "Информационный журнал RAW"
 #. Workspace Sidebar Link label under System
 #: frappe/core/doctype/rq_job/rq_job.json frappe/workspace_sidebar/system.json
 msgid "RQ Job"
-msgstr "Работа RQ"
+msgstr "Задание RQ"
 
 #. Name of a DocType
 #. Workspace Sidebar Link label under System
 #: frappe/core/doctype/rq_worker/rq_worker.json
 #: frappe/workspace_sidebar/system.json
 msgid "RQ Worker"
-msgstr "Работник RQ"
+msgstr "Обработчик RQ"
 
 #. Option for the 'Naming Rule' (Select) field in DocType 'DocType'
 #. Option for the 'Naming Rule' (Select) field in DocType 'Customize Form'

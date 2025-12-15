@@ -87,7 +87,7 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 		navbar_settings.help_dropdown.forEach((element) => {
 			let dropdown_children = {
 				name: element.name,
-				label: element.item_label,
+				label: __(element.item_label || element.label || element.name),
 			};
 			if (element.item_type === "Route") {
 				dropdown_children.url = element.route;
