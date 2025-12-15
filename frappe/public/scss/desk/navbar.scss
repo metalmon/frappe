@@ -48,9 +48,7 @@
 }
 
 .search-bar {
-	flex: 1;
-	max-width: 500px;
-	margin: 0 var(--margin-md);
+	max-width: 300px;
 
 	svg {
 		stroke: var(--text-light);
@@ -64,9 +62,6 @@
 			padding-left: 36px;
 			height: 28px;
 			@include get_textstyle("sm", "regular");
-			white-space: nowrap;
-			overflow: hidden;
-			text-overflow: ellipsis;
 		}
 		input:focus {
 			border-bottom-left-radius: 0;
