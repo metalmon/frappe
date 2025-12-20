@@ -374,11 +374,25 @@ class FrappeClient:
 		return params
 
 	def post_process(self, response):
+		# Check status code before parsing JSON
+		if response.status_code >= 400:
+			error_msg = f"HTTP {response.status_code}: {response.reason}"
+			try:
+				# Try to parse error response as JSON
+				error_json = response.json()
+				if error_json.get("exc") or error_json.get("exc_type") or error_json.get("errors"):
+					error_msg = str(error_json.get("exc") or error_json.get("exc_type") or error_json.get("errors"))
+			except (ValueError, json.decoder.JSONDecodeError):
+				# If not JSON, include response text
+				error_msg = f"HTTP {response.status_code}: {response.reason}\n{response.text[:500]}"
+			raise FrappeException(error_msg)
+
 		try:
 			rjson = response.json()
-		except ValueError:
-			print(response.text)
-			raise
+		except (ValueError, json.decoder.JSONDecodeError) as e:
+			error_msg = f"Failed to parse JSON response: {str(e)}\nResponse text: {response.text[:500]}"
+			print(error_msg)
+			raise FrappeException(error_msg)
 
 		if rjson and (rjson.get("exc") or rjson.get("exc_type") or rjson.get("errors")):
 			try:
