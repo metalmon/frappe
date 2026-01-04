@@ -101,7 +101,8 @@ frappe.breadcrumbs = {
 		if (css_classes) {
 			a.classList.add(css_classes);
 		}
-		a.innerHTML = label;
+		// Translate label - this ensures all breadcrumb elements are translated
+		a.innerHTML = __(label);
 		el.appendChild(a);
 		this.$breadcrumbs.append(el);
 	},
@@ -131,7 +132,7 @@ frappe.breadcrumbs = {
 
 		this.append_breadcrumb_element(
 			`/desk/${frappe.router.slug(breadcrumbs.workspace)}`,
-			__(breadcrumbs.workspace),
+			breadcrumbs.workspace,
 			"worksapce-breadcrumb"
 		);
 
@@ -207,7 +208,7 @@ frappe.breadcrumbs = {
 			} else {
 				route = doctype_route;
 			}
-			this.append_breadcrumb_element(`/desk/${route}`, __(doctype), "title-text");
+			this.append_breadcrumb_element(`/desk/${route}`, doctype, "title-text");
 		}
 
 		let list_crumb = this.$breadcrumbs.find("li a.title-text");
@@ -253,7 +254,7 @@ frappe.breadcrumbs = {
 		const doctype = breadcrumbs.doctype;
 		const docname = frappe.get_route()[1];
 		let dashboard_route = `/desk/${frappe.router.slug(doctype)}/${docname}`;
-		$(`<li><a href="${dashboard_route}">${__(docname)}</a></li>`).appendTo(this.$breadcrumbs);
+		this.append_breadcrumb_element(dashboard_route, docname);
 	},
 
 	setup_modules() {

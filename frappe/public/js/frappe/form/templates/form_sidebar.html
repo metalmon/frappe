@@ -37,9 +37,9 @@
 			{%= frappe.utils.icon("copy")%}
 		</span>
 	</div>
-	{% if frm.doc.name != frm.get_title() %}
+	{% if __(frm.doc.name) != frm.get_title() %}
 	<div class="form-name-container mt-2 flex {{image_field ? "justify-center" : "justify-between"}}">
-		<span class="ellipsis mr-3">{%= frm.doc.name %}</span>
+		<span class="ellipsis mr-3">{%= __(frm.doc.name) %}</span>
 	</div>
 	{% endif %}
 </div>

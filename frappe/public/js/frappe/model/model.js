@@ -616,7 +616,7 @@ $.extend(frappe.model, {
 		if (meta.title_field) {
 			return doc[meta.title_field];
 		} else {
-			return String(doc.name);
+			return String(__(doc.name));
 		}
 	},
 

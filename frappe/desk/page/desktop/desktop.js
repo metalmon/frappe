@@ -253,7 +253,7 @@ class DesktopPage {
 		const me = this;
 		let menu_items = [
 			{
-				label: "Edit Layout",
+				label: __("Edit Layout"),
 				icon: "edit",
 				onClick: function () {
 					frappe.new_desktop_icons = JSON.parse(JSON.stringify(frappe.desktop_icons));
@@ -261,7 +261,7 @@ class DesktopPage {
 				},
 			},
 			{
-				label: "Reset Layout",
+				label: __("Reset Layout"),
 				icon: "rotate-ccw",
 				onClick: function () {
 					reset_to_default();
@@ -327,7 +327,7 @@ class DesktopPage {
 			},
 			{
 				icon: is_dark ? "sun" : "moon",
-				label: "Toggle Theme",
+				label: __("Toggle Theme"),
 				onClick: function () {
 					new frappe.ui.ThemeSwitcher().show();
 				},
