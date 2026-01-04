@@ -29,8 +29,7 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 				label: __("Edit Sidebar"),
 				icon: "edit",
 				onClick: function () {
-					me.sidebar.edit_mode = true;
-					me.sidebar.toggle_editing_mode();
+					me.sidebar.editor.toggle();
 				},
 			},
 			{
@@ -43,12 +42,39 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 			},
 		];
 		if (frappe.boot.desk_settings.notifications) {
-			this.dropdown_items.push({
-				name: "help",
-				label: __("Help"),
-				icon: "info",
-				items: this.get_help_siblings(),
-			});
+			let is_dark = frappe.ui.get_current_theme() === "dark";
+			this.dropdown_items.push(
+				{
+					name: "help",
+					label: __("Help"),
+					icon: "info",
+					items: this.get_help_siblings(),
+				},
+				{
+					label: __("Session Defaults"),
+					action: "frappe.ui.toolbar.setup_session_defaults()",
+					is_standard: 1,
+					icon: "sliders-horizontal",
+				},
+				{
+					label: __("Reload"),
+					action: "frappe.ui.toolbar.clear_cache()",
+					is_standard: 1,
+					icon: "rotate-ccw",
+				},
+				{
+					label: __("Toggle Full Width"),
+					action: "frappe.ui.toolbar.toggle_full_width()",
+					is_standard: 1,
+					icon: "maximize",
+				},
+				{
+					label: __("Toggle Theme"),
+					action: "new frappe.ui.ThemeSwitcher().show()",
+					is_standard: 1,
+					icon: is_dark ? "sun" : "moon",
+				}
+			);
 		}
 		this.make();
 		this.setup_app_switcher();
@@ -63,13 +89,20 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 			workspaces.forEach((w) => {
 				let item = {
 					name: w.toLowerCase(),
-					label: __(w),
-					icon: "wallpaper",
+					label: w,
 					url: frappe.utils.generate_route({
 						type: "Workspace",
 						route: frappe.router.slug(w),
 					}),
 				};
+				if (frappe.utils.get_desktop_icon(w, frappe.boot.desktop_icon_style)) {
+					item.icon_url = frappe.utils.get_desktop_icon(
+						w,
+						frappe.boot.desktop_icon_style
+					);
+				} else {
+					item.icon_html = frappe.utils.desktop_icon(w, "gray", "sm");
+				}
 				sibling_workspaces.push(item);
 			});
 			return sibling_workspaces;
@@ -138,7 +171,8 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 	}
 	set_header_icon() {
 		let desktop_icon = this.get_desktop_icon_by_label(this.sidebar.sidebar_title);
-		let desktop_icon_url = desktop_icon ? frappe.utils.get_desktop_icon(desktop_icon.label, "solid") : null;
+		let desktop_icon_url =
+			desktop_icon && frappe.utils.get_desktop_icon(desktop_icon.label, "solid");
 		if (desktop_icon_url) {
 			this.header_icon = desktop_icon_url;
 			this.header_icon = `<img src=${this.header_icon}></img>`;
@@ -147,15 +181,7 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 			this.header_icon = `<img src=${this.header_icon}></img>`;
 		} else if (this.sidebar.sidebar_data) {
 			this.header_icon = this.sidebar.sidebar_data.header_icon;
-			this.header_icon = frappe.utils.icon(
-				this.header_icon,
-				"lg",
-				"",
-				"",
-				"",
-				false,
-				`var(${this.header_bg_color})`
-			);
+			this.header_icon = frappe.utils.desktop_icon(this.sidebar.sidebar_title, "gray", "sm");
 		} else {
 			this.header_icon = this.get_default_icon();
 			this.header_icon = `<img src=${this.header_icon}></img>`;
@@ -190,19 +216,11 @@ frappe.ui.SidebarHeader = class SidebarHeader {
 
 	populate_dropdown_menu() {
 		const me = this;
-		this.check_editing_access();
 		this.dropdown_items.forEach((d) => {
 			me.add_app_item(d);
 		});
 	}
-	check_editing_access() {
-		if (!frappe.boot.developer_mode) {
-			let edit_sidebar_index = this.dropdown_items.findIndex((f) => {
-				return f.name == "edit-sidebar";
-			});
-			this.dropdown_items.splice(edit_sidebar_index, 1);
-		}
-	}
+
 	add_app_item(item) {
 		$(`<div class="dropdown-menu-item" data-name="${item.name}"
 			data-app-route="${item.route}">

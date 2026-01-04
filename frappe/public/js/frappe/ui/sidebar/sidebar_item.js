@@ -20,7 +20,7 @@ frappe.ui.sidebar_item.TypeLink = class SidebarItem {
 					name: this.item.link_to,
 				};
 
-				if (this.item.report || !frappe.app.sidebar.edit_mode) {
+				if (this.item.report || !frappe.app.sidebar.editor.edit_mode) {
 					args.is_query_report =
 						this.item.report.report_type === "Query Report" ||
 						this.item.report.report_type == "Script Report";
@@ -51,6 +51,7 @@ frappe.ui.sidebar_item.TypeLink = class SidebarItem {
 				path = frappe.utils.generate_route({
 					type: this.item.link_type,
 					name: this.item.link_to,
+					tab: this.item.tab,
 				});
 			}
 		}
@@ -69,7 +70,7 @@ frappe.ui.sidebar_item.TypeLink = class SidebarItem {
 			frappe.render_template("sidebar_item", {
 				item: this.item,
 				path: this.path,
-				edit_mode: frappe.app.sidebar.edit_mode,
+				edit_mode: frappe.app.sidebar.editor.edit_mode,
 			})
 		);
 		$(this.container).append(this.wrapper);
@@ -84,7 +85,7 @@ frappe.ui.sidebar_item.TypeLink = class SidebarItem {
 	}
 	get_shortcut_html(shortcut) {
 		if (frappe.utils.is_mac()) {
-			shortcut = shortcut.replace("Ctrl", "⌘");
+			shortcut = shortcut.replace("Ctrl+", "⌘");
 		}
 		return `<span class="sidebar-item-suffix keyboard-shortcut">${shortcut}</span>`;
 	}
@@ -104,22 +105,21 @@ frappe.ui.sidebar_item.TypeLink = class SidebarItem {
 				label: __("Edit Item"),
 				icon: "pen",
 				onClick: () => {
-					frappe.app.sidebar.edit_item(me.item);
+					frappe.app.sidebar.editor.perform_action("edit", me.item);
 				},
 			},
 			{
 				label: __("Add Item Below"),
 				icon: "add",
 				onClick: () => {
-					frappe.app.sidebar.add_below(me.item);
+					frappe.app.sidebar.editor.perform_action("add_below", me.item);
 				},
 			},
 			{
 				label: __("Duplicate"),
 				icon: "copy",
 				onClick: () => {
-					console.log("Start Deleting");
-					frappe.app.sidebar.duplicate_item(me.item);
+					frappe.app.sidebar.editor.perform_action("duplicate", me.item);
 				},
 			},
 			{
@@ -127,8 +127,7 @@ frappe.ui.sidebar_item.TypeLink = class SidebarItem {
 				icon: "trash-2",
 				onClick: () => {
 					console.log(me.item);
-					frappe.app.sidebar.delete_item(me.item);
-					console.log("Start Deleting");
+					frappe.app.sidebar.editor.perform_action("delete", me.item);
 				},
 			},
 		];
@@ -206,6 +205,7 @@ frappe.ui.sidebar_item.TypeSectionBreak = class SectionBreakSidebarItem extends 
 			} else {
 				$(me.wrapper.find(".section-break")).addClass("hidden");
 				$(me.wrapper.find(".divider")).removeClass("hidden");
+				$(me.wrapper).removeAttr("data-original-title");
 				me.old_state = me.collapsed;
 				me.open();
 				if (me.item.indent) {
@@ -276,7 +276,7 @@ frappe.ui.sidebar_item.TypeSectionBreak = class SectionBreakSidebarItem extends 
 			this.section_breaks_state[this.workspace_title] = {};
 		}
 
-		const title = this.$drop_icon.parent().parent().attr("title");
+		const title = this.wrapper.attr("title");
 		this.section_breaks_state[this.workspace_title][title] = this.collapsed;
 
 		localStorage.setItem("section-breaks-state", JSON.stringify(this.section_breaks_state));
@@ -290,14 +290,14 @@ frappe.ui.sidebar_item.TypeSectionBreak = class SectionBreakSidebarItem extends 
 				icon: "pen",
 				onClick: () => {
 					console.log("Start ediitng");
-					frappe.app.sidebar.edit_item(me.item);
+					frappe.app.sidebar.editor.perform_action("edit", me.item);
 				},
 			},
 			{
 				label: __("Add Nested Items"),
 				icon: "add",
 				onClick: () => {
-					frappe.app.sidebar.show_new_dialog({
+					frappe.app.sidebar.editor.show_new_dialog({
 						nested: true,
 						parent_item: me.item,
 					});
@@ -307,17 +307,14 @@ frappe.ui.sidebar_item.TypeSectionBreak = class SectionBreakSidebarItem extends 
 				label: __("Duplicate"),
 				icon: "copy",
 				onClick: () => {
-					console.log("Start Deleting");
-					frappe.app.sidebar.duplicate_item(me.item);
+					frappe.app.sidebar.editor.perform_action("duplicate", me.item);
 				},
 			},
 			{
 				label: __("Delete"),
 				icon: "trash-2",
 				onClick: () => {
-					console.log(me.item);
-					frappe.app.sidebar.delete_item(me.item);
-					console.log("Start Deleting");
+					frappe.app.sidebar.editor.perform_action("delete", me.item);
 				},
 			},
 		];

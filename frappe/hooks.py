@@ -38,9 +38,10 @@ app_include_css = [
 	"report.bundle.css",
 ]
 app_include_icons = [
-	"/assets/frappe/icons/icons.svg",
+	"/assets/frappe/icons/lucide/icons.svg",
 	"/assets/frappe/icons/timeless/icons.svg",
 	"/assets/frappe/icons/espresso/icons.svg",
+	"/assets/frappe/icons/desktop_icons/alphabets.svg",
 ]
 
 doctype_js = {
@@ -51,6 +52,7 @@ doctype_js = {
 web_include_js = ["website_script.js"]
 web_include_css = []
 web_include_icons = [
+	"/assets/frappe/icons/lucide/icons.svg",
 	"/assets/frappe/icons/timeless/icons.svg",
 	"/assets/frappe/icons/espresso/icons.svg",
 ]
@@ -474,53 +476,6 @@ standard_navbar_items = [
 		"is_standard": 1,
 	},
 	{
-		"item_label": _("Workspace Settings"),
-		"item_type": "Action",
-		"action": "frappe.quick_edit('Workspace Settings')",
-		"is_standard": 1,
-	},
-	{
-		"item_label": _("Session Defaults"),
-		"item_type": "Action",
-		"action": "frappe.ui.toolbar.setup_session_defaults()",
-		"is_standard": 1,
-	},
-	{
-		"item_label": _("Reload"),
-		"item_type": "Action",
-		"action": "frappe.ui.toolbar.clear_cache()",
-		"is_standard": 1,
-	},
-	{
-		"item_label": _("View Website"),
-		"item_type": "Action",
-		"action": "frappe.ui.toolbar.view_website()",
-		"is_standard": 1,
-	},
-	{
-		"item_label": _("Apps"),
-		"item_type": "Route",
-		"route": "/apps",
-		"is_standard": 1,
-	},
-	{
-		"item_label": _("Toggle Full Width"),
-		"item_type": "Action",
-		"action": "frappe.ui.toolbar.toggle_full_width()",
-		"is_standard": 1,
-	},
-	{
-		"item_label": _("Toggle Theme"),
-		"item_type": "Action",
-		"action": "new frappe.ui.ThemeSwitcher().show()",
-		"is_standard": 1,
-	},
-	{
-		"item_type": "Separator",
-		"is_standard": 1,
-		"item_label": "",
-	},
-	{
 		"item_label": _("Log out"),
 		"item_type": "Action",
 		"action": "frappe.app.logout()",
@@ -544,7 +499,7 @@ standard_help_items = [
 	{
 		"item_label": _("System Health"),
 		"item_type": "Route",
-		"route": "/app/system-health-report",
+		"route": "/desk/system-health-report",
 		"is_standard": 1,
 	},
 	{
