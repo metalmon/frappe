@@ -4,7 +4,11 @@
 import os
 from urllib.parse import parse_qs, urlparse
 
-import dropbox
+try:
+	import dropbox
+except ImportError:
+	dropbox = None
+
 from rq.timeouts import JobTimeoutException
 
 import frappe

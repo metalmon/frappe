@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2026-01-04 19:03+0000\n"
-"PO-Revision-Date: 2026-01-04 19:03+0000\n"
+"POT-Creation-Date: 2026-01-04 21:05+0000\n"
+"PO-Revision-Date: 2026-01-04 21:05+0000\n"
 "Last-Translator: developers@frappe.io\n"
 "Language-Team: developers@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -5044,7 +5044,7 @@ msgstr ""
 msgid "Click to Set Filters"
 msgstr ""
 
-#: frappe/public/js/frappe/views/breadcrumbs.js:244
+#: frappe/public/js/frappe/views/breadcrumbs.js:245
 msgid "Click to copy name"
 msgstr ""
 
@@ -17750,7 +17750,7 @@ msgstr ""
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:192
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:250
 #: frappe/public/js/frappe/ui/toolbar/search_utils.js:251
-#: frappe/public/js/frappe/views/breadcrumbs.js:225
+#: frappe/public/js/frappe/views/breadcrumbs.js:226
 #: frappe/public/js/frappe/views/treeview.js:366
 #: frappe/public/js/frappe/widgets/widget_dialog.js:72
 #: frappe/website/doctype/web_form/web_form.py:439
