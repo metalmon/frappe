@@ -362,19 +362,7 @@ class DocType(Document):
 						continue  # Invalid expression
 					link_df = new_meta.get_field(link_fieldname)
 
-					if frappe.db.db_type == "postgres":
-						update_query = """
-							UPDATE `tab{doctype}`
-							SET `{fieldname}` = source.`{source_fieldname}`
-							FROM `tab{link_doctype}` as source
-							WHERE `{link_fieldname}` = source.name
-						"""
-						if df.not_nullable:
-							update_query += "AND `{fieldname}`=''"
-						else:
-							update_query += "AND ifnull(`{fieldname}`, '')=''"
-
-					else:
+					if frappe.db.db_type == "mariadb":
 						update_query = """
 							UPDATE `tab{doctype}` as target
 							INNER JOIN `tab{link_doctype}` as source
@@ -385,6 +373,18 @@ class DocType(Document):
 							update_query += "WHERE `target`.`{fieldname}`=''"
 						else:
 							update_query += "WHERE ifnull(`target`.`{fieldname}`, '')=''"
+
+					else:
+						update_query = """
+							UPDATE `tab{doctype}`
+							SET `{fieldname}` = source.`{source_fieldname}`
+							FROM `tab{link_doctype}` as source
+							WHERE `{link_fieldname}` = source.name
+						"""
+						if df.not_nullable:
+							update_query += "AND `{fieldname}`=''"
+						else:
+							update_query += "AND ifnull(`{fieldname}`, '')=''"
 
 					self.flags.update_fields_to_fetch_queries.append(
 						update_query.format(
@@ -876,6 +876,9 @@ class DocType(Document):
 			make_boilerplate("test_controller._py", self.as_dict())
 			make_boilerplate("controller.js", self.as_dict())
 			# make_boilerplate("controller_list.js", self.as_dict())
+
+		if self.is_tree:
+			make_boilerplate("controller_tree.js", self.as_dict())
 
 		if self.has_web_view:
 			templates_path = frappe.get_module_path(
