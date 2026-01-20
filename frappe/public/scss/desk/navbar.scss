@@ -51,7 +51,7 @@
 	max-width: 300px;
 
 	svg {
-		stroke: var(--text-light);
+		stroke: var(--icon-stroke);
 		margin-bottom: 2px;
 	}
 	.awesomplete {
@@ -81,7 +81,7 @@
 	}
 	.search-icon {
 		background-color: var(--control-bg);
-		border-radius: 16px;
+		border-radius: 8px;
 		padding: 6px;
 	}
 }
@@ -122,7 +122,7 @@
 }
 
 .cool-awesomebar-modal-footer {
-	padding: 10px 18px !important;
+	padding: 10px !important;
 }
 
 .awesomebar-modal-footer {

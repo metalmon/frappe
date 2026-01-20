@@ -20,7 +20,7 @@ dependencies = [
     # We depend on internal attributes,
     # do NOT add loose requirements on PyMySQL versions.
     "PyMySQL==1.1.2",
-    "pypdf==6.5.0",
+    "pypdf==6.6.0",
     "PyPika @ git+https://github.com/frappe/pypika@2c50e6142b2d61d2d243e466fdd5dc03b3d918f2",
     "mysqlclient==2.2.7",
     "PyQRCode~=1.2.1",
@@ -28,7 +28,7 @@ dependencies = [
     "RestrictedPython~=8.1",
     "WeasyPrint==66.0",
     "pydyf==0.12.1",
-    "Werkzeug==3.1.4",
+    "Werkzeug==3.1.5",
     "Whoosh~=2.7.4",
     "beautifulsoup4~=4.13.5",
     "bleach-allowlist~=1.0.3",
@@ -100,7 +100,7 @@ Repository = "https://github.com/frappe/frappe.git"
 
 [project.optional-dependencies]
 dev = [
-    "pyngrok~=6.0.0",
+    "pyngrok~=7.5.0",
     "watchdog~=6.0.0",
     "responses==0.23.1",
     # typechecking
@@ -150,7 +150,7 @@ skip_namespaces = [
 [tool.bench.dev-dependencies]
 coverage = "~=7.10.0"
 Faker = "~=18.10.1"
-pyngrok = "~=6.0.0"
+pyngrok = "~=7.5.0"
 unittest-xml-reporting = "~=3.2.0"
 watchdog = "~=6.0.0"
 hypothesis = "~=6.77.0"
