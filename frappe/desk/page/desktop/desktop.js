@@ -911,9 +911,6 @@ class DesktopIcon {
 		if (this.icon_type == "Folder") {
 			if (this.icon_data.child_icons.length == 0) return false;
 		}
-		if (this.icon_type == "Link" && !this.icon_route) {
-			return false;
-		}
 		return true;
 	}
 	get_child_icons_data() {
@@ -1012,32 +1009,24 @@ class DesktopIcon {
 				modal.show();
 			});
 			if (this.icon_type == "App") {
-				let count = this.child_icons.length;
-				let plural_text = get_workspaces_plural_text(count);
-				$($(this.icon_caption_area).children()[1]).html(
-					`${count} ${plural_text}`
-				);
+				let content = `${this.child_icons.length} Workspaces`;
+				$($(this.icon_caption_area).children()[1]).html(__(content));
 			}
 		} else {
 			if (this.icon_route && this.icon_route.startsWith("http")) {
 				this.icon.attr("target", "_blank");
 			}
-			this.icon.attr("href", this.icon_route);
-		}
-		if (this.icon_data.sidebar) {
-			const me = this;
-			this.icon.on("click", function () {
-				if (me.icon_data.sidebar == "My Workspaces") {
-					let sidebar_name = me.icon_data.sidebar.toLowerCase();
-					if (frappe.boot.workspace_sidebar_item[sidebar_name].items.length == 0) {
-						frappe.toast(__("No Private Workspaces for user"));
-					} else {
-						let workspace_name =
-							frappe.boot.workspace_sidebar_item[sidebar_name].items[0]["link_to"];
-						frappe.set_route("Workspaces", "private", workspace_name);
-					}
-				}
-			});
+			if (this.icon_route) {
+				this.icon.attr("href", this.icon_route);
+			} else {
+				this.icon.on("click", function (event) {
+					frappe.msgprint(
+						__(
+							"Icon is not correctly configured please check the workspace sidebar to it"
+						)
+					);
+				});
+			}
 		}
 	}
 
@@ -1205,7 +1194,7 @@ class InlineEditor {
 		this.container.html(`
 			<div class="title-widget">
 				<div class="title-input-label">
-					<span>${this.initialValue}</span>
+					<span>${__(this.initialValue)}</span>
 				</div>
 				<div class="title-input-wrapper">
 					<input class="title-input">

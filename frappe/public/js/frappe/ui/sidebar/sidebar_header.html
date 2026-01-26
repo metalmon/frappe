@@ -7,12 +7,8 @@
 </div>
 <div class="title-container">
 
-    <div class="sidebar-item-label header-title" data-name-style="{%=frappe.boot.app_name_style%}" data-original-workspace-title="{%= workspace_title %}">
-        {% if (frappe.boot.app_name_style == "Title") { %}
-            {%= frappe.app.sidebar.app_name %}
-        {% } else { %}
+    <div class="sidebar-item-label header-title" data-name-style="{%=frappe.boot.app_name_style%}">
             {%= __(workspace_title) %}
-        {% }  %}
     </div>
     <div class="sidebar-item-label header-subtitle">
         {%= frappe.app.sidebar.header_subtitle %}
