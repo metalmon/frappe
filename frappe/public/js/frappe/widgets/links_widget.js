@@ -59,8 +59,9 @@ export default class LinksWidget extends Widget {
 		};
 
 		const get_link_for_item = (item) => {
+			const label = __(item.link_title);
 			if (is_link_disabled(item)) {
-				return `<span class="link-content ellipsis disabled-link">${item.link_title}</span>
+				return `<span class="link-content ellipsis disabled-link">${label}</span>
 					<div class="module-link-popover popover fade top in" role="tooltip" style="display: none;">
 						<div class="arrow"></div>
 						<h3 class="popover-title" style="display: none;"></h3>
@@ -74,13 +75,13 @@ export default class LinksWidget extends Widget {
 			if (item.youtube_id)
 				return `
 					<span class="link-content help-video-link ellipsis" data-youtubeid="${item.youtube_id}">
-						${item.link_title}
+						${label}
 					</span>
 				`;
 
 			return `
 				<span class="link-content ellipsis">
-					<span class="link-text">${item.link_title}</span>
+					<span class="link-text">${label}</span>
 					${frappe.utils.icon("es-line-arrow-up-right", "xs", "", "", "ml-2")}
 				</span>
 			`;
@@ -105,7 +106,7 @@ export default class LinksWidget extends Widget {
 			const $link = $(`
 				<a href="${route}" class="link-item ellipsis
 					${item.onboard ? "onboard-spotlight" : ""} ${disabled_dependent(item)}"
-					type="${item.type}" title="${item.link_title}"
+					type="${item.type}" title="${__(item.link_title)}"
 				>
 					${get_link_for_item(item)}
 				</a>
@@ -115,7 +116,7 @@ export default class LinksWidget extends Widget {
 				$link.find(".link-text").popover({
 					trigger: "hover",
 					placement: "top",
-					title: item.link_title,
+					title: __(item.link_title),
 					content: () =>
 						`<div class="link-description small">${__(item.description)}</div>`,
 					html: true,

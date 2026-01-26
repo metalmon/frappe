@@ -433,7 +433,7 @@ class DesktopPage {
 			},
 			{
 				icon: "info",
-				label: __("About"),
+				label: __("About", null, "Application menu"),
 				onClick: function () {
 					return frappe.ui.toolbar.show_about();
 				},

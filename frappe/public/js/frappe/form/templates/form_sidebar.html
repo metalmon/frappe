@@ -38,9 +38,11 @@
 				<span class="bold ellipsis form-title-text mr-3 text-medium">{%= frappe.utils.html2text(frm.get_title()) %}</span>
 			</div>
 			{% endif %}
+			{% if __(frm.doc.name) != frm.get_title() || image_field %}
 			<div class="form-name-container mt-2 flex justify-between form-name-copy" data-copy="{{frm.doc.name}}" >
 				<span class="ellipsis mr-3">{%= frm.doc.name %}</span>
 			</div>
+			{% endif %}
 		</div>
 		{% if not image_field %}
 		<div class="align-items-baseline flex form-stats-likes">
@@ -55,11 +57,6 @@
 		</div>
 		{% endif %}
 	</div>
-	{% if __(frm.doc.name) != frm.get_title() %}
-	<div class="form-name-container mt-2 flex {{image_field ? "justify-center" : "justify-between"}}">
-		<span class="ellipsis mr-3">{%= __(frm.doc.name) %}</span>
-	</div>
-	{% endif %}
 	{% if frm.meta.beta %}
 	<div class="flex pt-2 justify-between">
 		<div>
