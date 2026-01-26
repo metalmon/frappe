@@ -34,13 +34,14 @@
 	<div class="flex justify-between overflow-hidden">
 		<div class="ellipsis">
 			{% let title = frm.get_title(); %}
-			{% if (title && title !== frm.doc.name) { %}
+			{% let title_field_value = frm.meta.title_field ? frm.doc[frm.meta.title_field] : frm.doc.name; %}
+			{% if (title && title_field_value && title_field_value !== frm.doc.name) { %}
 			<div class="form-details flex justify-between">
 				<span class="bold ellipsis form-title-text mr-3 text-medium">{%= frappe.utils.html2text(title) %}</span>
 			</div>
 			{% } %}
 			<div class="form-name-container mt-2 flex justify-between form-name-copy" data-copy="{{frm.doc.name}}" >
-				<span class="ellipsis mr-3">{%= frm.doc.name %}</span>
+				<span class="ellipsis mr-3">{%= __(frm.doc.name) %}</span>
 			</div>
 		</div>
 		{% if not image_field %}

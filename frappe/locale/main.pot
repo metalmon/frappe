@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Framework VERSION\n"
 "Report-Msgid-Bugs-To: developers@frappe.io\n"
-"POT-Creation-Date: 2026-01-26 19:11+0000\n"
-"PO-Revision-Date: 2026-01-26 19:11+0000\n"
+"POT-Creation-Date: 2026-01-26 19:19+0000\n"
+"PO-Revision-Date: 2026-01-26 19:19+0000\n"
 "Last-Translator: developers@frappe.io\n"
 "Language-Team: developers@frappe.io\n"
 "MIME-Version: 1.0\n"
@@ -838,7 +838,7 @@ msgstr ""
 msgid "ASC"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:436
+#: frappe/desk/page/desktop/desktop.js:437
 msgctxt "Application menu"
 msgid "About"
 msgstr ""
@@ -1274,7 +1274,7 @@ msgstr ""
 msgid "Add Template"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:971
+#: frappe/desk/page/desktop/desktop.js:972
 msgid "Add To Folder"
 msgstr ""
 
@@ -6182,7 +6182,7 @@ msgstr ""
 msgid "Create Entry"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:963
+#: frappe/desk/page/desktop/desktop.js:964
 msgid "Create Folder"
 msgstr ""
 
@@ -7687,6 +7687,8 @@ msgstr ""
 #: frappe/desk/doctype/dashboard/dashboard.json
 #: frappe/desk/doctype/dashboard_chart/dashboard_chart.json
 #: frappe/desk/doctype/dashboard_settings/dashboard_settings.json
+#: frappe/desk/doctype/desktop_icon/desktop_icon.json
+#: frappe/desk/doctype/desktop_layout/desktop_layout.json
 #: frappe/desk/doctype/event/event.json
 #: frappe/desk/doctype/form_tour/form_tour.json
 #: frappe/desk/doctype/kanban_board/kanban_board.json
@@ -8923,7 +8925,7 @@ msgstr ""
 #. Option for the 'Comment Type' (Select) field in DocType 'Comment'
 #: frappe/core/doctype/comment/comment.json
 #: frappe/core/page/dashboard_view/dashboard_view.js:169
-#: frappe/desk/page/desktop/desktop.js:931
+#: frappe/desk/page/desktop/desktop.js:932
 #: frappe/printing/page/print_format_builder/print_format_builder_start.html:8
 #: frappe/printing/page/print_format_builder_beta/print_format_builder_beta.js:46
 #: frappe/printing/page/print_format_builder_beta/print_format_builder_beta.js:85
@@ -9035,7 +9037,7 @@ msgstr ""
 msgid "Edit Item"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:312
+#: frappe/desk/page/desktop/desktop.js:313
 msgid "Edit Layout"
 msgstr ""
 
@@ -9063,7 +9065,7 @@ msgstr ""
 msgid "Edit Print Format"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:424 frappe/www/me.html:38
+#: frappe/desk/page/desktop/desktop.js:425 frappe/www/me.html:38
 msgid "Edit Profile"
 msgstr ""
 
@@ -11803,7 +11805,7 @@ msgstr ""
 msgid "Frappe Mail Site"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:443 frappe/hooks.py:506
+#: frappe/desk/page/desktop/desktop.js:444 frappe/hooks.py:506
 msgid "Frappe Support"
 msgstr ""
 
@@ -13179,7 +13181,7 @@ msgstr ""
 msgid "Icon Type"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:1027
+#: frappe/desk/page/desktop/desktop.js:1028
 msgid "Icon is not correctly configured please check the workspace sidebar to it"
 msgstr ""
 
@@ -16353,7 +16355,7 @@ msgstr ""
 
 #. Option for the 'Operation' (Select) field in DocType 'Activity Log'
 #: frappe/core/doctype/activity_log/activity_log.json
-#: frappe/desk/page/desktop/desktop.js:458 frappe/www/apps.html:59
+#: frappe/desk/page/desktop/desktop.js:459 frappe/www/apps.html:59
 #: frappe/www/me.html:91
 msgid "Logout"
 msgstr ""
@@ -17792,7 +17794,7 @@ msgstr ""
 msgid "New Folder"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:374
+#: frappe/desk/page/desktop/desktop.js:375
 msgid "New Icon"
 msgstr ""
 
@@ -19435,8 +19437,8 @@ msgctxt "Access"
 msgid "Open"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:491
-#: frappe/desk/page/desktop/desktop.js:500
+#: frappe/desk/page/desktop/desktop.js:492
+#: frappe/desk/page/desktop/desktop.js:501
 #: frappe/public/js/frappe/ui/keyboard.js:207
 #: frappe/public/js/frappe/ui/keyboard.js:217
 msgid "Open Awesomebar"
@@ -22858,7 +22860,7 @@ msgstr ""
 msgid "Removed"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:1159
+#: frappe/desk/page/desktop/desktop.js:1172
 msgid "Removed Icons"
 msgstr ""
 
@@ -23338,7 +23340,7 @@ msgid "Reset LDAP Password"
 msgstr ""
 
 #: frappe/custom/doctype/customize_form/customize_form.js:128
-#: frappe/desk/page/desktop/desktop.js:321
+#: frappe/desk/page/desktop/desktop.js:322
 msgid "Reset Layout"
 msgstr ""
 
@@ -23385,7 +23387,7 @@ msgstr ""
 msgid "Reset sorting"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:450
+#: frappe/desk/page/desktop/desktop.js:451
 msgid "Reset to Default"
 msgstr ""
 
@@ -29065,7 +29067,7 @@ msgstr ""
 msgid "Toggle Sidebar"
 msgstr ""
 
-#: frappe/desk/page/desktop/desktop.js:429
+#: frappe/desk/page/desktop/desktop.js:430
 #: frappe/public/js/frappe/ui/sidebar/sidebar_header.js:75
 msgid "Toggle Theme"
 msgstr ""
