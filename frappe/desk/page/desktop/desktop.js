@@ -928,7 +928,7 @@ class DesktopIcon {
 			right_click: true,
 			menu_items: [
 				{
-					label: "Edit",
+					label: __("Edit"),
 					icon: "edit",
 					condition: function () {
 						return icon_data.standard != 1;
@@ -960,7 +960,7 @@ class DesktopIcon {
 					},
 				},
 				{
-					label: "Create Folder",
+					label: __("Create Folder"),
 					icon: "folder",
 					onClick: function () {
 						let folder = me.grid.add_folder();
@@ -968,7 +968,7 @@ class DesktopIcon {
 					},
 				},
 				{
-					label: "Add To Folder",
+					label: __("Add To Folder"),
 					icon: "folder-open",
 					condition: function () {
 						return me.folders.length > 0;
@@ -1009,8 +1009,11 @@ class DesktopIcon {
 				modal.show();
 			});
 			if (this.icon_type == "App") {
-				let content = `${this.child_icons.length} Workspaces`;
-				$($(this.icon_caption_area).children()[1]).html(__(content));
+				let count = this.child_icons.length;
+				let plural_text = get_workspaces_plural_text(count);
+				$($(this.icon_caption_area).children()[1]).html(
+					`${count} ${plural_text}`
+				);
 			}
 		} else {
 			if (this.icon_route && this.icon_route.startsWith("http")) {
