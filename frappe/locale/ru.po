@@ -6616,7 +6616,7 @@ msgstr "Пользовательские типы документов (Выбо
 msgid "Custom Document Types Limit Exceeded"
 msgstr "Превышен лимит пользовательских типов документов"
 
-#: frappe/desk/desktop.py:524
+#: frappe/desk/desktop.py:510
 msgid "Custom Documents"
 msgstr "Пользовательские документы"
 
@@ -6709,7 +6709,7 @@ msgstr "Пользовательские переопределения"
 msgid "Custom Report"
 msgstr "Пользовательский отчет"
 
-#: frappe/desk/desktop.py:525
+#: frappe/desk/desktop.py:511
 msgid "Custom Reports"
 msgstr "Пользовательские отчеты"
 
