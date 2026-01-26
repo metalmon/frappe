@@ -371,9 +371,9 @@ class DesktopPage {
 	}
 	add_new_icons_to_grid() {
 		let grid = $($(".desktop-container .icons").get(0));
-		this.add_new_icon = `<div class="desktop-icon desktop-edit-mode add-new-icon" title="Add New Icon">
+		this.add_new_icon = `<div class="desktop-icon desktop-edit-mode add-new-icon" title="${__("Add New Icon")}">
 		 ${frappe.utils.icon("plus", "lg")}
-		 New Icon
+		 ${__("New Icon")}
 		 </div>`;
 		grid.append(this.add_new_icon);
 		$(".add-new-icon").on("click", function () {
@@ -963,7 +963,7 @@ class DesktopIcon {
 					label: __("Create Folder"),
 					icon: "folder",
 					onClick: function () {
-						let folder = me.grid.add_folder();
+						let folder = me.icon_grid.add_folder();
 						add_icons_to_folder(folder.label, [icon_data.label]);
 					},
 				},
@@ -1156,7 +1156,7 @@ class IconsPane {
 			return;
 		}
 		this.wrapper.append(
-			"<span style='margin-top: 10px; margin-bottom: 20px'>Removed Icons</span>"
+			`<span style='margin-top: 10px; margin-bottom: 20px'>${__("Removed Icons")}</span>`
 		);
 		this.grid = new DesktopIconGrid({
 			name: "hidden-icons-grid",

@@ -13,27 +13,27 @@ frappe.ui.Filter = class {
 
 	set_conditions() {
 		this.conditions = [
-			["=", __("Equals")],
-			["!=", __("Not Equals")],
-			["like", __("Like")],
-			["not like", __("Not Like")],
-			["in", __("In")],
-			["not in", __("Not In")],
-			["is", __("Is")],
-			[">", __("Greater Than")],
-			["<", __("Less Than")],
-			[">=", __("Greater Than Or Equal To")],
-			["<=", __("Less Than Or Equal To")],
-			["Between", __("Between")],
-			["Timespan", __("Timespan")],
+			["=", __("Equals", null, "SQL operator")],
+			["!=", __("Not Equals", null, "SQL operator")],
+			["like", __("Like", null, "SQL operator")],
+			["not like", __("Not Like", null, "SQL operator")],
+			["in", __("In", null, "SQL operator")],
+			["not in", __("Not In", null, "SQL operator")],
+			["is", __("Is", null, "SQL operator")],
+			[">", __("Greater Than", null, "SQL operator")],
+			["<", __("Less Than", null, "SQL operator")],
+			[">=", __("Greater Than Or Equal To", null, "SQL operator")],
+			["<=", __("Less Than Or Equal To", null, "SQL operator")],
+			["Between", __("Between", null, "SQL operator")],
+			["Timespan", __("Timespan", null, "SQL operator")],
 		];
 
 		this.nested_set_conditions = [
-			["descendants of", __("Descendants Of")],
-			["descendants of (inclusive)", __("Descendants Of (inclusive)")],
-			["not descendants of", __("Not Descendants Of")],
-			["ancestors of", __("Ancestors Of")],
-			["not ancestors of", __("Not Ancestors Of")],
+			["descendants of", __("Descendants Of", null, "SQL operator")],
+			["descendants of (inclusive)", __("Descendants Of (inclusive)", null, "SQL operator")],
+			["not descendants of", __("Not Descendants Of", null, "SQL operator")],
+			["ancestors of", __("Ancestors Of", null, "SQL operator")],
+			["not ancestors of", __("Not Ancestors Of", null, "SQL operator")],
 		];
 
 		this.conditions.push(...this.nested_set_conditions);
@@ -60,16 +60,16 @@ frappe.ui.Filter = class {
 
 		this.special_condition_labels = {
 			Date: {
-				"<": __("Before"),
-				">": __("After"),
-				"<=": __("On or Before"),
-				">=": __("On or After"),
+				"<": __("Before", null, "SQL operator"),
+				">": __("After", null, "SQL operator"),
+				"<=": __("On or Before", null, "SQL operator"),
+				">=": __("On or After", null, "SQL operator"),
 			},
 			Datetime: {
-				"<": __("Before"),
-				">": __("After"),
-				"<=": __("On or Before"),
-				">=": __("On or After"),
+				"<": __("Before", null, "SQL operator"),
+				">": __("After", null, "SQL operator"),
+				"<=": __("On or Before", null, "SQL operator"),
+				">=": __("On or After", null, "SQL operator"),
 			},
 		};
 	}
@@ -390,7 +390,21 @@ frappe.ui.Filter = class {
 			this.field,
 			this.get_selected_label() || this.get_selected_value()
 		);
-		return `${__(this.field.df.label)} ${__(this.get_condition())} ${__(value)}`;
+		let condition = this.get_condition();
+		// Get translatable label for condition from this.conditions array
+		let condition_label = condition;
+		for (let cond of this.conditions) {
+			if (cond[0] === condition) {
+				condition_label = cond[1];
+				break;
+			}
+		}
+		// Check for special condition labels
+		let special_conditions = this.special_condition_labels[this.field?.df?.original_type] || {};
+		if (special_conditions[condition]) {
+			condition_label = special_conditions[condition];
+		}
+		return `${__(this.field.df.label)} ${__(condition_label)} ${__(value)}`;
 	}
 
 	get_filter_tag_element() {

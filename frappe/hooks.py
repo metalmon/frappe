@@ -485,7 +485,7 @@ standard_navbar_items = [
 
 standard_help_items = [
 	{
-		"item_label": _("About", context="Application menu"),
+		"item_label": _("About Us", context="Application menu"),
 		"item_type": "Action",
 		"action": "frappe.ui.toolbar.show_about()",
 		"is_standard": 1,

@@ -1480,9 +1480,9 @@ frappe.views.ReportView = class ReportView extends frappe.views.ListView {
 								),
 							]);
 						case "like":
-							return __("{0} is like {1}", [__(label), value]);
+							return __("{0} is like {1}", [__(label), value], "SQL operator");
 						case "not like":
-							return __("{0} is not like {1}", [__(label), value]);
+							return __("{0} is not like {1}", [__(label), value], "SQL operator");
 						case "is":
 							return value === "set"
 								? __("{0} is set", [__(label)])

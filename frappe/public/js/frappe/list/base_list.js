@@ -1281,7 +1281,7 @@ class FilterArea {
 				</button>
 				<ul class="dropdown-menu match-type-dropdown-menu dropdown-menu-right">
 					<li class="dropdown-item" data-match-type="=">${__("Equals")}</li>
-					<li class="dropdown-item" data-match-type="like">${__("Like")}</li>
+					<li class="dropdown-item" data-match-type="like">${__("Like", null, "SQL operator")}</li>
 				</ul>
 			</div>
 		`);
